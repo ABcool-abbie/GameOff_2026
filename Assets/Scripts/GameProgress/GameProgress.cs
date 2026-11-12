@@ -19,6 +19,8 @@ public class GameProgress : MonoBehaviour
         Prepare,
         Started,
 
+        Paused,
+
         _Result = 100,
         ResultSuccess,
         ResultRanOutOfSan,
@@ -28,6 +30,7 @@ public class GameProgress : MonoBehaviour
     public GameProgressState State {get; private set;} = GameProgressState.Prepare;
     public bool IsGameOver => State >= GameProgressState._Result;
 
+    public GameProgressConfig Config => config;
     [SerializeField] private GameProgressConfig config;
 
     public int TotalDay => config?.dayConfigs?.Length ?? 0;
@@ -52,7 +55,7 @@ public class GameProgress : MonoBehaviour
 
     void Update()
     {
-        if (IsGameOver)
+        if (IsGameOver || State == GameProgressState.Paused)
             return;
 
         if (TimeLeft > 0f)
@@ -73,7 +76,10 @@ public class GameProgress : MonoBehaviour
                     {
                         OnGameOver(GameProgressState.ResultSuccess);
                     }
-                    NewDay(TotalDay - DayLeft);
+                    else
+                    {
+                        NewDay(TotalDay - DayLeft);
+                    }
                 }
                 TimeLeft = Mathf.Max(0f, TimeLeft);
             }
@@ -91,8 +97,14 @@ public class GameProgress : MonoBehaviour
     {
         CurrentSan = TotalSan;
         DayLeft = TotalDay;
-        NewDay(0);
         State = GameProgressState.Started;
+        NewDay(0);
+    }
+
+    public void Continue()
+    {
+        if (State == GameProgressState.Paused)
+            State = GameProgressState.Started;
     }
 
     void NewDay(int day)
@@ -103,6 +115,8 @@ public class GameProgress : MonoBehaviour
         var dayConfig = config.dayConfigs[day];
         TimePerDay = dayConfig.TimeOfDay;
         TimeLeft = dayConfig.TimeOfDay;
+
+        State = GameProgressState.Paused;
         OnDayChanged?.Invoke();
     }
 

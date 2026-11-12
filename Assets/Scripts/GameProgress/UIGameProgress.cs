@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements.Experimental;
 
 public class UIGameProgress : MonoBehaviour
 {
@@ -80,6 +81,10 @@ public class UIGameProgress : MonoBehaviour
         if (GUILayout.Button("Time - 10s"))
         {
             gameProgress._debugTimeMinus(10f);
+        }
+        if (GUILayout.Button("Continue"))
+        {
+            gameProgress.Continue();
         }
         if (GUILayout.Button("Restart"))
         {
