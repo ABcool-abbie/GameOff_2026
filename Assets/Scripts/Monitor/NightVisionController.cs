@@ -32,7 +32,7 @@ public class NightVisionController : MonoBehaviour
             nightMask = 1 << layer;
 
         for (int i = 0; i < securityCameras.Length; i++)
-            ApplyLayer(i);
+            RefreshLayers();
     }
 
     private void OnEnable() => monitorManager.ViewChanged += OnViewChanged;
@@ -52,12 +52,16 @@ public class NightVisionController : MonoBehaviour
     private void Toggle(int index)
     {
         nightOn[index] = !nightOn[index];
-        ApplyLayer(index);
+        RefreshLayers();
         RefreshMainView();
         NightChanged?.Invoke(index, nightOn[index]);
     }
 
-    private void OnViewChanged(int view) => RefreshMainView();
+    private void OnViewChanged(int view)
+    {
+        RefreshLayers();
+        RefreshMainView();
+    }
 
     private void RefreshMainView()
     {
@@ -66,12 +70,27 @@ public class NightVisionController : MonoBehaviour
         mainView.material = nightOn[index] ? nightMaterial : null;
     }
 
-    private void ApplyLayer(int index)
+    private void RefreshLayers()
     {
-        Camera cam = securityCameras[index];
-        if (nightOn[index])
-            cam.cullingMask |= nightMask;
-        else
-            cam.cullingMask &= ~nightMask;
+        int current = monitorManager.CurrentCameraIndex;
+
+        for (int i = 0; i < securityCameras.Length; i++)
+        {
+            bool show = nightOn[i] && i == current;
+
+            if (show)
+                securityCameras[i].cullingMask |= nightMask;
+            else
+                securityCameras[i].cullingMask &= ~nightMask;
+        }
     }
+
+    //private void ApplyLayer(int index)
+    //{
+    //    Camera cam = securityCameras[index];
+    //    if (nightOn[index])
+    //        cam.cullingMask |= nightMask;
+    //    else
+    //        cam.cullingMask &= ~nightMask;
+    //}
 }
