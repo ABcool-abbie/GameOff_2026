@@ -33,17 +33,12 @@ public class UIGameProgress : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (isDebug)
-        {
-            _debug = new();
-            gameProgress.Register(_debug);
-            gameProgress.StartGame();
-        }
-
         gameProgress.OnDayChanged += RefreshUI;
         gameProgress.OnTimeTicked += RefreshUI;
         gameProgress.OnSanChanged += RefreshUI;
         gameProgress.OnStateChanged += RefreshUI;
+
+        RefreshUI();
     }
 
     void Oestroy()

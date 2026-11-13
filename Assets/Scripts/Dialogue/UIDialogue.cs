@@ -15,6 +15,8 @@ public class UIDialogue : MonoBehaviour, IPointerClickHandler
     [SerializeField] TextMeshProUGUI txtSpeaker;
     [SerializeField] TextMeshProUGUI txtMessage;
     [SerializeField] GameProgress gameProgress;
+    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] Sprite[] characterImages;
 
     DialogConfig _config;
     private TweenerCore<string, string, StringOptions> _curTween;
@@ -62,6 +64,10 @@ public class UIDialogue : MonoBehaviour, IPointerClickHandler
 
             while(iMessage < dialog.Speaches.Length)
             {
+                int spriteIdx = iMessage >=0 || iMessage < dialog.SpriteIdxes.Length ? iMessage : -1;
+                var targetSprite = characterImages.ElementAtOrDefault(spriteIdx);
+                if (targetSprite != null)
+                    spriteRenderer.sprite = targetSprite;
                 var msg = dialog.Speaches[iMessage];
                 var tweenTime = msg.Split(' ').Length * PER_TEXT_DURATION;
                 _curTween = DOTween.To(()=>"", x => txtMessage.text = x,  msg, tweenTime).SetEase(Ease.Linear);

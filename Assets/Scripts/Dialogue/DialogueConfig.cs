@@ -9,6 +9,7 @@ public class DialogConfig : ScriptableObject
     {
         public string Speaker;
         public string[] Speaches;
+        public int[] SpriteIdxes;
     }
     
     public Dialog[] dialogs;

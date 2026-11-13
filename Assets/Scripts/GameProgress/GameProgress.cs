@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Utility;
 
 public interface IGameProgressEventSource
 {
@@ -7,7 +8,7 @@ public interface IGameProgressEventSource
     public event Action OnSanDrop;
 }
 
-public class GameProgress : MonoBehaviour
+public class GameProgress : SingletonBehaviour<GameProgress>
 {
     public event Action OnDayChanged;
     public event Action OnTimeTicked;
