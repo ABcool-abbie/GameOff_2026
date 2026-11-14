@@ -18,11 +18,7 @@ public class UIMainMenu : MonoBehaviour
 
     private void OnBtnStart()
     {
-        SaveDataContainer.Instance.LoadOrNewCurrentData(0, true);
-        UILoading.Instance.Load("02_Office", () =>
-        {
-            throw new NotImplementedException();
-            // GameProgress.Instance.Register();
-        });
+        SaveDataContainer.Instance.LoadOrNewCurrentData(0, false);
+        UILoading.Instance.Load(SceneNames.Office, null);
     }
 }

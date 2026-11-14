@@ -25,16 +25,16 @@ public class UILoading : SingletonBehaviour<UILoading>
 
     IEnumerator LoadCoroutine(string scenePath, Action OnFinish)
     {
-        const float FADE_DURATION = 0.5f;
+        const float FADE_DURATION = 0.2f;
 
         _loading = true;
         container.gameObject.SetActive(true);
 
-        yield return container.GetComponent<CanvasGroup>().Unwrap()?.DOFade(1f, FADE_DURATION);
+        yield return container.GetComponent<CanvasGroup>().Unwrap()?.DOFade(1f, FADE_DURATION).WaitForCompletion();
 
         yield return SceneManager.LoadSceneAsync(scenePath);
 
-        yield return container.GetComponent<CanvasGroup>().Unwrap()?.DOFade(0f, FADE_DURATION);
+        yield return container.GetComponent<CanvasGroup>().Unwrap()?.DOFade(0f, FADE_DURATION).WaitForCompletion();
 
         container.gameObject.SetActive(false);
         _loading = false;

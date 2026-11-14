@@ -8,9 +8,9 @@ public interface IGameProgressEventSource
     public event Action OnSanDrop;
 }
 
-public class GameProgress : SingletonBehaviour<GameProgress>
+public class GameProgress : MonoBehaviour
 {
-    public event Action OnDayChanged;
+    public event Action OnDayFinished;
     public event Action OnTimeTicked;
     public event Action OnSanChanged;
     public event Action OnStateChanged;
@@ -19,8 +19,7 @@ public class GameProgress : SingletonBehaviour<GameProgress>
     {
         Prepare,
         Started,
-
-        Paused,
+        DayFinished,
 
         _Result = 100,
         ResultSuccess,
@@ -31,10 +30,7 @@ public class GameProgress : SingletonBehaviour<GameProgress>
     public GameProgressState State {get; private set;} = GameProgressState.Prepare;
     public bool IsGameOver => State >= GameProgressState._Result;
 
-    public GameProgressConfig Config => config;
-    [SerializeField] private GameProgressConfig config;
-
-    public int TotalDay => config?.dayConfigs?.Length ?? 0;
+    public int TotalDay => GameConfigContainer.Instance.Config?.dayConfigs?.Length ?? 0;
     public int DayLeft {get; private set;}
 
     public float TimePerDay = 60f;
@@ -47,16 +43,12 @@ public class GameProgress : SingletonBehaviour<GameProgress>
 
     void OnDestroy()
     {
-        if (_eventSource != null)
-        {
-            _eventSource.OnWorkFault -= OnWorkFault;
-            _eventSource.OnSanDrop -= OnSanDrop;
-        }
+        Unregister();
     }
 
     void Update()
     {
-        if (IsGameOver || State == GameProgressState.Paused)
+        if (IsGameOver || State == GameProgressState.DayFinished)
             return;
 
         if (TimeLeft > 0f)
@@ -69,18 +61,16 @@ public class GameProgress : SingletonBehaviour<GameProgress>
 
             if (TimeLeft <= 0f)
             {
-                if (DayLeft > 0)
+                TimeLeft += TimePerDay;
+                if (DayLeft <= 0)
                 {
-                    DayLeft -= 1;
-                    TimeLeft += TimePerDay;
-                    if (DayLeft <= 0)
-                    {
-                        OnGameOver(GameProgressState.ResultSuccess);
-                    }
-                    else
-                    {
-                        NewDay(TotalDay - DayLeft);
-                    }
+                    OnGameOver(GameProgressState.ResultSuccess);
+                }
+                else
+                {
+                    State = GameProgressState.DayFinished;
+                    OnStateChanged?.Invoke();
+                    OnDayFinished?.Invoke();
                 }
                 TimeLeft = Mathf.Max(0f, TimeLeft);
             }
@@ -94,22 +84,24 @@ public class GameProgress : SingletonBehaviour<GameProgress>
         _eventSource.OnSanDrop += OnSanDrop;
     }
 
-    public void StartGame()
+    void Unregister()
     {
-        CurrentSan = TotalSan;
-        DayLeft = TotalDay;
+        if (_eventSource != null)
+        {
+            _eventSource.OnWorkFault -= OnWorkFault;
+            _eventSource.OnSanDrop -= OnSanDrop;
+        }
+    }
+
+    public void StartGame(SaveData data)
+    {
+        CurrentSan = data.san;
+        Debug.Assert(TotalDay >= data.day);
+        DayLeft = TotalDay - data.day;
         State = GameProgressState.Started;
-        NewDay(0);
-    }
 
-    public void Continue()
-    {
-        if (State == GameProgressState.Paused)
-            State = GameProgressState.Started;
-    }
-
-    void NewDay(int day)
-    {
+        int day = data.day;
+        var config = GameConfigContainer.Instance.Config;
         if (day < 0 || day >= config.dayConfigs.Length)
             return;
 
@@ -117,8 +109,7 @@ public class GameProgress : SingletonBehaviour<GameProgress>
         TimePerDay = dayConfig.TimeOfDay;
         TimeLeft = dayConfig.TimeOfDay;
 
-        State = GameProgressState.Paused;
-        OnDayChanged?.Invoke();
+        State = GameProgressState.Started;
     }
 
     void OnWorkFault()

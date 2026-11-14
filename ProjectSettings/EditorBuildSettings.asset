@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/03_Aquarium.unity
     guid: 8ddc2a869a7cd0d47a07ca986829d2a9
+  - enabled: 1
+    path: Assets/Scenes/04_OfficeSettlement.unity
+    guid: ba5efb41e38fd424f877496d81880866
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

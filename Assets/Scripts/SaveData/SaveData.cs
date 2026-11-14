@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
@@ -7,17 +8,22 @@ public class SaveData
     [Serializable]
     public struct DayRecord
     {
-        public int[] monsiterTypes;
-        public int[] monisterHitCounts;
-        public int[] monisterSolveCounts;
+        public List<int> monsiterTypes;
+        public List<int> monisterHitCounts;
+        public List<int> monisterSolveCounts;
     }
 
     public int day;
     public int san;
-    public DayRecord[] records;
+    public List<DayRecord> records;
 
-    internal static SaveData New()
+    internal static SaveData New(GameProgressConfig config)
     {
-        throw new NotImplementedException();
+        return new SaveData
+        {
+            day = 0,
+            san = config.SanInit,
+            records = new(),
+        };
     }
 }

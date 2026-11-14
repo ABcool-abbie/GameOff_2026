@@ -4,7 +4,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GameProgressConfig")]
 public class GameProgressConfig : ScriptableObject
 {
-
     [Serializable]
     public struct DayConfig
     {
@@ -14,5 +13,6 @@ public class GameProgressConfig : ScriptableObject
         public DialogConfig DialogConfig;
     }
 
+    public int SanInit = 6;
     public DayConfig[] dayConfigs;
 }

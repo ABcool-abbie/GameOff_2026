@@ -7,6 +7,7 @@ using DG.Tweening.Plugins.Options;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UIDialogue : MonoBehaviour, IPointerClickHandler
 {
@@ -14,8 +15,7 @@ public class UIDialogue : MonoBehaviour, IPointerClickHandler
     [SerializeField] RectTransform container;
     [SerializeField] TextMeshProUGUI txtSpeaker;
     [SerializeField] TextMeshProUGUI txtMessage;
-    [SerializeField] GameProgress gameProgress;
-    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] Image imageCharacter;
     [SerializeField] Sprite[] characterImages;
 
     DialogConfig _config;
@@ -25,13 +25,14 @@ public class UIDialogue : MonoBehaviour, IPointerClickHandler
 
     void Start()
     {
-        gameProgress.OnDayChanged += OnDayChanged;
         container.gameObject.SetActive(false);
+
+        int day = SaveDataContainer.Instance.CurrentData?.day ?? 0;
+        StartDialogue(GameConfigContainer.Instance.Config.dayConfigs[day].DialogConfig);
     }
 
     void Onestroy()
     {
-        gameProgress.OnDayChanged -= OnDayChanged;
     }
 
     public void StartDialogue(DialogConfig config)
@@ -41,9 +42,16 @@ public class UIDialogue : MonoBehaviour, IPointerClickHandler
         StartCoroutine(StartDialogueCoroutine());
     }
 
+    void RefreshImageCharacter(Image image, int iMessage, DialogConfig.Dialog dialog)
+    {
+        int spriteIdx = iMessage >=0 || iMessage < dialog.SpriteIdxes.Length ? iMessage : -1;
+        image.sprite = !string.IsNullOrEmpty(dialog.Speaker) ? characterImages.ElementAtOrDefault(spriteIdx) : null;
+        image.enabled = image.sprite != null;
+    }
+
     IEnumerator StartDialogueCoroutine()
     {
-        const float FADE_DURATION = 1f;
+        const float FADE_DURATION = 0.2f;
         const float PER_TEXT_DURATION = 0.2f;
 
         _hasDialogue = true;
@@ -60,18 +68,18 @@ public class UIDialogue : MonoBehaviour, IPointerClickHandler
             txtSpeaker.text = dialog.Speaker;
             txtSpeaker.enabled = !string.IsNullOrWhiteSpace(dialog.Speaker);
 
-            yield return canvasGroup.DOFade(1f, FADE_DURATION);
+            txtMessage.text = "";
+            RefreshImageCharacter(imageCharacter, 0, dialog);
+
+            yield return canvasGroup.DOFade(1f, FADE_DURATION).WaitForCompletion();
 
             while(iMessage < dialog.Speaches.Length)
             {
-                int spriteIdx = iMessage >=0 || iMessage < dialog.SpriteIdxes.Length ? iMessage : -1;
-                var targetSprite = characterImages.ElementAtOrDefault(spriteIdx);
-                if (targetSprite != null)
-                    spriteRenderer.sprite = targetSprite;
+                RefreshImageCharacter(imageCharacter, iMessage, dialog);
                 var msg = dialog.Speaches[iMessage];
                 var tweenTime = msg.Split(' ').Length * PER_TEXT_DURATION;
                 _curTween = DOTween.To(()=>"", x => txtMessage.text = x,  msg, tweenTime).SetEase(Ease.Linear);
-                yield return _curTween;
+                yield return _curTween.WaitForCompletion();
                 _curTween = null;
 
                 yield return new WaitUntil(()=>_isContinue);
@@ -80,7 +88,7 @@ public class UIDialogue : MonoBehaviour, IPointerClickHandler
                 iMessage++;
             }
 
-            yield return canvasGroup.DOFade(0f, FADE_DURATION);
+            yield return canvasGroup.DOFade(0f, FADE_DURATION).WaitForCompletion();
 
             iSpeaker++;
         }
@@ -88,9 +96,10 @@ public class UIDialogue : MonoBehaviour, IPointerClickHandler
         _hasDialogue = false;
         container.gameObject.SetActive(false);
 
-        gameProgress.Continue();
-
-        yield break;
+        // Ensure not to load scene on the same frame when scene loaded
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+        UILoading.Instance.Load(SceneNames.Aquarium, null);
     }
 
     void ContinueDialogue()
@@ -99,7 +108,7 @@ public class UIDialogue : MonoBehaviour, IPointerClickHandler
             return;
 
         if (_curTween != null)
-            _curTween.Done();
+            _curTween.Kill(true);
         else
             _isContinue = true;
     }
@@ -107,15 +116,5 @@ public class UIDialogue : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         ContinueDialogue();
-    }
-
-    private void OnDayChanged()
-    {
-        int day = gameProgress.TotalDay - gameProgress.DayLeft;
-        var config = gameProgress.Config.dayConfigs.ElementAtOrDefault(day);
-        if (config.DialogConfig == null)
-            gameProgress.Continue();
-        else
-            StartDialogue(config.DialogConfig);
     }
 }

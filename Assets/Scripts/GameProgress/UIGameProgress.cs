@@ -1,18 +1,21 @@
 using System;
+using System.Net;
+using System.Xml.Schema;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
+using Utility;
 
 public class UIGameProgress : MonoBehaviour
 {
     [SerializeField] GameProgress gameProgress;
-
     [SerializeField] TextMeshProUGUI txtDay;
     [SerializeField] TextMeshProUGUI txtTime;
     [SerializeField] TextMeshProUGUI txtSan;
     [SerializeField] TextMeshProUGUI txtState;
 
-    class Debug : IGameProgressEventSource
+    internal class Debug : Singleton<Debug>, IGameProgressEventSource
     {
         public event Action OnWorkFault;
         public event Action OnSanDrop;
@@ -27,23 +30,26 @@ public class UIGameProgress : MonoBehaviour
             OnWorkFault?.Invoke();
         }
     }
-    [SerializeField] bool isDebug = false;
-    Debug _debug;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        gameProgress.OnDayChanged += RefreshUI;
+        gameProgress.OnDayFinished += OnDayFinished;
         gameProgress.OnTimeTicked += RefreshUI;
         gameProgress.OnSanChanged += RefreshUI;
         gameProgress.OnStateChanged += RefreshUI;
+
+        var data = SaveDataContainer.Instance.CurrentData;
+        if (data == null)
+            SaveDataContainer.Instance.LoadOrNewCurrentData(0, true);
+        gameProgress.StartGame(data);
 
         RefreshUI();
     }
 
     void Oestroy()
     {
-        gameProgress.OnDayChanged -= RefreshUI;
+        gameProgress.OnDayFinished -= OnDayFinished;
         gameProgress.OnTimeTicked -= RefreshUI;
         gameProgress.OnSanChanged -= RefreshUI;
         gameProgress.OnStateChanged -= RefreshUI;
@@ -57,33 +63,29 @@ public class UIGameProgress : MonoBehaviour
 
     private void RefreshUI()
     {
-        txtDay.text = gameProgress.DayLeft.ToString();
+        txtDay.text = (gameProgress.TotalDay - gameProgress.DayLeft + 1).ToString();
         txtTime.text = Mathf.CeilToInt(gameProgress.TimeLeft).ToString();
         txtSan.text = gameProgress.CurrentSan.ToString();
         txtState.text = gameProgress.State.ToString();
+    }
+
+    private void OnDayFinished()
+    {
     }
 
     void OnGUI()
     {
         if (GUILayout.Button("Drop San"))
         {
-            _debug?.SanDrop();
+            Debug.Instance?.SanDrop();
         }
         if (GUILayout.Button("Work Fault"))
         {
-            _debug?.WorkFault();
+            Debug.Instance?.WorkFault();
         }
         if (GUILayout.Button("Time - 10s"))
         {
             gameProgress._debugTimeMinus(10f);
-        }
-        if (GUILayout.Button("Continue"))
-        {
-            gameProgress.Continue();
-        }
-        if (GUILayout.Button("Restart"))
-        {
-            gameProgress.StartGame();
         }
     }
 }
