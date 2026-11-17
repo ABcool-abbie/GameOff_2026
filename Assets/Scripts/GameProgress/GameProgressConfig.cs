@@ -8,6 +8,7 @@ public class GameProgressConfig : ScriptableObject
     public struct DayConfig
     {
         public float TimeOfDay;
+        public int EventCount;
         public int MonisterCount;
         public int[] MonisterTypes;
         public DialogConfig DialogConfig;

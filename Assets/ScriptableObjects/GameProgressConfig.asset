@@ -12,32 +12,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db7e94c695b864e43bca089860abf49d, type: 3}
   m_Name: GameProgressConfig
   m_EditorClassIdentifier: Assembly-CSharp::GameProgressConfig
+  SanInit: 11
   dayConfigs:
-  - TimeOfDay: 60
+  - TimeOfDay: 240
+    EventCount: 3
     MonisterCount: 0
     MonisterTypes: 
     DialogConfig: {fileID: 11400000, guid: 050870a67f34ce2439c886b5a6fd1174, type: 2}
-  - TimeOfDay: 60
+  - TimeOfDay: 300
+    EventCount: 3
     MonisterCount: 0
     MonisterTypes: 
     DialogConfig: {fileID: 11400000, guid: 346f1c55b8eed834c85287502c2a9cd3, type: 2}
-  - TimeOfDay: 60
+  - TimeOfDay: 300
+    EventCount: 4
     MonisterCount: 0
     MonisterTypes: 
     DialogConfig: {fileID: 11400000, guid: 534a657135ee20449ad9c64ea2097ba6, type: 2}
-  - TimeOfDay: 60
+  - TimeOfDay: 300
+    EventCount: 4
     MonisterCount: 0
     MonisterTypes: 
     DialogConfig: {fileID: 11400000, guid: d817af26293380a4782a6f4e249a09d1, type: 2}
-  - TimeOfDay: 60
+  - TimeOfDay: 300
+    EventCount: 3
     MonisterCount: 0
     MonisterTypes: 
     DialogConfig: {fileID: 11400000, guid: 5f99bc12e63275c49ba8a36d57c9212e, type: 2}
-  - TimeOfDay: 60
+  - TimeOfDay: 360
+    EventCount: 4
     MonisterCount: 0
     MonisterTypes: 
     DialogConfig: {fileID: 11400000, guid: 74756da2af7640b4e8529218942f6dc3, type: 2}
-  - TimeOfDay: 60
+  - TimeOfDay: 360
+    EventCount: 4
     MonisterCount: 0
     MonisterTypes: 
     DialogConfig: {fileID: 11400000, guid: 63ee1c2bb05c26440b5549f96b5987eb, type: 2}
