@@ -12,32 +12,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db7e94c695b864e43bca089860abf49d, type: 3}
   m_Name: GameProgressConfig
   m_EditorClassIdentifier: Assembly-CSharp::GameProgressConfig
+  SanInit: 11
   dayConfigs:
-  - TimeOfDay: 60
-    MonisterCount: 0
-    MonisterTypes: 
+  - TimeOfDay: 240
+    EventCount: 3
+    monsterConfigs:
+    - {fileID: 11400000, guid: 10b9f83c8872bc0448761357ea995a41, type: 2}
+    - {fileID: 11400000, guid: 3ccce1bb861409a4c9747aa21c2de14e, type: 2}
+    - {fileID: 11400000, guid: 69dea81c810050f40bd352f990990a90, type: 2}
     DialogConfig: {fileID: 11400000, guid: 050870a67f34ce2439c886b5a6fd1174, type: 2}
-  - TimeOfDay: 60
-    MonisterCount: 0
-    MonisterTypes: 
+  - TimeOfDay: 300
+    EventCount: 3
+    monsterConfigs:
+    - {fileID: 11400000, guid: 10b9f83c8872bc0448761357ea995a41, type: 2}
+    - {fileID: 11400000, guid: 3ccce1bb861409a4c9747aa21c2de14e, type: 2}
+    - {fileID: 11400000, guid: 69dea81c810050f40bd352f990990a90, type: 2}
+    - {fileID: 11400000, guid: 6924da322d4476340b2c5cf3c2f2d545, type: 2}
     DialogConfig: {fileID: 11400000, guid: 346f1c55b8eed834c85287502c2a9cd3, type: 2}
-  - TimeOfDay: 60
-    MonisterCount: 0
-    MonisterTypes: 
+  - TimeOfDay: 300
+    EventCount: 4
+    monsterConfigs:
+    - {fileID: 11400000, guid: 10b9f83c8872bc0448761357ea995a41, type: 2}
+    - {fileID: 11400000, guid: 3ccce1bb861409a4c9747aa21c2de14e, type: 2}
+    - {fileID: 11400000, guid: 69dea81c810050f40bd352f990990a90, type: 2}
+    - {fileID: 11400000, guid: 6924da322d4476340b2c5cf3c2f2d545, type: 2}
+    - {fileID: 11400000, guid: aaa54cd99a48cb54ebc7877de9918141, type: 2}
     DialogConfig: {fileID: 11400000, guid: 534a657135ee20449ad9c64ea2097ba6, type: 2}
-  - TimeOfDay: 60
-    MonisterCount: 0
-    MonisterTypes: 
+  - TimeOfDay: 300
+    EventCount: 4
+    monsterConfigs:
+    - {fileID: 11400000, guid: 10b9f83c8872bc0448761357ea995a41, type: 2}
+    - {fileID: 11400000, guid: 3ccce1bb861409a4c9747aa21c2de14e, type: 2}
+    - {fileID: 11400000, guid: 69dea81c810050f40bd352f990990a90, type: 2}
+    - {fileID: 11400000, guid: 6924da322d4476340b2c5cf3c2f2d545, type: 2}
+    - {fileID: 11400000, guid: aaa54cd99a48cb54ebc7877de9918141, type: 2}
+    - {fileID: 11400000, guid: 409a415b98543bb44b72796d1b98d5ef, type: 2}
+    - {fileID: 11400000, guid: b50c582cf3168c8489a5085c02512d4f, type: 2}
     DialogConfig: {fileID: 11400000, guid: d817af26293380a4782a6f4e249a09d1, type: 2}
-  - TimeOfDay: 60
-    MonisterCount: 0
-    MonisterTypes: 
+  - TimeOfDay: 300
+    EventCount: 3
+    monsterConfigs:
+    - {fileID: 11400000, guid: 10b9f83c8872bc0448761357ea995a41, type: 2}
+    - {fileID: 11400000, guid: 3ccce1bb861409a4c9747aa21c2de14e, type: 2}
+    - {fileID: 11400000, guid: 69dea81c810050f40bd352f990990a90, type: 2}
+    - {fileID: 11400000, guid: 6924da322d4476340b2c5cf3c2f2d545, type: 2}
+    - {fileID: 11400000, guid: aaa54cd99a48cb54ebc7877de9918141, type: 2}
+    - {fileID: 11400000, guid: 409a415b98543bb44b72796d1b98d5ef, type: 2}
+    - {fileID: 11400000, guid: b50c582cf3168c8489a5085c02512d4f, type: 2}
     DialogConfig: {fileID: 11400000, guid: 5f99bc12e63275c49ba8a36d57c9212e, type: 2}
-  - TimeOfDay: 60
-    MonisterCount: 0
-    MonisterTypes: 
+  - TimeOfDay: 360
+    EventCount: 4
+    monsterConfigs:
+    - {fileID: 11400000, guid: 10b9f83c8872bc0448761357ea995a41, type: 2}
+    - {fileID: 11400000, guid: 3ccce1bb861409a4c9747aa21c2de14e, type: 2}
+    - {fileID: 11400000, guid: 69dea81c810050f40bd352f990990a90, type: 2}
+    - {fileID: 11400000, guid: 6924da322d4476340b2c5cf3c2f2d545, type: 2}
+    - {fileID: 11400000, guid: aaa54cd99a48cb54ebc7877de9918141, type: 2}
+    - {fileID: 11400000, guid: 409a415b98543bb44b72796d1b98d5ef, type: 2}
+    - {fileID: 11400000, guid: b50c582cf3168c8489a5085c02512d4f, type: 2}
     DialogConfig: {fileID: 11400000, guid: 74756da2af7640b4e8529218942f6dc3, type: 2}
-  - TimeOfDay: 60
-    MonisterCount: 0
-    MonisterTypes: 
+  - TimeOfDay: 360
+    EventCount: 4
+    monsterConfigs:
+    - {fileID: 11400000, guid: 10b9f83c8872bc0448761357ea995a41, type: 2}
+    - {fileID: 11400000, guid: 3ccce1bb861409a4c9747aa21c2de14e, type: 2}
+    - {fileID: 11400000, guid: 69dea81c810050f40bd352f990990a90, type: 2}
+    - {fileID: 11400000, guid: 6924da322d4476340b2c5cf3c2f2d545, type: 2}
+    - {fileID: 11400000, guid: aaa54cd99a48cb54ebc7877de9918141, type: 2}
+    - {fileID: 11400000, guid: 409a415b98543bb44b72796d1b98d5ef, type: 2}
+    - {fileID: 11400000, guid: b50c582cf3168c8489a5085c02512d4f, type: 2}
     DialogConfig: {fileID: 11400000, guid: 63ee1c2bb05c26440b5549f96b5987eb, type: 2}
+  roomConfigs:
+  - ratioRange: {x: 0, y: 0}
+    roomType: 0
+    monsterConfigs:
+    - {fileID: 11400000, guid: 10b9f83c8872bc0448761357ea995a41, type: 2}
+    - {fileID: 11400000, guid: 3ccce1bb861409a4c9747aa21c2de14e, type: 2}
+    - {fileID: 11400000, guid: 69dea81c810050f40bd352f990990a90, type: 2}
+  - ratioRange: {x: 0, y: 0}
+    roomType: 1
+    monsterConfigs:
+    - {fileID: 11400000, guid: 69dea81c810050f40bd352f990990a90, type: 2}
+    - {fileID: 11400000, guid: aaa54cd99a48cb54ebc7877de9918141, type: 2}
+    - {fileID: 11400000, guid: 10b9f83c8872bc0448761357ea995a41, type: 2}
+  - ratioRange: {x: 0, y: 0}
+    roomType: 2
+    monsterConfigs:
+    - {fileID: 11400000, guid: 69dea81c810050f40bd352f990990a90, type: 2}
+    - {fileID: 11400000, guid: 409a415b98543bb44b72796d1b98d5ef, type: 2}
+    - {fileID: 11400000, guid: aaa54cd99a48cb54ebc7877de9918141, type: 2}
+    - {fileID: 11400000, guid: 3ccce1bb861409a4c9747aa21c2de14e, type: 2}
+    - {fileID: 11400000, guid: 6924da322d4476340b2c5cf3c2f2d545, type: 2}
+  - ratioRange: {x: 0, y: 0}
+    roomType: 3
+    monsterConfigs:
+    - {fileID: 11400000, guid: 6924da322d4476340b2c5cf3c2f2d545, type: 2}
+    - {fileID: 11400000, guid: b50c582cf3168c8489a5085c02512d4f, type: 2}
+    - {fileID: 11400000, guid: 409a415b98543bb44b72796d1b98d5ef, type: 2}
+    - {fileID: 11400000, guid: 69dea81c810050f40bd352f990990a90, type: 2}
+    - {fileID: 11400000, guid: aaa54cd99a48cb54ebc7877de9918141, type: 2}

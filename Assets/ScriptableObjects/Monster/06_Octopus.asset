@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e072f1fc0b38cd94ca43d2a080174262, type: 3}
+  m_Name: 06_Octopus
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterConfig
+  sprThumbnail: {fileID: 0}
+  sprDetail: {fileID: 0}
+  code: 
+  description: 
+  events:
+  - type: 1
+    param0: 0
+  - type: 3
+    param0: 0
+  - type: 4
+    param0: 0
+  behaviour: 460000004700000048000000
+  behaviours:
+  - behaviour: 70
+    damage: 4
+  - behaviour: 71
+    damage: 4
+  - behaviour: 72
+    damage: 4

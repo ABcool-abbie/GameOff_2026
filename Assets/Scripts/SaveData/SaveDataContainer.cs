@@ -1,3 +1,4 @@
+using System;
 using System.Data;
 using System.Linq;
 using UnityEditor.U2D.Aseprite;
@@ -43,5 +44,19 @@ public class SaveDataContainer : Singleton<SaveDataContainer>
     {
         SaveCurrentData();
         _slotIdx = -1;
+    }
+
+    internal bool HasSaveData(int slot)
+    {
+        var json = PlayerPrefs.GetString(GetKey(slot));
+        try{
+            if (string.IsNullOrEmpty(json))
+                return false;
+            return JsonUtility.FromJson<SaveData>(json) != null;
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
     }
 }
