@@ -11,6 +11,7 @@ public class NightVisionController : MonoBehaviour
     [SerializeField] private RawImage mainView;
     [SerializeField] private Material nightMaterial;
     [SerializeField] private string nightLayerName = "NightVisionOnly";
+    [SerializeField] private CamOverheat overheat;
     #endregion
 
 
@@ -20,6 +21,7 @@ public class NightVisionController : MonoBehaviour
     public event Action<int, bool> NightChanged;
 
     public bool IsNightOn(int camIndex) => nightOn[camIndex];
+    public int CameraCount => securityCameras.Length;
     #endregion
 
     private void Awake()
@@ -51,10 +53,9 @@ public class NightVisionController : MonoBehaviour
 
     private void Toggle(int index)
     {
-        nightOn[index] = !nightOn[index];
-        RefreshLayers();
-        RefreshMainView();
-        NightChanged?.Invoke(index, nightOn[index]);
+        if (!nightOn[index] && overheat != null && overheat.IsOverheated(index)) return;
+
+        SetNight(index, !nightOn[index]);
     }
 
     private void OnViewChanged(int view)
@@ -93,4 +94,14 @@ public class NightVisionController : MonoBehaviour
     //    else
     //        cam.cullingMask &= ~nightMask;
     //}
+
+    public void SetNight(int index, bool on)
+    {
+        if (nightOn[index] == on) return;
+
+        nightOn[index] = on;
+        RefreshLayers();
+        RefreshMainView();
+        NightChanged?.Invoke(index, on);
+    }
 }
