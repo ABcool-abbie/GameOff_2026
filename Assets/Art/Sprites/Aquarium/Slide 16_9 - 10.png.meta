@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: 60b62146ec5665e4cbb11a112a41ef47
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8047757282469321913
+    second: Slide 16_9 - 10_0
+  - first:
+      213: 1816172557428839346
+    second: Slide 16_9 - 10_1
+  - first:
+      213: 392886609639303824
+    second: Slide 16_9 - 10_2
+  - first:
+      213: 7740347342948427457
+    second: Slide 16_9 - 10_3
+  - first:
+      213: -3720364147219130388
+    second: Slide 16_9 - 10_4
+  - first:
+      213: 3582032397522255714
+    second: Slide 16_9 - 10_5
+  - first:
+      213: -513311259063404456
+    second: Slide 16_9 - 10_6
+  - first:
+      213: 8193260008984358812
+    second: Slide 16_9 - 10_7
+  - first:
+      213: 209505822837402519
+    second: Slide 16_9 - 10_8
+  - first:
+      213: 1611862140975570619
+    second: Slide 16_9 - 10_9
+  - first:
+      213: -6219505337237394806
+    second: Slide 16_9 - 10_10
+  - first:
+      213: 9133654475187530239
+    second: Slide 16_9 - 10_11
+  - first:
+      213: -5620107707663347889
+    second: Slide 16_9 - 10_12
+  - first:
+      213: 449230563838434361
+    second: Slide 16_9 - 10_13
+  - first:
+      213: -6955998648546351874
+    second: Slide 16_9 - 10_14
+  - first:
+      213: -1980165525100302790
+    second: Slide 16_9 - 10_15
+  - first:
+      213: 650001014380065141
+    second: Slide 16_9 - 10_16
+  - first:
+      213: -1334326825619402596
+    second: Slide 16_9 - 10_17
+  - first:
+      213: 8632839933245755598
+    second: Slide 16_9 - 10_18
+  - first:
+      213: 2599121313359672163
+    second: Slide 16_9 - 10_19
+  - first:
+      213: -871569214124932110
+    second: Slide 16_9 - 10_20
+  - first:
+      213: -4023005516381784923
+    second: Slide 16_9 - 10_21
+  - first:
+      213: -8399634609938384827
+    second: Slide 16_9 - 10_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Slide 16_9 - 10_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 646
+        width: 108
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7436ad3f36f905090800000000000000
+      internalID: -8047757282469321913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide 16_9 - 10_1
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 787
+        width: 102
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b3db588157543910800000000000000
+      internalID: 1816172557428839346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide 16_9 - 10_2
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 725
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09aee843a40d37500800000000000000
+      internalID: 392886609639303824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide 16_9 - 10_3
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 720
+        width: 50
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c66496f5ec3b6b60800000000000000
+      internalID: 7740347342948427457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide 16_9 - 10_4
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 676
+        width: 73
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce797e9f48c9e5cc0800000000000000
+      internalID: -3720364147219130388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide 16_9 - 10_5
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 555
+        width: 94
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26f3144bc7fe5b130800000000000000
+      internalID: 3582032397522255714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide 16_9 - 10_6
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 634
+        width: 74
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8583158212a50e8f0800000000000000
+      internalID: -513311259063404456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide 16_9 - 10_7
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 681
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9f2de3819e44b170800000000000000
+      internalID: 8193260008984358812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide 16_9 - 10_8
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 572
+        width: 52
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79b69949f6058e200800000000000000
+      internalID: 209505822837402519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide 16_9 - 10_9
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 552
+        width: 39
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbedfb3c31c7e5610800000000000000
+      internalID: 1611862140975570619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide 16_9 - 10_10
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 497
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8aa15f19d0efa9a0800000000000000
+      internalID: -6219505337237394806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide 16_9 - 10_11
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 494
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff9a5be5a5241ce70800000000000000
+      internalID: 9133654475187530239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide 16_9 - 10_12
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 457
+        width: 47
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4f8a4501dd5102b0800000000000000
+      internalID: -5620107707663347889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide 16_9 - 10_13
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 441
+        width: 37
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93c96d351dcfb3600800000000000000
+      internalID: 449230563838434361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide 16_9 - 10_14
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 437
+        width: 54
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef42c476514577f90800000000000000
+      internalID: -6955998648546351874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide 16_9 - 10_15
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 429
+        width: 28
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3eebef32f90584e0800000000000000
+      internalID: -1980165525100302790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide 16_9 - 10_16
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 400
+        width: 39
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57174cd8a74450900800000000000000
+      internalID: 650001014380065141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide 16_9 - 10_17
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 392
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c905ea852d48b7de0800000000000000
+      internalID: -1334326825619402596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide 16_9 - 10_18
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 187
+        width: 444
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec09be73e220ec770800000000000000
+      internalID: 8632839933245755598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide 16_9 - 10_19
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 320
+        width: 33
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36333f2501fe11420800000000000000
+      internalID: 2599121313359672163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide 16_9 - 10_20
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 299
+        width: 57
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f3cae2ea6097e3f0800000000000000
+      internalID: -871569214124932110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide 16_9 - 10_21
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 293
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a470a23cc96b28c0800000000000000
+      internalID: -4023005516381784923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide 16_9 - 10_22
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 32
+        width: 83
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 548bb8f43d08e6b80800000000000000
+      internalID: -8399634609938384827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Slide 16_9 - 10_0: -8047757282469321913
+      Slide 16_9 - 10_1: 1816172557428839346
+      Slide 16_9 - 10_10: -6219505337237394806
+      Slide 16_9 - 10_11: 9133654475187530239
+      Slide 16_9 - 10_12: -5620107707663347889
+      Slide 16_9 - 10_13: 449230563838434361
+      Slide 16_9 - 10_14: -6955998648546351874
+      Slide 16_9 - 10_15: -1980165525100302790
+      Slide 16_9 - 10_16: 650001014380065141
+      Slide 16_9 - 10_17: -1334326825619402596
+      Slide 16_9 - 10_18: 8632839933245755598
+      Slide 16_9 - 10_19: 2599121313359672163
+      Slide 16_9 - 10_2: 392886609639303824
+      Slide 16_9 - 10_20: -871569214124932110
+      Slide 16_9 - 10_21: -4023005516381784923
+      Slide 16_9 - 10_22: -8399634609938384827
+      Slide 16_9 - 10_3: 7740347342948427457
+      Slide 16_9 - 10_4: -3720364147219130388
+      Slide 16_9 - 10_5: 3582032397522255714
+      Slide 16_9 - 10_6: -513311259063404456
+      Slide 16_9 - 10_7: 8193260008984358812
+      Slide 16_9 - 10_8: 209505822837402519
+      Slide 16_9 - 10_9: 1611862140975570619
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
