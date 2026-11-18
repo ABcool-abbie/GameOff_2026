@@ -6,28 +6,28 @@ public class UISettlement : MonoBehaviour
 {
     [SerializeField] RectTransform container;
     [SerializeField] Button btnContinue;
-    [SerializeField] GameProgress gameProgress;
+    // [SerializeField] GameProgress gameProgress;
 
     void Start()
     {
         container.gameObject.SetActive(false);
 
-        gameProgress.OnDayFinished += RefreshUI;
+        // gameProgress.OnDayFinished += RefreshUI;
 
         btnContinue.onClick.AddListener(OnContinue);
+
+        RefreshUI();
     }
 
     void OnDestroy()
     {
-        gameProgress.OnDayFinished -= RefreshUI;
+        // gameProgress.OnDayFinished -= RefreshUI;
 
         btnContinue.onClick.RemoveListener(OnContinue);
     }
 
     private void OnContinue()
     {
-        SaveDataContainer.Instance.CurrentData.day++;
-        SaveDataContainer.Instance.SaveCurrentData();
         UILoading.Instance.Load(SceneNames.Office, null);
     }
 

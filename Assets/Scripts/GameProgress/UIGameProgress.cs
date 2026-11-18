@@ -71,6 +71,9 @@ public class UIGameProgress : MonoBehaviour
 
     private void OnDayFinished()
     {
+        SaveDataContainer.Instance.CurrentData.day++;
+        SaveDataContainer.Instance.SaveCurrentData();
+        UILoading.Instance.Load(SceneNames.Settlement, null);
     }
 
     void OnGUI()
