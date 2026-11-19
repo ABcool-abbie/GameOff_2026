@@ -9,8 +9,9 @@ public class TankState : MonoBehaviour
     #region SETTING
     [SerializeField] private TemperatureLevel temperature = TemperatureLevel.Normal;
     [SerializeField] private OxygenLevel oxygen = OxygenLevel.Air;
-    [SerializeField] private bool lightOn = true;
+    [SerializeField] private bool lightOn = false;
     [SerializeField] private bool soundOn = false;
+    [SerializeField] private GameObject lightOffOverlay;
     #endregion
 
     #region STATS
@@ -19,10 +20,31 @@ public class TankState : MonoBehaviour
     public bool LightOn => lightOn;
     public bool SoundOn => soundOn;
     public float LastFedTime { get; private set; } = -1f;
-    #endregion
     public event Action<TankState> Changed;
     public event Action<TankState> Fed;
+    #endregion
 
+    #region START VALUES
+    private TemperatureLevel startTemperature;
+    private OxygenLevel startOxygen;
+    private bool startLightOn;
+    private bool startSoundOn;
+    #endregion
+
+    private void Awake()
+    {
+        startTemperature = temperature;
+        startOxygen = oxygen;
+        startLightOn = lightOn;
+        startSoundOn = soundOn;
+    }
+
+    private void Start()
+    {
+        RefreshVisuals();
+    }
+
+    #region CONTROLS
     public void SetTemperature(TemperatureLevel value)
     {
         if (temperature == value) return;
@@ -41,6 +63,7 @@ public class TankState : MonoBehaviour
     {
         if (lightOn == on) return;
         lightOn = on;
+        RefreshVisuals();
         Changed?.Invoke(this);
     }
 
@@ -56,5 +79,25 @@ public class TankState : MonoBehaviour
         LastFedTime = Time.time;
         Fed?.Invoke(this);
     }
+    #endregion
 
+    #region NEW NIGHT
+    public void ResetForNewNight()
+    {
+        temperature = startTemperature;
+        oxygen = startOxygen;
+        lightOn = startLightOn;
+        soundOn = startSoundOn;
+        LastFedTime = -1f;
+
+        RefreshVisuals();
+        Changed?.Invoke(this);
+    }
+
+    private void RefreshVisuals()
+    {
+        if (lightOffOverlay != null)
+            lightOffOverlay.SetActive(!lightOn);
+    }
+    #endregion
 }
