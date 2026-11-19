@@ -364,6 +364,17 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &509404564 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8085300952396017666, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
+  m_PrefabInstance: {fileID: 8077814135362592539}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!114 &541169833 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4741148100600623346, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
@@ -644,8 +655,20 @@ Transform:
   - {fileID: 1732558252}
   - {fileID: 1842308014}
   - {fileID: 2006446704}
+  - {fileID: 1792956265}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1154402684 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2026667058567869338, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
+  m_PrefabInstance: {fileID: 8077814135362592539}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &1230253836
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,6 +802,39 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1013962349271466432, guid: b3e22c0e9167ac94bb507427577eacee, type: 3}
   m_PrefabInstance: {fileID: 1694139687278879844}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1295180094 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 37649372282357818, guid: b3e22c0e9167ac94bb507427577eacee, type: 3}
+  m_PrefabInstance: {fileID: 1694139687278879844}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9718382505339144bb110f6bd429dfac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TankState
+--- !u!114 &1313220029 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7654100543597544531, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
+  m_PrefabInstance: {fileID: 8077814135362592539}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!114 &1384818914 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -7057671126482516289, guid: f45c1b0d28d604b43a97092a0f835582, type: 3}
+  m_PrefabInstance: {fileID: 8106689281091424496}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9718382505339144bb110f6bd429dfac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TankState
 --- !u!1 &1412072182
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,6 +870,28 @@ Transform:
   - {fileID: 352180565}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1496785927 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8467377563836136652, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
+  m_PrefabInstance: {fileID: 8077814135362592539}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!114 &1496785928 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8900254032594099578, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
+  m_PrefabInstance: {fileID: 8077814135362592539}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &1611026523 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1432612008133361295, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
@@ -1217,6 +1295,75 @@ MonoBehaviour:
   nightMaterial: {fileID: 2100000, guid: bbf396e4ebc9eb843935ae47908e2094, type: 2}
   nightLayerName: NightVisionOnly
   overheat: {fileID: 1842308015}
+--- !u!1 &1792956264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1792956265}
+  - component: {fileID: 1792956266}
+  m_Layer: 0
+  m_Name: ControlPanelUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1792956265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792956264}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1015135716}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1792956266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792956264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74b59b757ab9764c9c27601de98e868, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ControlPanelUI
+  monitorManager: {fileID: 640684815}
+  tanks:
+  - {fileID: 1295180094}
+  - {fileID: 1384818914}
+  - {fileID: 2038910871}
+  - {fileID: 1826457745}
+  tempSlider: {fileID: 509404564}
+  oxygenSlider: {fileID: 1154402684}
+  feedButton: {fileID: 1917272529}
+  soundButton: {fileID: 1313220029}
+  lightButton: {fileID: 1496785927}
+  lightImage: {fileID: 1496785928}
+  lightOnSprite: {fileID: 77119712102925312, guid: 18292e93d22a7b242b4d1087b57d0667, type: 3}
+  lightOffSprite: {fileID: 2939329516641435859, guid: f21753258adc7624a9571006275d8e32, type: 3}
+--- !u!114 &1826457745 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2041145424378486508, guid: fd702ccae6ae9264cb1b67736f4233b5, type: 3}
+  m_PrefabInstance: {fileID: 623716596408166864}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9718382505339144bb110f6bd429dfac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TankState
 --- !u!1 &1827457622
 GameObject:
   m_ObjectHideFlags: 0
@@ -1359,6 +1506,17 @@ MonoBehaviour:
   resumeAt: 0
   heatSlider: {fileID: 948621573}
   fillImage: {fileID: 2012265749}
+--- !u!114 &1917272529 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6118480511591070237, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
+  m_PrefabInstance: {fileID: 8077814135362592539}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &2006446703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1419,6 +1577,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!114 &2038910871 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1295017058197687222, guid: b6d0840bc633ed444810ff89ed7ee983, type: 3}
+  m_PrefabInstance: {fileID: 2172551520129746676}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9718382505339144bb110f6bd429dfac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TankState
 --- !u!1 &2051127424 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9179468786159145494, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
@@ -1510,6 +1679,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2041145424378486508, guid: fd702ccae6ae9264cb1b67736f4233b5, type: 3}
+      propertyPath: lightOn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4530565209046035314, guid: fd702ccae6ae9264cb1b67736f4233b5, type: 3}
       propertyPath: m_Name
       value: Room_4
@@ -1527,6 +1700,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 579055444}
     m_Modifications:
+    - target: {fileID: 37649372282357818, guid: b3e22c0e9167ac94bb507427577eacee, type: 3}
+      propertyPath: lightOn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 669511592689912281, guid: b3e22c0e9167ac94bb507427577eacee, type: 3}
       propertyPath: m_Name
       value: Room_1
@@ -1587,6 +1764,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 579055444}
     m_Modifications:
+    - target: {fileID: 1295017058197687222, guid: b6d0840bc633ed444810ff89ed7ee983, type: 3}
+      propertyPath: lightOn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3271995283647488800, guid: b6d0840bc633ed444810ff89ed7ee983, type: 3}
       propertyPath: m_LocalPosition.x
       value: 60
@@ -1985,6 +2166,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 579055444}
     m_Modifications:
+    - target: {fileID: -7057671126482516289, guid: f45c1b0d28d604b43a97092a0f835582, type: 3}
+      propertyPath: lightOn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 209929061117259171, guid: f45c1b0d28d604b43a97092a0f835582, type: 3}
       propertyPath: m_LocalPosition.x
       value: 30
