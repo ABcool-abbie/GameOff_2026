@@ -12,8 +12,6 @@ public class GameProgressConfig : ScriptableObject
     [Serializable]
     public struct RoomConfig
     {
-        [Range(0f, 1f)]
-        public Vector2 ratioRange;
         public RoomType roomType;
         public MonsterConfig[] monsterConfigs;
     }
@@ -22,7 +20,9 @@ public class GameProgressConfig : ScriptableObject
     public struct DayConfig
     {
         public float TimeOfDay;
-        public int EventCount;
+        public int abnormalCount;
+        public Vector2 abnormalRange;
+        public Vector2 wonderSecondRange;
         public MonsterConfig[] monsterConfigs;
         public DialogConfig DialogConfig;
     }
