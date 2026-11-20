@@ -11,7 +11,6 @@ public class TankState : MonoBehaviour
     [SerializeField] private OxygenLevel oxygen = OxygenLevel.Air;
     [SerializeField] private bool lightOn = false;
     [SerializeField] private bool soundOn = false;
-    [SerializeField] private GameObject lightOffOverlay;
     #endregion
 
     #region STATS
@@ -22,6 +21,7 @@ public class TankState : MonoBehaviour
     public float LastFedTime { get; private set; } = -1f;
     public event Action<TankState> Changed;
     public event Action<TankState> Fed;
+    public event Action<TankState> NightReset;
     #endregion
 
     #region START VALUES
@@ -37,11 +37,6 @@ public class TankState : MonoBehaviour
         startOxygen = oxygen;
         startLightOn = lightOn;
         startSoundOn = soundOn;
-    }
-
-    private void Start()
-    {
-        RefreshVisuals();
     }
 
     #region CONTROLS
@@ -63,7 +58,6 @@ public class TankState : MonoBehaviour
     {
         if (lightOn == on) return;
         lightOn = on;
-        RefreshVisuals();
         Changed?.Invoke(this);
     }
 
@@ -90,14 +84,9 @@ public class TankState : MonoBehaviour
         soundOn = startSoundOn;
         LastFedTime = -1f;
 
-        RefreshVisuals();
+        NightReset?.Invoke(this);
         Changed?.Invoke(this);
     }
 
-    private void RefreshVisuals()
-    {
-        if (lightOffOverlay != null)
-            lightOffOverlay.SetActive(!lightOn);
-    }
     #endregion
 }
