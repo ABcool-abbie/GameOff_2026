@@ -16,17 +16,28 @@ public class SanEyeUI : MonoBehaviour
     [SerializeField] private GameProgress progress;
     [SerializeField] private Image eyeImage;
     [SerializeField] private SanStage[] stages;
-    [SerializeField] private bool punchOnChange = true;
+    //[SerializeField] private bool punchOnChange = true;
+
+    [SerializeField] private float smallDuration;
+    [SerializeField] private float smallStrength;
+    [SerializeField] private int smallVibrato;
+
+    [SerializeField] private float bigDuration;
+    [SerializeField] private float bigStrength;
+    [SerializeField] private int bigVibrato;
+    [SerializeField] private float bigPunchScale;
     #endregion
 
     #region STATE
     private int lastSan = int.MinValue;
     private int lastStage = -1;
+    private RectTransform rect;
     #endregion
 
     private void Awake()
     {
         if (eyeImage == null) eyeImage = GetComponent<Image>();
+        rect = eyeImage.rectTransform;
         if (progress == null) progress = FindFirstObjectByType<GameProgress>();
     }
 
@@ -37,27 +48,43 @@ public class SanEyeUI : MonoBehaviour
         int san = progress.CurrentSan;
         if (san == lastSan) return;
 
+        bool dropped = lastSan != int.MinValue && san < lastSan;
         lastSan = san;
-        Refresh(san);
+        Refresh(san, dropped);
     }
 
     #region VISUALS
-    private void Refresh(int san)
+    private void Refresh(int san, bool dropped)
     {
         int index = GetStageIndex(san);
-        if (index < 0 || index == lastStage) return;
+        if (index < 0) return;
 
-        bool firstTime = lastStage < 0;
+        bool stageChanged = index != lastStage;
         lastStage = index;
 
-        if (stages[index].eye != null)
+        if (stageChanged && stages[index].eye != null)
             eyeImage.sprite = stages[index].eye;
 
-        if (punchOnChange && !firstTime)
-        {
-            eyeImage.rectTransform.DOKill(true);
-            eyeImage.rectTransform.DOPunchScale(Vector3.one * 0.15f, 0.4f, 8).SetLink(gameObject);
-        }
+        if (!dropped) return;
+
+        if (stageChanged)
+            PlayBigShake();
+        else
+            PlaySmallShake();
+    }
+
+    private void PlaySmallShake()
+    {
+        rect.DOKill(true);
+        rect.DOShakeAnchorPos(smallDuration, new Vector2(smallStrength, 0f), smallVibrato, 0f)
+            .SetLink(gameObject);
+    }
+
+    private void PlayBigShake()
+    {
+        rect.DOKill(true);
+        rect.DOShakeAnchorPos(bigDuration, bigStrength, bigVibrato, 90f).SetLink(gameObject);
+        rect.DOPunchScale(Vector3.one * bigPunchScale, bigDuration, 8).SetLink(gameObject);
     }
 
     private int GetStageIndex(int san)

@@ -2502,7 +2502,13 @@ MonoBehaviour:
     eye: {fileID: -8966297235279745274, guid: bea0c7bdad4a63740a39b50981a3f6be, type: 3}
   - minSan: 0
     eye: {fileID: -1499900109277536864, guid: 1f0691645496fe74f8a428b82676c293, type: 3}
-  punchOnChange: 1
+  smallDuration: 0.25
+  smallStrength: 6
+  smallVibrato: 15
+  bigDuration: 0.5
+  bigStrength: 15
+  bigVibrato: 20
+  bigPunchScale: 0.1
 --- !u!114 &7969920842068091743
 MonoBehaviour:
   m_ObjectHideFlags: 0
