@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 7637757217211359846}
   - component: {fileID: 1513756536706706659}
   - component: {fileID: 2132486752771145245}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LightOff
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -352,7 +352,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 183
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: b9a1c9b1f7875a24fae925c905d58640, type: 2}
   m_TargetDisplay: 0
@@ -436,6 +436,7 @@ GameObject:
   m_Component:
   - component: {fileID: 640684814}
   - component: {fileID: 640684815}
+  - component: {fileID: 640684816}
   m_Layer: 0
   m_Name: MonitorManager
   m_TagString: Untagged
@@ -478,6 +479,32 @@ MonoBehaviour:
   - {fileID: 8400000, guid: 1dbc7cc635865804fa2654c36f6667ed, type: 2}
   - {fileID: 8400000, guid: 2c376c5b31f0f6045a8bfdd04dbb96e9, type: 2}
   - {fileID: 8400000, guid: b9a1c9b1f7875a24fae925c905d58640, type: 2}
+--- !u!114 &640684816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640684813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74b59b757ab9764c9c27601de98e868, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ControlPanelUI
+  monitorManager: {fileID: 640684815}
+  tanks:
+  - {fileID: 1295180094}
+  - {fileID: 1384818914}
+  - {fileID: 2038910871}
+  - {fileID: 1826457745}
+  tempSlider: {fileID: 509404564}
+  oxygenSlider: {fileID: 1154402684}
+  feedButton: {fileID: 1917272529}
+  soundButton: {fileID: 1313220029}
+  lightButton: {fileID: 1496785927}
+  lightImage: {fileID: 1496785928}
+  lightOnSprite: {fileID: 77119712102925312, guid: 18292e93d22a7b242b4d1087b57d0667, type: 3}
+  lightOffSprite: {fileID: 2939329516641435859, guid: f21753258adc7624a9571006275d8e32, type: 3}
 --- !u!1 &661608273 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4756592214580188099, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
@@ -599,7 +626,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 183
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 2c376c5b31f0f6045a8bfdd04dbb96e9, type: 2}
   m_TargetDisplay: 0
@@ -653,9 +680,7 @@ Transform:
   m_Children:
   - {fileID: 640684814}
   - {fileID: 1732558252}
-  - {fileID: 1842308014}
   - {fileID: 2006446704}
-  - {fileID: 1792956265}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1154402684 stripped
@@ -785,7 +810,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 183
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 6fa882c81c66adc418bfce3387fbf09b, type: 2}
   m_TargetDisplay: 0
@@ -1166,7 +1191,7 @@ MonoBehaviour:
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 129
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 0
@@ -1229,7 +1254,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 183
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 1dbc7cc635865804fa2654c36f6667ed, type: 2}
   m_TargetDisplay: 0
@@ -1251,8 +1276,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1732558252}
   - component: {fileID: 1732558253}
+  - component: {fileID: 1732558254}
   m_Layer: 0
-  m_Name: NightVisionController
+  m_Name: NightVision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1294,65 +1320,27 @@ MonoBehaviour:
   mainView: {fileID: 541169833}
   nightMaterial: {fileID: 2100000, guid: bbf396e4ebc9eb843935ae47908e2094, type: 2}
   nightLayerName: NightVisionOnly
-  overheat: {fileID: 1842308015}
---- !u!1 &1792956264
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1792956265}
-  - component: {fileID: 1792956266}
-  m_Layer: 0
-  m_Name: ControlPanelUI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1792956265
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792956264}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1015135716}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1792956266
+  darkLayerName: DarkLayer
+  overheat: {fileID: 1732558254}
+--- !u!114 &1732558254
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792956264}
+  m_GameObject: {fileID: 1732558251}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e74b59b757ab9764c9c27601de98e868, type: 3}
+  m_Script: {fileID: 11500000, guid: 55d4fb958260ebd4891c52a2652722f9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ControlPanelUI
+  m_EditorClassIdentifier: Assembly-CSharp::CamOverheat
   monitorManager: {fileID: 640684815}
-  tanks:
-  - {fileID: 1295180094}
-  - {fileID: 1384818914}
-  - {fileID: 2038910871}
-  - {fileID: 1826457745}
-  tempSlider: {fileID: 509404564}
-  oxygenSlider: {fileID: 1154402684}
-  feedButton: {fileID: 1917272529}
-  soundButton: {fileID: 1313220029}
-  lightButton: {fileID: 1496785927}
-  lightImage: {fileID: 1496785928}
-  lightOnSprite: {fileID: 77119712102925312, guid: 18292e93d22a7b242b4d1087b57d0667, type: 3}
-  lightOffSprite: {fileID: 2939329516641435859, guid: f21753258adc7624a9571006275d8e32, type: 3}
+  nightVision: {fileID: 1732558253}
+  workingTime: 10
+  cdTime: 15
+  resumeAt: 0.5
+  heatSlider: {fileID: 948621573}
+  fillImage: {fileID: 2012265749}
 --- !u!114 &1826457745 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2041145424378486508, guid: fd702ccae6ae9264cb1b67736f4233b5, type: 3}
@@ -1455,57 +1443,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &1842308013
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1842308014}
-  - component: {fileID: 1842308015}
-  m_Layer: 0
-  m_Name: NightVisionOverheat
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1842308014
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1842308013}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1015135716}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1842308015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1842308013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55d4fb958260ebd4891c52a2652722f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CamOverheat
-  monitorManager: {fileID: 640684815}
-  nightVision: {fileID: 1732558253}
-  workingTime: 10
-  cdTime: 15
-  resumeAt: 0.5
-  heatSlider: {fileID: 948621573}
-  fillImage: {fileID: 2012265749}
 --- !u!114 &1917272529 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6118480511591070237, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
