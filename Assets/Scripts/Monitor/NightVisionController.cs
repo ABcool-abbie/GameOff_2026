@@ -11,6 +11,7 @@ public class NightVisionController : MonoBehaviour
     [SerializeField] private RawImage mainView;
     [SerializeField] private Material nightMaterial;
     [SerializeField] private string nightLayerName = "NightVisionOnly";
+    [SerializeField] private string darkLayerName = "DarkLayer";
     [SerializeField] private CamOverheat overheat;
     #endregion
 
@@ -18,6 +19,7 @@ public class NightVisionController : MonoBehaviour
     #region STATS
     private bool[] nightOn;
     private int nightMask;
+    private int darkMask;
     public event Action<int, bool> NightChanged;
 
     public bool IsNightOn(int camIndex) => nightOn[camIndex];
@@ -27,14 +29,10 @@ public class NightVisionController : MonoBehaviour
     private void Awake()
     {
         nightOn = new bool[securityCameras.Length];
+        nightMask = GetMask(nightLayerName);
+        darkMask = GetMask(darkLayerName);
 
-        int layer = LayerMask.NameToLayer(nightLayerName);
-        if (layer < 0) return;
-        else
-            nightMask = 1 << layer;
-
-        for (int i = 0; i < securityCameras.Length; i++)
-            RefreshLayers();
+        RefreshLayers();
     }
 
     private void OnEnable() => monitorManager.ViewChanged += OnViewChanged;
@@ -51,6 +49,7 @@ public class NightVisionController : MonoBehaviour
             Toggle(monitorManager.CurrentCameraIndex);
     }
 
+    #region SETUP
     private void Toggle(int index)
     {
         if (!nightOn[index] && overheat != null && overheat.IsOverheated(index)) return;
@@ -58,11 +57,24 @@ public class NightVisionController : MonoBehaviour
         SetNight(index, !nightOn[index]);
     }
 
+    public void SetNight(int index, bool on)
+    {
+        if (nightOn[index] == on) return;
+
+        nightOn[index] = on;
+        RefreshLayers();
+        RefreshMainView();
+        NightChanged?.Invoke(index, on);
+    }
+    #endregion
+
+    #region VISUAL
     private void OnViewChanged(int view)
     {
         RefreshLayers();
         RefreshMainView();
     }
+
 
     private void RefreshMainView()
     {
@@ -77,13 +89,30 @@ public class NightVisionController : MonoBehaviour
 
         for (int i = 0; i < securityCameras.Length; i++)
         {
-            bool show = nightOn[i] && i == current;
+            Camera cam = securityCameras[i];
+            bool night = nightOn[i] && i == current;
 
-            if (show)
-                securityCameras[i].cullingMask |= nightMask;
+            if (night)
+            {
+                cam.cullingMask |= nightMask;
+                cam.cullingMask &= ~darkMask;
+            }
             else
-                securityCameras[i].cullingMask &= ~nightMask;
+            {
+                cam.cullingMask &= ~nightMask;
+                cam.cullingMask |= darkMask;
+            }
         }
+    }
+
+    private int GetMask(string layerName)
+    {
+        int layer = LayerMask.NameToLayer(layerName);
+        if (layer < 0)
+        {
+            return 0;
+        }
+        return 1 << layer;
     }
 
     //private void ApplyLayer(int index)
@@ -94,14 +123,5 @@ public class NightVisionController : MonoBehaviour
     //    else
     //        cam.cullingMask &= ~nightMask;
     //}
-
-    public void SetNight(int index, bool on)
-    {
-        if (nightOn[index] == on) return;
-
-        nightOn[index] = on;
-        RefreshLayers();
-        RefreshMainView();
-        NightChanged?.Invoke(index, on);
-    }
+    #endregion
 }
