@@ -5,10 +5,11 @@ using UnityEngine.U2D.IK;
 public enum EventType
 {
     Temp,
-    Disinfection,
+    Light,
     Feed,
     Music,
     Oxygen,
+    View,
 }
 
 public enum Behaviour
@@ -22,11 +23,25 @@ public enum Behaviour
     Ink    = 70, Knocking,  PullTheCircuit,
 }
 
+public enum Gradient
+{
+    Undefine, Down, Up
+}
+
 [Serializable]
 public struct EventConfig
 {
     public EventType type;
-    public int param0;
+
+    /// <summary>
+    // Temp: 0 - 4 low temperature to high temperature
+    // Light: 0 Off, 1 on
+    // Feed: 0 Off, 1 on
+    // Music: 0 Off, 1 on
+    // Oxygen: 0 - 2 zero oxygen to high oxygen
+    // View: 0 off screen, 1 on screen
+    /// </summary>
+    public int param0; 
 }
 
 [Serializable]
@@ -34,7 +49,7 @@ public struct BehaviourConfig
 {
     public Behaviour behaviour;
     public int damage;
-    public EventConfig solveMethod; 
+    public EventConfig[] solveMethod; 
 }
 
 [CreateAssetMenu(fileName = "MonsterConfig")]
@@ -45,6 +60,6 @@ public class MonsterConfig : ScriptableObject
     public Sprite sprDetail;
     public string code;
     public string description;
-    public EventConfig[] events;
+    // public EventConfig[] events;
     public BehaviourConfig[] behaviours;
 }

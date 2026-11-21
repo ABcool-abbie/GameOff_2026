@@ -28,15 +28,21 @@ MonoBehaviour:
   - behaviour: 30
     damage: 2
     solveMethod:
-      type: 0
+    - type: 1
       param0: 0
+    - type: 0
+      param0: 4
   - behaviour: 31
     damage: 2
     solveMethod:
-      type: 0
+    - type: 0
       param0: 0
+    - type: 4
+      param0: 1
   - behaviour: 32
     damage: 2
     solveMethod:
-      type: 0
-      param0: 0
+    - type: 0
+      param0: 4
+    - type: 4
+      param0: 2
