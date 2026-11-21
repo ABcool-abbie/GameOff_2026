@@ -760,6 +760,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8f61be5b102d484e8bc1f6127fd02b5, type: 3}
+--- !u!1 &777909328 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8227208198174158413, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
+  m_PrefabInstance: {fileID: 8077814135362592539}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &948621573 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 379685755083175548, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
@@ -1955,6 +1960,10 @@ MonoBehaviour:
   resumeAt: 0.5
   heatSlider: {fileID: 948621573}
   fillImage: {fileID: 2012265749}
+  heatSliderFill: {fileID: 2012265752}
+  overheatBlink: 0.3
+  overheatColor: {r: 1, g: 0, b: 0, a: 1}
+  coolColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1826457745 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2041145424378486508, guid: fd702ccae6ae9264cb1b67736f4233b5, type: 3}
@@ -2042,12 +2051,25 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2394150301371779054, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
   m_PrefabInstance: {fileID: 8077814135362592539}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 777909328}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!114 &2012265752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777909328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd527b1999a12304dbb9dc06713667bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonitorLamp
+  offAlpha: 0.8
 --- !u!114 &2038910871 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1295017058197687222, guid: b6d0840bc633ed444810ff89ed7ee983, type: 3}
@@ -2501,6 +2523,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3613093683390222854, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 96889896}
+    - targetCorrespondingSourceObject: {fileID: 8227208198174158413, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2012265752}
   m_SourcePrefab: {fileID: 100100000, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
 --- !u!1001 &8106689281091424496
 PrefabInstance:

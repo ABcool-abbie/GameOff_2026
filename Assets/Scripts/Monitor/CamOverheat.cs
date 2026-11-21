@@ -6,12 +6,18 @@ public class CamOverheat : MonoBehaviour
     [SerializeField] private MonitorManager monitorManager;
     [SerializeField] private NightVisionController nightVision;
 
-    [SerializeField] private float workingTime = 10f; //TODO
-    [SerializeField] private float cdTime = 15f; //TODO
-    [SerializeField, Range(0f, 1f)] private float resumeAt = 0.3f; //TODO
+    [SerializeField] private float workingTime = 10f;
+    [SerializeField] private float cdTime = 15f;
+    [SerializeField, Range(0f, 1f)] private float resumeAt = 0.3f;
 
     [SerializeField] private Slider heatSlider;
     [SerializeField] private Image fillImage;
+
+    [SerializeField] private MonitorLamp heatSliderFill;
+    [SerializeField] private float overheatBlink = 0.3f;
+    [SerializeField] private Color overheatColor = Color.red;
+    [SerializeField] private Color coolColor = Color.white;
+
 
     private float[] heat;
     private bool[] overheated;
@@ -19,11 +25,18 @@ public class CamOverheat : MonoBehaviour
     public bool IsOverheated(int index) => overheated[index];
     public float GetHeat(int index) => heat[index];
 
+
+
     private void Awake()
     {
         int count = nightVision.CameraCount;
         heat = new float[count];
         overheated = new bool[count];
+
+        if (heatSliderFill == null && fillImage != null)
+        {
+            heatSliderFill = fillImage.GetComponent<MonitorLamp>();
+        }
     }
 
     private void Update()
@@ -59,8 +72,19 @@ public class CamOverheat : MonoBehaviour
     private void UpdateSlider(int index)
     {
         if (index < 0 || heatSlider == null) return;
-
         heatSlider.value = heat[index];
 
+        if (heatSliderFill == null) return;
+
+        if (overheated[index])
+        {
+            float cooled = Mathf.InverseLerp(1f, resumeAt, heat[index]);
+            Color c = Color.Lerp(overheatColor, coolColor, cooled);
+            heatSliderFill.SetBlink(c, overheatBlink);
+        }
+        else
+        {
+            heatSliderFill.SetSteady(coolColor);
+        }
     }
 }
