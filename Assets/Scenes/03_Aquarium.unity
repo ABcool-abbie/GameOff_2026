@@ -554,6 +554,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 209929061117259171, guid: f45c1b0d28d604b43a97092a0f835582, type: 3}
   m_PrefabInstance: {fileID: 8106689281091424496}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &640684813 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4120022849924606127, guid: 7bae266c17f0d49459ac8bab2e35cfe5, type: 3}
+  m_PrefabInstance: {fileID: 5514610936176698550}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &640684814 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8530162910500294102, guid: 7bae266c17f0d49459ac8bab2e35cfe5, type: 3}
@@ -564,12 +569,30 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4574751579353081282, guid: 7bae266c17f0d49459ac8bab2e35cfe5, type: 3}
   m_PrefabInstance: {fileID: 5514610936176698550}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 640684813}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff1216fc366e938438993be757c7c6ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MonitorManager
+--- !u!114 &640684818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640684813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b67b53bd5ba6ae43985915dbe9b447a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TankViewNotifier
+  monitorManager: {fileID: 640684815}
+  tanks:
+  - {fileID: 1295180094}
+  - {fileID: 1384818914}
+  - {fileID: 2038910871}
+  - {fileID: 1826457745}
 --- !u!1 &661608273 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4756592214580188099, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
@@ -1963,7 +1986,7 @@ MonoBehaviour:
   heatSliderFill: {fileID: 2012265752}
   overheatBlink: 0.3
   overheatColor: {r: 1, g: 0, b: 0, a: 1}
-  coolColor: {r: 1, g: 1, b: 1, a: 1}
+  coolColor: {r: 0.2509804, g: 1, b: 0.9686275, a: 1}
 --- !u!114 &1826457745 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2041145424378486508, guid: fd702ccae6ae9264cb1b67736f4233b5, type: 3}
@@ -2069,7 +2092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd527b1999a12304dbb9dc06713667bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MonitorLamp
-  offAlpha: 0.8
+  offAlpha: 0.3
 --- !u!114 &2038910871 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1295017058197687222, guid: b6d0840bc633ed444810ff89ed7ee983, type: 3}
@@ -2390,7 +2413,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4120022849924606127, guid: 7bae266c17f0d49459ac8bab2e35cfe5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 640684818}
   m_SourcePrefab: {fileID: 100100000, guid: 7bae266c17f0d49459ac8bab2e35cfe5, type: 3}
 --- !u!1001 &8077814135362592539
 PrefabInstance:
@@ -2416,6 +2442,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MonitorUI
       objectReference: {fileID: 0}
+    - target: {fileID: 2394150301371779054, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7482667652216324306, guid: 83a13845725037849bcf884d1980be28, type: 3}
     - target: {fileID: 2557412140487480399, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
       propertyPath: m_RaycastTarget
       value: 0

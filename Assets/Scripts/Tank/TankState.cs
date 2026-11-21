@@ -85,6 +85,7 @@ public class TankState : MonoBehaviour
     {
         if (Viewing == on) return;
         Viewing = on;
+        Debug.Log($"{name} viewing: {on}");
         Changed?.Invoke(this);
     }
     #endregion
