@@ -20,6 +20,7 @@ public class TankState : MonoBehaviour
     public bool LightOn => lightOn;
     public bool SoundOn => soundOn;
     public float LastFedTime { get; private set; } = -1f;
+    public bool Viewing {get; private set;}
 
     public event Action<TankState> Changed;
     public event Action<TankState> Fed;
@@ -78,6 +79,13 @@ public class TankState : MonoBehaviour
     {
         LastFedTime = Time.time;
         Fed?.Invoke(this);
+        Changed?.Invoke(this);
+    }
+
+    public void View(bool on)
+    {
+        Viewing = on;
+        Changed?.Invoke(this);
     }
     #endregion
 

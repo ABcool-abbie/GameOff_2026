@@ -1,11 +1,30 @@
 using System;
 using System.Runtime.InteropServices.WindowsRuntime;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 
 public interface IGameProgressEventSource
 {
     public event Action OnWorkFault;
-    public event Action OnSanDrop;
+    public event Action<int> OnSanDrop;
+}
+
+public class GameEventSource : IGameProgressEventSource
+{
+    public event Action OnWorkFault;
+    public event Action<int> OnSanDrop;
+
+    private bool _isDone = false;
+
+    internal void DropSan(int damage)
+    {
+        OnSanDrop?.Invoke(damage);
+    }
+
+    internal void WorkFault()
+    {
+        OnWorkFault?.Invoke();
+    }
 }
 
 public class GameProgress : MonoBehaviour
@@ -37,6 +56,7 @@ public class GameProgress : MonoBehaviour
         ResultSuccess,
         ResultRanOutOfSan,
         ResultDeadOfFish,
+        ResultPlayerIsAte,
     }
 
     public GameProgressState State { get; private set; } = GameProgressState.Prepare;
@@ -52,6 +72,8 @@ public class GameProgress : MonoBehaviour
     public int CurrentSan { get; private set; }
 
     private AbnormalConfig[] abnormalConfigs;
+
+    public IGameProgressEventSource EventSource => _eventSource;
     private IGameProgressEventSource _eventSource;
 
     void OnDestroy()
@@ -158,7 +180,7 @@ public class GameProgress : MonoBehaviour
             {
                 if (time > cfg.eventTime)
                 {
-                    cfg.instance.Event();
+                    cfg.instance.AttackEvent();
                     cfg.left = true;
                 }
                 else
@@ -178,11 +200,11 @@ public class GameProgress : MonoBehaviour
         OnGameOver(GameProgressState.ResultDeadOfFish);
     }
 
-    void OnSanDrop()
+    void OnSanDrop(int damage)
     {
         if (CurrentSan <= 0)
             return;
-        CurrentSan -= 1;
+        CurrentSan -= damage;
         OnSanChanged?.Invoke();
         if (CurrentSan <= 0)
         {

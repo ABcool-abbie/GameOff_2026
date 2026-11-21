@@ -15,21 +15,23 @@ public class UIGameProgress : MonoBehaviour
     [SerializeField] TextMeshProUGUI txtSan;
     [SerializeField] TextMeshProUGUI txtState;
 
-    internal class Debug : Singleton<Debug>, IGameProgressEventSource
-    {
-        public event Action OnWorkFault;
-        public event Action OnSanDrop;
+    private GameEventSource src = null;
+    // internal class Debug : Singleton<Debug>, IGameProgressEventSource
+    // {
+    //     public event Action OnWorkFault;
+    //     public event Action<int> OnSanDrop;
+    //     public event Action OnPlayerIsAte;
 
-        internal void SanDrop()
-        {
-            OnSanDrop?.Invoke();
-        }
+    //     internal void SanDrop()
+    //     {
+    //         OnSanDrop?.Invoke(1);
+    //     }
 
-        internal void WorkFault()
-        {
-            OnWorkFault?.Invoke();
-        }
-    }
+    //     internal void WorkFault()
+    //     {
+    //         OnWorkFault?.Invoke();
+    //     }
+    // }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -42,7 +44,9 @@ public class UIGameProgress : MonoBehaviour
         var data = SaveDataContainer.Instance.CurrentData;
         if (data == null)
             data = SaveDataContainer.Instance.LoadOrNewCurrentData(0, true);
-        gameProgress.Register(Debug.Instance);
+        // gameProgress.Register(Debug.Instance);
+        src = new GameEventSource();
+        gameProgress.Register(src);
         gameProgress.StartGame(data);
 
         RefreshUI();
@@ -81,11 +85,11 @@ public class UIGameProgress : MonoBehaviour
     {
         if (GUILayout.Button("Drop San"))
         {
-            Debug.Instance?.SanDrop();
+            src?.DropSan(1);
         }
         if (GUILayout.Button("Work Fault"))
         {
-            Debug.Instance?.WorkFault();
+            src?.WorkFault();
         }
         if (GUILayout.Button("Time - 10s"))
         {
