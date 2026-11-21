@@ -8,7 +8,7 @@ public class MonitorLamp : MonoBehaviour
 
     private Image image;
     private Color color = Color.white;
-    private float interval; // 0 = steady
+    private float interval;
     private float timer;
     private bool lit = true;
 
