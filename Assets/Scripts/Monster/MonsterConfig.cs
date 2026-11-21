@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.U2D.IK;
 
 public enum EventType
 {
@@ -33,16 +34,17 @@ public struct BehaviourConfig
 {
     public Behaviour behaviour;
     public int damage;
+    public EventConfig solveMethod; 
 }
 
 [CreateAssetMenu(fileName = "MonsterConfig")]
 public class MonsterConfig : ScriptableObject
 {
+    public GameObject prefab;
     public Sprite sprThumbnail;
     public Sprite sprDetail;
     public string code;
     public string description;
     public EventConfig[] events;
-    public Behaviour[] behaviour;
     public BehaviourConfig[] behaviours;
 }

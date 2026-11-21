@@ -176,6 +176,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5558112959625544015, guid: 1046921e33d3ff147bb84968d397484f, type: 3}
+      propertyPath: tanks.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5558112959625544015, guid: 1046921e33d3ff147bb84968d397484f, type: 3}
+      propertyPath: 'tanks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1295180094}
+    - target: {fileID: 5558112959625544015, guid: 1046921e33d3ff147bb84968d397484f, type: 3}
+      propertyPath: 'tanks.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1384818914}
+    - target: {fileID: 5558112959625544015, guid: 1046921e33d3ff147bb84968d397484f, type: 3}
+      propertyPath: 'tanks.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2038910871}
+    - target: {fileID: 5558112959625544015, guid: 1046921e33d3ff147bb84968d397484f, type: 3}
+      propertyPath: 'tanks.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1826457745}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

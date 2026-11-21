@@ -10,14 +10,16 @@ public class SaveDataContainer : Singleton<SaveDataContainer>
     public SaveData CurrentData => Datas.ElementAtOrDefault(_slotIdx);
     public SaveData[] Datas { get; private set; } = new SaveData[3];
 
-    private int _slotIdx = -1;
+    private int _slotIdx {
+        get; 
+        set;} = -1;
 
     string GetKey(int slot)
     {
         return slot < 0 ? null : $"SaveData_{Mathf.Clamp(slot, 0, Datas.Length - 1)}";
     }
 
-    public void LoadOrNewCurrentData(int slot, bool newGame)
+    public SaveData LoadOrNewCurrentData(int slot, bool newGame)
     {
         if (slot >=0 || slot < Datas.Length)
         {
@@ -29,6 +31,7 @@ public class SaveDataContainer : Singleton<SaveDataContainer>
                 Datas[slot] =  JsonUtility.FromJson<SaveData>(json);
         }
         _slotIdx = slot;
+        return Datas[_slotIdx];
     }
 
     public void SaveCurrentData()

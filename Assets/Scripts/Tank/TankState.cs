@@ -1,4 +1,5 @@
 using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 public enum TemperatureLevel { VeryCold = -2, Cold = -1, Normal = 0, Warm = 1, Hot = 2 }
@@ -19,6 +20,7 @@ public class TankState : MonoBehaviour
     public bool LightOn => lightOn;
     public bool SoundOn => soundOn;
     public float LastFedTime { get; private set; } = -1f;
+
     public event Action<TankState> Changed;
     public event Action<TankState> Fed;
     public event Action<TankState> NightReset;
@@ -30,6 +32,10 @@ public class TankState : MonoBehaviour
     private bool startLightOn;
     private bool startSoundOn;
     #endregion
+
+    [SerializeField] Vector4 boundsMinMax;
+    public Vector2 BoundsMin => transform.position + new Vector3(boundsMinMax.x, boundsMinMax.y);
+    public Vector2 BoundsMax => transform.position + new Vector3(boundsMinMax.z, boundsMinMax.w);
 
     private void Awake()
     {
@@ -89,4 +95,17 @@ public class TankState : MonoBehaviour
     }
 
     #endregion
+
+    void OnDrawGizmos()
+    {
+        var old = Gizmos.color;
+        Gizmos.color = Color.greenYellow;
+        Vector2 min = BoundsMin;
+        Vector2 max = BoundsMax;
+        Gizmos.DrawLine(min, new Vector3(min.x, max.y));
+        Gizmos.DrawLine(min, new Vector3(max.x, min.y));
+        Gizmos.DrawLine(max, new Vector3(min.x, max.y));
+        Gizmos.DrawLine(max, new Vector3(max.x, min.y));
+        Gizmos.color = old;
+    }
 }

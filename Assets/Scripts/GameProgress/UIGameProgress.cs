@@ -41,7 +41,7 @@ public class UIGameProgress : MonoBehaviour
 
         var data = SaveDataContainer.Instance.CurrentData;
         if (data == null)
-            SaveDataContainer.Instance.LoadOrNewCurrentData(0, true);
+            data = SaveDataContainer.Instance.LoadOrNewCurrentData(0, true);
         gameProgress.Register(Debug.Instance);
         gameProgress.StartGame(data);
 

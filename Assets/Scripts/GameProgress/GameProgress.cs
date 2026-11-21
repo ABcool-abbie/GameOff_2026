@@ -1,6 +1,6 @@
 using System;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
-using Utility;
 
 public interface IGameProgressEventSource
 {
@@ -10,6 +10,18 @@ public interface IGameProgressEventSource
 
 public class GameProgress : MonoBehaviour
 {
+    [Serializable]
+    struct AbnormalConfig
+    {
+        public MonsterConfig monster;
+        public float appearTime;
+        public float eventTime;
+        internal bool left;
+        internal Monster instance;
+    }
+
+    public TankState[] tanks;
+
     public event Action OnDayFinished;
     public event Action OnTimeTicked;
     public event Action OnSanChanged;
@@ -27,18 +39,19 @@ public class GameProgress : MonoBehaviour
         ResultDeadOfFish,
     }
 
-    public GameProgressState State {get; private set;} = GameProgressState.Prepare;
+    public GameProgressState State { get; private set; } = GameProgressState.Prepare;
     public bool IsGameOver => State >= GameProgressState._Result;
 
     public int TotalDay => GameConfigContainer.Instance.Config?.dayConfigs?.Length ?? 0;
-    public int DayLeft {get; private set;}
+    public int DayLeft { get; private set; }
 
-    public float TimePerDay = 60f;
-    public float TimeLeft {get; private set;}
+    public float TimeOfDay = -1f;
+    public float TimeLeft { get; private set; }
 
     public int TotalSan = 6;
-    public int CurrentSan {get; private set;}
+    public int CurrentSan { get; private set; }
 
+    private AbnormalConfig[] abnormalConfigs;
     private IGameProgressEventSource _eventSource;
 
     void OnDestroy()
@@ -56,12 +69,14 @@ public class GameProgress : MonoBehaviour
             float oldTime = TimeLeft;
             TimeLeft -= Time.deltaTime;
 
+            TickMonsters(TimeOfDay - TimeLeft);
+
             if (Mathf.FloorToInt(oldTime) != Mathf.FloorToInt(TimeLeft))
                 OnTimeTicked?.Invoke();
 
             if (TimeLeft <= 0f)
             {
-                TimeLeft += TimePerDay;
+                // TimeLeft += TimePerDay;
                 if (DayLeft <= 0)
                 {
                     OnGameOver(GameProgressState.ResultSuccess);
@@ -106,10 +121,56 @@ public class GameProgress : MonoBehaviour
             return;
 
         var dayConfig = config.dayConfigs[day];
-        TimePerDay = dayConfig.TimeOfDay;
+        TimeOfDay = dayConfig.TimeOfDay;
         TimeLeft = dayConfig.TimeOfDay;
 
+        abnormalConfigs = new AbnormalConfig[dayConfig.abnormalCount];
+        var monsterBuffer = (MonsterConfig[])dayConfig.monsterConfigs.Clone();
+        for (int i = monsterBuffer.Length - 1; i > 0; --i)
+        {
+            int rnd = UnityEngine.Random.Range(0, i);
+            (monsterBuffer[rnd], monsterBuffer[i]) = (monsterBuffer[i], monsterBuffer[rnd]);
+        }
+        for (int i = 0; i < dayConfig.abnormalCount; ++i)
+        {
+            var cfg = new AbnormalConfig();
+            float rndRatio = UnityEngine.Random.Range(dayConfig.abnormalRange.x, dayConfig.abnormalRange.y);
+            float rndWondering = UnityEngine.Random.Range(dayConfig.wonderSecondRange.x, dayConfig.wonderSecondRange.y);
+            cfg.eventTime = rndRatio * dayConfig.TimeOfDay;
+            cfg.appearTime = Mathf.Max(0f, cfg.eventTime - rndWondering);
+            cfg.monster = monsterBuffer[i];
+            cfg.left = false;
+
+            abnormalConfigs[i] = cfg;
+        }
+
         State = GameProgressState.Started;
+    }
+
+    void TickMonsters(float time)
+    {
+        for (int i = 0; i < abnormalConfigs.Length; ++i)
+        {
+            ref var cfg = ref abnormalConfigs[i];
+            if (cfg.left)
+            { }
+            else if (cfg.instance != null)
+            {
+                if (time > cfg.eventTime)
+                {
+                    cfg.instance.Event();
+                    cfg.left = true;
+                }
+                else
+                {
+                    cfg.instance.Tick();
+                }
+            }
+            else if (time > cfg.appearTime)
+            {
+                cfg.instance = Monster.Spawn(this, cfg.monster);
+            }
+        }
     }
 
     void OnWorkFault()
@@ -142,5 +203,12 @@ public class GameProgress : MonoBehaviour
     {
         TimeLeft -= v;
         TimeLeft = Mathf.Max(0.1f, TimeLeft);
+    }
+
+    internal TankState GetTank(GameProgressConfig.RoomType roomType)
+    {
+        int idx = (int)roomType;
+        idx = Mathf.Clamp(idx, 0, tanks.Length);
+        return tanks[idx];
     }
 }

@@ -41,6 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 4227896961
+    locked: 0
+  - name: Creature
+    uniqueID: 3919970807
+    locked: 0
   - name: Map
     uniqueID: 3077497007
     locked: 0

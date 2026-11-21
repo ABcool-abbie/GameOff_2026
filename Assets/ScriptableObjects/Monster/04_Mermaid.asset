@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e072f1fc0b38cd94ca43d2a080174262, type: 3}
   m_Name: 04_Mermaid
   m_EditorClassIdentifier: Assembly-CSharp::MonsterConfig
+  prefab: {fileID: 6266192952524813924, guid: 24b8b0adf53063e499d837e464859e57, type: 3}
   sprThumbnail: {fileID: 0}
   sprDetail: {fileID: 0}
   code: 
@@ -23,11 +24,19 @@ MonoBehaviour:
     param0: 0
   - type: 2
     param0: 0
-  behaviour: 320000003300000034000000
   behaviours:
   - behaviour: 50
     damage: 4
+    solveMethod:
+      type: 0
+      param0: 0
   - behaviour: 51
     damage: 4
+    solveMethod:
+      type: 0
+      param0: 0
   - behaviour: 52
     damage: 4
+    solveMethod:
+      type: 0
+      param0: 0
