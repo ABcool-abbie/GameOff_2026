@@ -1,5 +1,4 @@
 using System;
-using Unity.Mathematics;
 using UnityEngine;
 
 public enum TemperatureLevel { VeryCold = -2, Cold = -1, Normal = 0, Warm = 1, Hot = 2 }
@@ -84,7 +83,9 @@ public class TankState : MonoBehaviour
 
     public void View(bool on)
     {
+        if (Viewing == on) return;
         Viewing = on;
+        Debug.Log($"{name} viewing: {on}");
         Changed?.Invoke(this);
     }
     #endregion
