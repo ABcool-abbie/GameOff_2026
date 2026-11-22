@@ -6,6 +6,7 @@ public class TankStatusLamps : MonoBehaviour
     [SerializeField] private MonitorManager monitorManager;
     [SerializeField] private TankHealth[] tanks;
     [SerializeField] private MonitorLamp hpLamp;
+    [SerializeField] private MonitorLamp monsterLamp;
 
     [Header("Health Lamp")]
     [SerializeField] private Color okColor = new Color(0.2f, 1f, 0.3f); 
@@ -14,7 +15,23 @@ public class TankStatusLamps : MonoBehaviour
     [SerializeField] private float damageBlinkFastest = 0.08f;
     [SerializeField] private float healBlink = 0.5f;
 
+    [Header("Anomaly Lamp")]
+    [SerializeField] private Color clearColor = new Color(0.2f, 0.6f, 1f);
+    [SerializeField] private Color monsterColor = Color.red;
+    [SerializeField] private float monsterBlinkSlowest = 0.5f;
+    [SerializeField] private float monsterBlinkFastest = 0.06f;
+
     #endregion
+    private TankState[] tankStates;
+
+    private void Awake()
+    {
+        tankStates = new TankState[tanks.Length];
+        for (int i = 0; i < tanks.Length; i++)
+        {
+            if (tanks[i] != null) tankStates[i] = tanks[i].GetComponent<TankState>();
+        }
+    }
 
     private void Update()
     {
@@ -22,6 +39,7 @@ public class TankStatusLamps : MonoBehaviour
         if (index < 0) return;
 
         UpdateHealthLamp(tanks[index]);
+        UpdateMonsterLamp(tankStates[index]);
     }
 
     private void UpdateHealthLamp(TankHealth health)
@@ -45,5 +63,40 @@ public class TankStatusLamps : MonoBehaviour
             hpLamp.SetSteady(okColor);
         }
     }
+
+    private void UpdateMonsterLamp(TankState tank)
+    {
+        if (monsterLamp == null) return;
+        Monster monster = FindUrgentMonster(tank);
+        if (monster == null)
+        {
+            monsterLamp.SetSteady(clearColor);
+            return;
+        }
+
+        float interval = Mathf.Lerp(monsterBlinkFastest, monsterBlinkSlowest, monster.TimeLeftRatio);
+        monsterLamp.SetBlink(monsterColor, interval);
+
+    }
+
+    private Monster FindUrgentMonster(TankState tank)
+    {
+        if (tank == null) return null;
+
+        Monster urgent = null;
+        Monster[] monsters = FindObjectsByType<Monster>(FindObjectsSortMode.None);
+
+        foreach (Monster m in monsters)
+        {
+            if (m.Tank != tank) continue;
+            if (m.State != MonsterState.Wondering) continue;
+
+            if (urgent == null || m.TimeLeftRatio < urgent.TimeLeftRatio)
+                urgent = m;
+        }
+
+        return urgent;
+    }
+
 }
 

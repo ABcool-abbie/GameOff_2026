@@ -25,11 +25,15 @@ public class Monster : MonoBehaviour
     private TankState _tank;
 
     public MonsterState State { get; private set; }
+    public TankState Tank => _tank;
+    public float TimeLeftRatio { get; private set; } = 1f;
 
     private Vector2 _escapeVel;
+    private float _startTime = -1f;
 
     public event Action OnHurt;
     public event Action OnDead;
+     
 
     internal static Monster Spawn(GameProgress gameProgress, MonsterConfig monster)
     {
@@ -90,6 +94,11 @@ public class Monster : MonoBehaviour
 
         if (State == MonsterState.Wondering)
         {
+            //BBR: added for the monster lamp blink blink
+            if (_startTime < 0f) _startTime = time;
+            float duration = eventTime - _startTime;
+            TimeLeftRatio = duration > 0f ? Mathf.Clamp01((eventTime - time) / duration) : 0f;
+
             if (time > eventTime)
                 AttackEvent();
             else
