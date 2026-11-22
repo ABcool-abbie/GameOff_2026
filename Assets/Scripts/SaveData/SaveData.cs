@@ -13,9 +13,19 @@ public class SaveData
         public List<int> monisterSolveCounts;
     }
 
+    //BBR: monster book unlocks
+    [Serializable]
+    public struct BookUnlock
+    {
+        public int behaviour; 
+        public int mask; 
+    }
+    //BBR: One entry per event
+
     public int day;
     public int san;
     public List<DayRecord> records;
+    public List<BookUnlock> bookUnlocks;
 
     internal static SaveData New(GameProgressConfig config)
     {
@@ -24,6 +34,7 @@ public class SaveData
             day = 0,
             san = config.SanInit,
             records = new(),
+            bookUnlocks = new(),
         };
     }
 }
