@@ -84,6 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2783437382314052051}
+  - component: {fileID: 6500674543829664196}
   m_Layer: 5
   m_Name: Lamps
   m_TagString: Untagged
@@ -112,6 +113,35 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6500674543829664196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207002565075060698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 612eab20f547b2e4da1426bb280e76da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TankStatusLamps
+  monitorManager: {fileID: 0}
+  tanks:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  hpLamp: {fileID: 8172253266168210481}
+  monsterLamp: {fileID: 4473048517385120885}
+  okColor: {r: 0.2, g: 1, b: 0.3, a: 1}
+  damageColor: {r: 1, g: 0.55, b: 0, a: 1}
+  damageBlinkSlowest: 0.6
+  damageBlinkFastest: 0.08
+  healBlink: 0.5
+  clearColor: {r: 0.26666668, g: 1, b: 0.9686275, a: 1}
+  monsterColor: {r: 1, g: 0, b: 0, a: 1}
+  monsterBlinkSlowest: 0.5
+  monsterBlinkFastest: 0.06
 --- !u!1 &900824426930764251
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,7 +199,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -495,7 +525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1232,7 +1262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1701,6 +1731,7 @@ GameObject:
   - component: {fileID: 2862127524525737150}
   - component: {fileID: 6111991726839843974}
   - component: {fileID: 2394150301371779054}
+  - component: {fileID: 5436965141875813247}
   m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
@@ -1755,7 +1786,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7833372073994320225, guid: d53d37e13ece2874aaa6a7891f78451c, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 83a13845725037849bcf884d1980be28, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1765,6 +1796,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5436965141875813247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8227208198174158413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd527b1999a12304dbb9dc06713667bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonitorLamp
+  offAlpha: 0.3
 --- !u!1 &8285330944564697116
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6158db6e4fba87b43b41b4be4b10ee04, type: 3}
+  m_Name: Book_06_Octopus
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterBookEntry
+  monster: {fileID: 11400000, guid: b50c582cf3168c8489a5085c02512d4f, type: 2}
+  danger: 5
+  background: I am octu[us
+  events:
+  - icon: {fileID: 0}
+    appearance: 
+    solutionLines: []
+  - icon: {fileID: 0}
+    appearance: 
+    solutionLines: []
+  - icon: {fileID: 0}
+    appearance: 
+    solutionLines: []

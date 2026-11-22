@@ -4,7 +4,6 @@ using UnityEngine;
 [Serializable]
 public struct BookEventEntry
 {
-    public Behaviour behaviour;
     public Sprite icon;
     [TextArea(2, 4)] public string appearance;
     [TextArea(1, 3)] public string[] solutionLines;
