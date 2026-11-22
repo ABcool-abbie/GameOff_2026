@@ -1,5 +1,7 @@
 using System;
 using System.Linq;
+using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -7,21 +9,24 @@ public enum MonsterState
 {
     Wondering,
     Escape,
+    Escaped,
 }
 
 public class Monster : MonoBehaviour
 {
     [SerializeField] private float _freq = 0.1f;
     [SerializeField] private float _speed = 0.01f;
-    private int _hp = 10;
-    private bool _hurt = false;
-    private float _hurtCooldown = 0f;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private TextMeshPro textName;
+    [SerializeField] private TextMeshPro textBehaviour;
     private bool _fed = false;
     private BehaviourConfig _behaviour;
     private GameProgress _game;
     private TankState _tank;
 
-    public MonsterState State {get; private set;}
+    public MonsterState State { get; private set; }
+
+    private Vector2 _escapeVel;
 
     public event Action OnHurt;
     public event Action OnDead;
@@ -54,52 +59,45 @@ public class Monster : MonoBehaviour
         instance._tank.Changed += instance.OnTankStateChanged;
         instance._tank.Fed += instance.OnFeed;
 
+        instance.textName.text = monster.name;
+        instance.textBehaviour.text = instance._behaviour.behaviour.ToString();
+
         return instance;
+    }
+
+    void SetStateEscape()
+    {
+        State = MonsterState.Escape;
+        _escapeVel = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
+        
+        spriteRenderer.DOFade(0f, 1f).OnComplete(() =>
+        {
+            gameObject.SetActive(false);
+        });
     }
 
     internal void AttackEvent()
     {
-        bool requireFeed = false;
-        foreach(var solve in _behaviour.solveMethod)
-        {
-            if (solve.type == EventType.Feed)
-            {
-                requireFeed = true;
-                break;
-            }
-        }
-
-        {
-            if (_game.EventSource is GameEventSource src)
-                src.DropSan(_behaviour.damage);
-        }
+        if (_game.EventSource is GameEventSource src)
+            src.DropSan(_behaviour.damage);
+        SetStateEscape();
     }
 
-    internal void Tick()
+    internal void Tick(float time, float eventTime)
     {
-        const float HURT_COOLDOWN = 1f;
-        const float ATK_COOLDOWN = 5f;
-
-        if (_hurt && _hurtCooldown >= 0f && _hp > 0)
-        {
-            _hurtCooldown -= Time.deltaTime;
-            if (_hurtCooldown < 0f)
-            {
-                _hurtCooldown += HURT_COOLDOWN;
-                _hp = Mathf.Max(0, _hp - 1);
-                if (_hp <= 0)
-                    OnDead?.Invoke();
-                else
-                    OnHurt?.Invoke();
-            }
-        }
+        if (!gameObject.activeInHierarchy)
+            return;
 
         if (State == MonsterState.Wondering)
         {
-            TickWondering();
+            if (time > eventTime)
+                AttackEvent();
+            else
+                TickWondering();
         }
         else if (State == MonsterState.Escape)
         {
+            TickEscape();
         }
     }
 
@@ -113,10 +111,19 @@ public class Monster : MonoBehaviour
         var vel = new Vector2(
             Mathf.Sin(5f * freq + phaseShift) + 0.8f * Mathf.Sin(11f * freq + phaseShift),
             Mathf.Sin(7f * freq + phaseShift) + 0.8f * Mathf.Sin(13f * freq + phaseShift));
+        var center = 0.5f * (_tank.BoundsMin + _tank.BoundsMax);
+        vel += center * 0.1f;
         vel = Vector2.ClampMagnitude(vel, 1f);
-        pos += vel * _speed;
+        pos += vel * _speed * Time.deltaTime;
         pos.x = Mathf.Clamp(pos.x, _tank.BoundsMin.x, _tank.BoundsMax.x);
         pos.y = Mathf.Clamp(pos.y, _tank.BoundsMin.y, _tank.BoundsMax.y);
+        SetPos(pos);
+    }
+
+    void TickEscape()
+    {
+        Vector2 pos = transform.position;
+        pos += _escapeVel * _speed * Time.deltaTime;
         SetPos(pos);
     }
 
@@ -127,39 +134,47 @@ public class Monster : MonoBehaviour
 
     void OnTankStateChanged(TankState tankState)
     {
-        int hurtCount = 0;
         int solveCount = 0;
+        int totalSolveCount = 0;
         foreach (var solve in _behaviour.solveMethod)
         {
             switch (solve.type)
             {
                 case EventType.Temp:
                     if (Mathf.Abs(solve.param0 - (int)tankState.Temperature + 2) > 1)
-                        hurtCount++;
-                    solveCount++;
+                        solveCount++;
+                    totalSolveCount++;
                     break;
                 case EventType.Light:
                     if (solve.param0 > 0 == tankState.LightOn)
-                        hurtCount++;
-                    solveCount++;
+                        solveCount++;
+                    totalSolveCount++;
+                    break;
+                case EventType.Feed:
+                    if (solve.param0 > 0 == _fed)
+                        solveCount++;
+                    totalSolveCount++;
                     break;
                 case EventType.Music:
                     if (solve.param0 > 0 == tankState.SoundOn)
-                        hurtCount++;
-                    solveCount++;
+                        solveCount++;
+                    totalSolveCount++;
                     break;
                 case EventType.Oxygen:
                     if (solve.param0 == (int)tankState.Oxygen + 1)
-                        hurtCount++;
-                    solveCount++;
+                        solveCount++;
+                    totalSolveCount++;
                     break;
                 case EventType.View:
                     if (solve.param0 > 0 == tankState.Viewing)
-                        hurtCount++;
-                    solveCount++;
+                        solveCount++;
+                    totalSolveCount++;
                     break;
             }
-            _hurt = hurtCount == solveCount;
+            if (solveCount == totalSolveCount)
+            {
+                SetStateEscape();
+            }
         }
     }
 

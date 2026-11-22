@@ -35,7 +35,6 @@ public class GameProgress : MonoBehaviour
         public MonsterConfig monster;
         public float appearTime;
         public float eventTime;
-        internal bool left;
         internal Monster instance;
     }
 
@@ -161,7 +160,6 @@ public class GameProgress : MonoBehaviour
             cfg.eventTime = rndRatio * dayConfig.TimeOfDay;
             cfg.appearTime = Mathf.Max(0f, cfg.eventTime - rndWondering);
             cfg.monster = monsterBuffer[i];
-            cfg.left = false;
 
             abnormalConfigs[i] = cfg;
         }
@@ -174,19 +172,9 @@ public class GameProgress : MonoBehaviour
         for (int i = 0; i < abnormalConfigs.Length; ++i)
         {
             ref var cfg = ref abnormalConfigs[i];
-            if (cfg.left)
-            { }
-            else if (cfg.instance != null)
+            if (cfg.instance != null)
             {
-                if (time > cfg.eventTime)
-                {
-                    cfg.instance.AttackEvent();
-                    cfg.left = true;
-                }
-                else
-                {
-                    cfg.instance.Tick();
-                }
+                cfg.instance.Tick(time, cfg.eventTime);
             }
             else if (time > cfg.appearTime)
             {
