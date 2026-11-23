@@ -21,7 +21,7 @@ public class GameProgressConfig : ScriptableObject
     {
         public float TimeOfDay;
         public int abnormalCount;
-        public Vector2 abnormalRange;
+        // public Vector2 abnormalRange;
         public Vector2 wonderSecondRange;
         public MonsterConfig[] monsterConfigs;
         public DialogConfig DialogConfig;

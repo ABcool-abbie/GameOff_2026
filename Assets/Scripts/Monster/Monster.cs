@@ -38,10 +38,11 @@ public class Monster : MonoBehaviour
     public event Action OnHurt;
     public event Action OnDead;
      
-    internal static Monster Spawn(GameProgress gameProgress, MonsterConfig monster)
+    internal static Monster Spawn(GameProgress gameProgress, MonsterConfig monster, int idxBehaviour = -1)
     {
         var instance = GameObject.Instantiate(monster.prefab.gameObject).GetComponent<Monster>();
-        int idx = UnityEngine.Random.Range(0, monster.behaviours.Length);
+
+        int idx = idxBehaviour >= 0 ? idxBehaviour : UnityEngine.Random.Range(0, monster.behaviours.Length);
         instance._behaviour = monster.behaviours[idx];
 
         instance._game = gameProgress;

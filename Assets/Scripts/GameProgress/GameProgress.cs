@@ -36,6 +36,7 @@ public class GameProgress : MonoBehaviour
         public float appearTime;
         public float eventTime;
         internal Monster instance;
+        public int idxBehaviour;
     }
 
     public TankState[] tanks;
@@ -74,6 +75,9 @@ public class GameProgress : MonoBehaviour
     private AbnormalConfig[] abnormalConfigs;
 
     public IGameProgressEventSource EventSource => _eventSource;
+
+    public const float TIME_CAP  = 20f;
+
     private IGameProgressEventSource _eventSource;
 
     void OnDestroy()
@@ -150,35 +154,49 @@ public class GameProgress : MonoBehaviour
         var monsterBuffer = (MonsterConfig[])dayConfig.monsterConfigs.Clone();
         for (int i = monsterBuffer.Length - 1; i > 0; --i)
         {
-            int rnd = UnityEngine.Random.Range(0, i);
+            int iStart = day == 0 ? 1 : 0;
+            int rnd = UnityEngine.Random.Range(iStart, i);
             (monsterBuffer[rnd], monsterBuffer[i]) = (monsterBuffer[i], monsterBuffer[rnd]);
         }
+
         for (int i = 0; i < dayConfig.abnormalCount; ++i)
         {
             var cfg = new AbnormalConfig();
 
+            if (day == 0 && i == 0)
+            {
+                cfg.appearTime = TIME_CAP;
+                float rndWondering = UnityEngine.Random.Range(dayConfig.wonderSecondRange.x, dayConfig.wonderSecondRange.y);
+                cfg.eventTime = TIME_CAP + rndWondering;
+                cfg.idxBehaviour = 0;
+                cfg.monster = monsterBuffer[0];
+                abnormalConfigs[i] = cfg;
+                continue;
+            }
+                
+
             bool picked = false;
             while (!picked)
             {
-                float rndRatio = UnityEngine.Random.Range(dayConfig.abnormalRange.x, dayConfig.abnormalRange.y);
-                // at least 3s to appear after game started
-                cfg.eventTime = Mathf.Max(dayConfig.wonderSecondRange.y + 3f, rndRatio * dayConfig.TimeOfDay);
-                float rndWondering = UnityEngine.Random.Range(dayConfig.wonderSecondRange.x, dayConfig.wonderSecondRange.y);
-                cfg.appearTime = Mathf.Max(0f, cfg.eventTime - rndWondering);
-                picked = true;
-                for (int j = 0; j < i; ++j)
                 {
-                    var otherCfg = abnormalConfigs[j];
-                    if (cfg.eventTime > otherCfg.appearTime && cfg.appearTime < otherCfg.eventTime)
+                    cfg.appearTime = UnityEngine.Random.Range(TIME_CAP, dayConfig.TimeOfDay - TIME_CAP);
+                    float rndWondering = UnityEngine.Random.Range(dayConfig.wonderSecondRange.x, dayConfig.wonderSecondRange.y);
+                    cfg.eventTime = Mathf.Max(0f, cfg.appearTime + rndWondering);
+                    picked = true;
+                    for (int j = 0; j < i; ++j)
                     {
-                        picked = false;
-                        break;
+                        var otherCfg = abnormalConfigs[j];
+                        if (cfg.eventTime > otherCfg.appearTime && cfg.appearTime < otherCfg.eventTime)
+                        {
+                            picked = false;
+                            break;
+                        }
                     }
                 }
             }
 
-
             cfg.monster = monsterBuffer[i];
+            cfg.idxBehaviour = -1;
 
             abnormalConfigs[i] = cfg;
         }
@@ -197,7 +215,7 @@ public class GameProgress : MonoBehaviour
             }
             else if (time > cfg.appearTime)
             {
-                cfg.instance = Monster.Spawn(this, cfg.monster);
+                cfg.instance = Monster.Spawn(this, cfg.monster, cfg.idxBehaviour);
             }
         }
     }
