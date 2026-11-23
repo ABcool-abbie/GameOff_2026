@@ -14,16 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MonsterConfig
   prefab: {fileID: 6266192952524813924, guid: 24b8b0adf53063e499d837e464859e57, type: 3}
   sprThumbnail: {fileID: 0}
-  sprDetail: {fileID: 0}
+  sprDetail: {fileID: -2444992153013299323, guid: 1ecc506e37b2f0c45978e9b2a707eca0, type: 3}
   code: 
   description: 
-  events:
-  - type: 0
-    param0: 0
-  - type: 1
-    param0: 0
-  - type: 2
-    param0: 0
   behaviours:
   - behaviour: 50
     damage: 4
