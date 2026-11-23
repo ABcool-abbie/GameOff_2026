@@ -1,4 +1,7 @@
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+
 public class MonsterBookUI : MonoBehaviour
 {
     #region SETTINGS
@@ -9,11 +12,25 @@ public class MonsterBookUI : MonoBehaviour
     [Header("Pages")]
     [SerializeField] private GameObject monsterPage;
     [SerializeField] private GameObject tutorialPage;
+
+    [Header("Monster Data")]
+    [SerializeField] private MonsterBookEntry[] entries;
+    [SerializeField] private Image portrait;
+    [SerializeField] private TMP_Text codeText;
+    [SerializeField] private GameObject[] dangerStars;
+    [SerializeField] private TMP_Text descriptionText;
+    [SerializeField] private BookEventRow[] eventRows;
+
+    [Header("Monster Pager")]
+    [SerializeField] private GameObject prevBtn;
+    [SerializeField] private GameObject nextBtn;
+    [SerializeField] private TMP_Text pageText;
     #endregion
 
     #region STATE
     private enum BookPage { Monsters, Tutorial }
     private BookPage currentPage = BookPage.Monsters;
+    private int currentPageIndex = 0;
     #endregion
 
 
@@ -35,6 +52,75 @@ public class MonsterBookUI : MonoBehaviour
 
         monsterTab.SetSelected(monsters);
         tutorialTab.SetSelected(!monsters);
+
+        if (monsters) RefreshMonsterPage();
+    }
+    #endregion
+
+    #region MONSTER PAGE
+    void RefreshMonsterPage()
+    {
+        if (entries == null || entries.Length == 0) return;
+
+        MonsterBookEntry entry = entries[currentPageIndex];
+        if (entry == null) return;
+        MonsterConfig monster = entry.monster;
+
+        if (monster != null)
+        {
+            portrait.sprite = monster.sprDetail;
+            codeText.text = "[ID] " + monster.code;
+        }
+
+        for (int i = 0; i < dangerStars.Length; i++)
+        {
+            dangerStars[i].SetActive(i < entry.danger);
+        }
+
+        descriptionText.text = entry.background;
+
+        for (int i = 0; i < eventRows.Length; i++)
+        {
+            bool hasEvent = entry.events != null && i < entry.events.Length;
+
+            if (hasEvent)
+                eventRows[i].Show(entry.events[i], GetUnlockMask(entry, i));
+            else
+                eventRows[i].Hide();
+        }
+
+        RefreshPager();
+    }
+
+    int GetUnlockMask(MonsterBookEntry entry, int eventIndex) => 0;
+    #endregion
+
+    #region PAGER
+    public void NextPage()
+    {
+        if (entries == null || entries.Length == 0) return;
+
+        currentPageIndex = (currentPageIndex + 1) % entries.Length;
+        RefreshMonsterPage();
+        //RefreshPager();
+    }
+    public void PrevPage()
+    {
+        if (entries == null || entries.Length == 0) return;
+
+        currentPageIndex = (currentPageIndex - 1 + entries.Length) % entries.Length;
+        RefreshMonsterPage();
+        //RefreshPager();
+    }
+
+    void RefreshPager()
+    {
+        int total = (entries != null) ? entries.Length : 0;
+
+        prevBtn.SetActive(total > 1);
+        nextBtn.SetActive(total > 1);
+
+        pageText.text = (currentPageIndex + 1) + "/" + total;
     }
     #endregion
 }
