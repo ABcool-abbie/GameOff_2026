@@ -7,6 +7,7 @@ public struct BookEventEntry
     public Sprite icon;
     [TextArea(2, 4)] public string appearance;
     [TextArea(1, 3)] public string[] solutionLines;
+    [TextArea(1, 3)] public string[] lockedLines;
 }
 
 [CreateAssetMenu(fileName = "MonsterBookEntry", menuName = "Game/Monster Book Entry")]
