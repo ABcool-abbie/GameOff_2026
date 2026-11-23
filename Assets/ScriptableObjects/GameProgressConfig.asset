@@ -17,7 +17,7 @@ MonoBehaviour:
   - TimeOfDay: 240
     abnormalCount: 3
     abnormalRange: {x: 0, y: 0.6}
-    wonderSecondRange: {x: 5, y: 30}
+    wonderSecondRange: {x: 10, y: 10}
     monsterConfigs:
     - {fileID: 11400000, guid: 10b9f83c8872bc0448761357ea995a41, type: 2}
     - {fileID: 11400000, guid: 3ccce1bb861409a4c9747aa21c2de14e, type: 2}
@@ -26,7 +26,7 @@ MonoBehaviour:
   - TimeOfDay: 300
     abnormalCount: 3
     abnormalRange: {x: 0.2, y: 0.7}
-    wonderSecondRange: {x: 5, y: 30}
+    wonderSecondRange: {x: 10, y: 10}
     monsterConfigs:
     - {fileID: 11400000, guid: 10b9f83c8872bc0448761357ea995a41, type: 2}
     - {fileID: 11400000, guid: 3ccce1bb861409a4c9747aa21c2de14e, type: 2}
@@ -36,7 +36,7 @@ MonoBehaviour:
   - TimeOfDay: 300
     abnormalCount: 4
     abnormalRange: {x: 0.1, y: 0.8}
-    wonderSecondRange: {x: 5, y: 30}
+    wonderSecondRange: {x: 10, y: 10}
     monsterConfigs:
     - {fileID: 11400000, guid: 10b9f83c8872bc0448761357ea995a41, type: 2}
     - {fileID: 11400000, guid: 3ccce1bb861409a4c9747aa21c2de14e, type: 2}
@@ -47,7 +47,7 @@ MonoBehaviour:
   - TimeOfDay: 300
     abnormalCount: 4
     abnormalRange: {x: 0.1, y: 1}
-    wonderSecondRange: {x: 5, y: 30}
+    wonderSecondRange: {x: 10, y: 10}
     monsterConfigs:
     - {fileID: 11400000, guid: 10b9f83c8872bc0448761357ea995a41, type: 2}
     - {fileID: 11400000, guid: 3ccce1bb861409a4c9747aa21c2de14e, type: 2}
@@ -60,7 +60,7 @@ MonoBehaviour:
   - TimeOfDay: 300
     abnormalCount: 3
     abnormalRange: {x: 0.4, y: 1}
-    wonderSecondRange: {x: 5, y: 30}
+    wonderSecondRange: {x: 10, y: 10}
     monsterConfigs:
     - {fileID: 11400000, guid: 10b9f83c8872bc0448761357ea995a41, type: 2}
     - {fileID: 11400000, guid: 3ccce1bb861409a4c9747aa21c2de14e, type: 2}
@@ -73,7 +73,7 @@ MonoBehaviour:
   - TimeOfDay: 360
     abnormalCount: 4
     abnormalRange: {x: 0.2, y: 0.6}
-    wonderSecondRange: {x: 5, y: 30}
+    wonderSecondRange: {x: 10, y: 10}
     monsterConfigs:
     - {fileID: 11400000, guid: 10b9f83c8872bc0448761357ea995a41, type: 2}
     - {fileID: 11400000, guid: 3ccce1bb861409a4c9747aa21c2de14e, type: 2}
@@ -86,7 +86,7 @@ MonoBehaviour:
   - TimeOfDay: 360
     abnormalCount: 4
     abnormalRange: {x: 0.5, y: 0.7}
-    wonderSecondRange: {x: 5, y: 30}
+    wonderSecondRange: {x: 10, y: 10}
     monsterConfigs:
     - {fileID: 11400000, guid: 10b9f83c8872bc0448761357ea995a41, type: 2}
     - {fileID: 11400000, guid: 3ccce1bb861409a4c9747aa21c2de14e, type: 2}

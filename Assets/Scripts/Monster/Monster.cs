@@ -27,14 +27,17 @@ public class Monster : MonoBehaviour
     public MonsterState State { get; private set; }
     public TankState Tank => _tank;
     public float TimeLeftRatio { get; private set; } = 1f;
+    public const float SOLVING_TIME = 3f;
 
     private Vector2 _escapeVel;
     private float _startTime = -1f;
+    private bool _solved;
+    private float _solvedTime = SOLVING_TIME;
+    private static GameProgressConfig.RoomType _roomType;
 
     public event Action OnHurt;
     public event Action OnDead;
      
-
     internal static Monster Spawn(GameProgress gameProgress, MonsterConfig monster)
     {
         var instance = GameObject.Instantiate(monster.prefab.gameObject).GetComponent<Monster>();
@@ -53,6 +56,7 @@ public class Monster : MonoBehaviour
         var targetRoom = list[targetIdx];
         ListPool<GameProgressConfig.RoomConfig>.Release(list);
 
+        _roomType = targetRoom.roomType;
         var tankInstance = gameProgress.GetTank(targetRoom.roomType);
         Vector2 pos = default;
         pos.x = UnityEngine.Random.Range(tankInstance.BoundsMin.x, tankInstance.BoundsMax.x);
@@ -66,6 +70,9 @@ public class Monster : MonoBehaviour
         instance.textName.text = monster.name;
         instance.textBehaviour.text = instance._behaviour.behaviour.ToString();
 
+        tankInstance.MonsterCount += 1;
+        gameProgress.FireMonsterCountChangeEvent(_roomType, tankInstance.MonsterCount);
+
         return instance;
     }
 
@@ -76,6 +83,8 @@ public class Monster : MonoBehaviour
         
         spriteRenderer.DOFade(0f, 1f).OnComplete(() =>
         {
+            _tank.MonsterCount -= 1;
+            _game.FireMonsterCountChangeEvent(_roomType, _tank.MonsterCount);
             gameObject.SetActive(false);
         });
     }
@@ -89,8 +98,23 @@ public class Monster : MonoBehaviour
 
     internal void Tick(float time, float eventTime)
     {
-        if (!gameObject.activeInHierarchy)
+        if (!gameObject.activeInHierarchy || State == MonsterState.Escaped)
             return;
+        
+        if (_solved && _solvedTime > 0f)
+        {
+            _solvedTime -= Time.deltaTime;
+            if (_solvedTime <= 0f)
+            {
+                _solvedTime = 0f;
+                SetStateEscape();
+            }
+        }
+        else if (!_solved)
+        {
+            _solvedTime += Time.deltaTime;
+            _solvedTime = Mathf.Min(_solvedTime, SOLVING_TIME);
+        }
 
         if (State == MonsterState.Wondering)
         {
@@ -182,7 +206,7 @@ public class Monster : MonoBehaviour
             }
             if (solveCount == totalSolveCount)
             {
-                SetStateEscape();
+                _solved = true;
             }
         }
     }

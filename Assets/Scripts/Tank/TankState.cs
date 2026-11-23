@@ -6,6 +6,8 @@ public enum OxygenLevel { Deoxygenated = -1, Air = 0, HighOxygen = 1 }
 
 public class TankState : MonoBehaviour
 {
+    public event Action<int, int> OnMonsterCountChanged;
+
     #region SETTING
     [SerializeField] private TemperatureLevel temperature = TemperatureLevel.Normal;
     [SerializeField] private OxygenLevel oxygen = OxygenLevel.Air;
@@ -36,6 +38,19 @@ public class TankState : MonoBehaviour
     [SerializeField] Vector4 boundsMinMax;
     public Vector2 BoundsMin => transform.position + new Vector3(boundsMinMax.x, boundsMinMax.y);
     public Vector2 BoundsMax => transform.position + new Vector3(boundsMinMax.z, boundsMinMax.w);
+
+    private int _monsterCount = 0;
+    public int MonsterCount { 
+        get => _monsterCount; 
+        internal set
+        {
+            if (_monsterCount == value)
+                return;
+            var old = value;
+            _monsterCount = value;
+            OnMonsterCountChanged?.Invoke(old, value);
+        } 
+    }
 
     private void Awake()
     {

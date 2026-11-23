@@ -44,6 +44,7 @@ public class GameProgress : MonoBehaviour
     public event Action OnTimeTicked;
     public event Action OnSanChanged;
     public event Action OnStateChanged;
+    public event Action<TankState, int> OnMonsterCountChanged;
 
     public enum GameProgressState
     {
@@ -155,10 +156,28 @@ public class GameProgress : MonoBehaviour
         for (int i = 0; i < dayConfig.abnormalCount; ++i)
         {
             var cfg = new AbnormalConfig();
-            float rndRatio = UnityEngine.Random.Range(dayConfig.abnormalRange.x, dayConfig.abnormalRange.y);
-            float rndWondering = UnityEngine.Random.Range(dayConfig.wonderSecondRange.x, dayConfig.wonderSecondRange.y);
-            cfg.eventTime = rndRatio * dayConfig.TimeOfDay;
-            cfg.appearTime = Mathf.Max(0f, cfg.eventTime - rndWondering);
+
+            bool picked = false;
+            while (!picked)
+            {
+                float rndRatio = UnityEngine.Random.Range(dayConfig.abnormalRange.x, dayConfig.abnormalRange.y);
+                // at least 3s to appear after game started
+                cfg.eventTime = Mathf.Max(dayConfig.wonderSecondRange.y + 3f, rndRatio * dayConfig.TimeOfDay);
+                float rndWondering = UnityEngine.Random.Range(dayConfig.wonderSecondRange.x, dayConfig.wonderSecondRange.y);
+                cfg.appearTime = Mathf.Max(0f, cfg.eventTime - rndWondering);
+                picked = true;
+                for (int j = 0; j < i; ++j)
+                {
+                    var otherCfg = abnormalConfigs[j];
+                    if (cfg.eventTime > otherCfg.appearTime && cfg.appearTime < otherCfg.eventTime)
+                    {
+                        picked = false;
+                        break;
+                    }
+                }
+            }
+
+
             cfg.monster = monsterBuffer[i];
 
             abnormalConfigs[i] = cfg;
@@ -220,5 +239,10 @@ public class GameProgress : MonoBehaviour
         int idx = (int)roomType;
         idx = Mathf.Clamp(idx, 0, tanks.Length);
         return tanks[idx];
+    }
+
+    internal void FireMonsterCountChangeEvent(GameProgressConfig.RoomType roomType, int monsterCount)
+    {
+        OnMonsterCountChanged?.Invoke(GetTank(roomType), monsterCount);
     }
 }
