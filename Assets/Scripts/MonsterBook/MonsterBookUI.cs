@@ -105,18 +105,9 @@ public class MonsterBookUI : MonoBehaviour
     int GetUnlockMask(MonsterBookEntry entry, int eventIndex)
     {
         int key = GetBehaviourKey(entry, eventIndex);
-        if (key <= 0) return 0;
+        if (key < 0) return 0;
 
-        SaveData data = SaveDataContainer.Instance.CurrentData;
-        if (data == null || data.bookUnlocks == null) return 0;
-
-
-        foreach (SaveData.BookUnlock unlock in data.bookUnlocks)
-        {
-            if (unlock.behaviour == key) return unlock.mask;
-        }
-        
-        return 0;
+        return MonsterBookSave.GetMask(SaveDataContainer.Instance.CurrentData, key);
     }
     #endregion
 
