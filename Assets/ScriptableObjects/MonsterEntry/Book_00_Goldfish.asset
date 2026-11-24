@@ -18,10 +18,17 @@ MonoBehaviour:
   events:
   - icon: {fileID: 0}
     appearance: 
-    solutionLines: []
+    solutionLines:
+    - i hate study
+    - I wanna hv lunch
+    lockedLines:
+    - "\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0"
+    - "\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0"
   - icon: {fileID: 0}
     appearance: 
     solutionLines: []
+    lockedLines: []
   - icon: {fileID: 0}
     appearance: 
     solutionLines: []
+    lockedLines: []

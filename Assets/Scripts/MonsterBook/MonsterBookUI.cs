@@ -92,7 +92,32 @@ public class MonsterBookUI : MonoBehaviour
         RefreshPager();
     }
 
-    int GetUnlockMask(MonsterBookEntry entry, int eventIndex) => 0;
+
+    int GetBehaviourKey(MonsterBookEntry entry, int eventIndex)
+    {
+        if (entry == null || entry.monster) return -1;
+        MonsterConfig monster = entry.monster;
+        if (monster.behaviours == null) return -1;
+
+        return (int)monster.behaviours[eventIndex].behaviour;
+    }
+
+    int GetUnlockMask(MonsterBookEntry entry, int eventIndex)
+    {
+        int key = GetBehaviourKey(entry, eventIndex);
+        if (key <= 0) return 0;
+
+        SaveData data = SaveDataContainer.Instance.CurrentData;
+        if (data == null || data.bookUnlocks == null) return 0;
+
+
+        foreach (SaveData.BookUnlock unlock in data.bookUnlocks)
+        {
+            if (unlock.behaviour == key) return unlock.mask;
+        }
+        
+        return 0;
+    }
     #endregion
 
     #region PAGER

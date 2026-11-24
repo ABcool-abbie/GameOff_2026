@@ -192,9 +192,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BookEventRow
   eventIcon: {fileID: 5614474137432134901}
   appearanceText: {fileID: 7065460979846517399}
-  solutionLines:
-  - {fileID: 0}
-  - {fileID: 0}
+  solutionTexts:
+  - {fileID: 8424699338296644415}
+  - {fileID: 2443037249028104807}
 --- !u!1 &3392459153257634613
 GameObject:
   m_ObjectHideFlags: 0
