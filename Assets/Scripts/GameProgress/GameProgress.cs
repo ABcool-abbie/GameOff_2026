@@ -57,7 +57,8 @@ public class GameProgress : MonoBehaviour
         ResultSuccess,
         ResultRanOutOfSan,
         ResultDeadOfFish,
-        ResultPlayerIsAte,
+
+        _Finished = 200,
     }
 
     public GameProgressState State { get; private set; } = GameProgressState.Prepare;
@@ -262,5 +263,11 @@ public class GameProgress : MonoBehaviour
     internal void FireMonsterCountChangeEvent(GameProgressConfig.RoomType roomType, int monsterCount)
     {
         OnMonsterCountChanged?.Invoke(GetTank(roomType), monsterCount);
+    }
+
+    internal void Done()
+    {
+        if (State >= GameProgressState._Result && State < GameProgressState._Finished)
+            State = GameProgressState._Finished;
     }
 }

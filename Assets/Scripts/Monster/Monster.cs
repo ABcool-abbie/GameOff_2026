@@ -168,6 +168,8 @@ public class Monster : MonoBehaviour
 
     void OnTankStateChanged(TankState tankState)
     {
+        if (!gameObject.activeInHierarchy)
+            return;
         int solveCount = 0;
         int totalSolveCount = 0;
         foreach (var solve in _behaviour.solveMethod)
@@ -175,7 +177,7 @@ public class Monster : MonoBehaviour
             switch (solve.type)
             {
                 case EventType.Temp:
-                    if (Mathf.Abs(solve.param0 - (int)tankState.Temperature + 2) > 1)
+                    if (solve.param0 == (int)tankState.Temperature + 2)
                         solveCount++;
                     totalSolveCount++;
                     break;
@@ -205,10 +207,10 @@ public class Monster : MonoBehaviour
                     totalSolveCount++;
                     break;
             }
-            if (solveCount == totalSolveCount)
-            {
-                _solved = true;
-            }
+        }
+        if (solveCount == totalSolveCount)
+        {
+            _solved = true;
         }
     }
 

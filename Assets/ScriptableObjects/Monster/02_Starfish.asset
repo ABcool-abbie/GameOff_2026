@@ -17,21 +17,12 @@ MonoBehaviour:
   sprDetail: {fileID: 0}
   code: 
   description: 
-  events:
-  - type: 1
-    param0: 0
-  - type: 2
-    param0: 0
-  - type: 3
-    param0: 0
   behaviours:
   - behaviour: 30
     damage: 2
     solveMethod:
-    - type: 1
+    - type: 5
       param0: 0
-    - type: 0
-      param0: 4
   - behaviour: 31
     damage: 2
     solveMethod:
@@ -43,6 +34,6 @@ MonoBehaviour:
     damage: 2
     solveMethod:
     - type: 0
-      param0: 4
+      param0: 3
     - type: 4
       param0: 2

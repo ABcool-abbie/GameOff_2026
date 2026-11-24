@@ -27,6 +27,8 @@ public class SaveData
     public List<DayRecord> records;
     public List<BookUnlock> bookUnlocks;
 
+    public GameProgress.GameProgressState Result { get; internal set; }
+
     internal static SaveData New(GameProgressConfig config)
     {
         return new SaveData

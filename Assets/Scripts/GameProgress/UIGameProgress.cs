@@ -1,6 +1,7 @@
 using System;
 using System.Net;
 using System.Xml.Schema;
+using DG.Tweening;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
@@ -68,6 +69,16 @@ public class UIGameProgress : MonoBehaviour
 
     private void RefreshUI()
     {
+        if (gameProgress.State >= GameProgress.GameProgressState._Result
+            && gameProgress.State < GameProgress.GameProgressState._Finished)
+        {
+            SaveDataContainer.Instance.CurrentData.Result = gameProgress.State;
+            SaveDataContainer.Instance.SaveCurrentData();
+            UILoading.Instance.Load(SceneNames.Settlement, null);
+            gameProgress.Done();
+            return;
+        }
+
         txtDay.text = (gameProgress.TotalDay - gameProgress.DayLeft + 1).ToString();
         txtTime.text = Mathf.CeilToInt(gameProgress.TimeLeft).ToString();
         txtSan.text = gameProgress.CurrentSan.ToString();
@@ -76,9 +87,13 @@ public class UIGameProgress : MonoBehaviour
 
     private void OnDayFinished()
     {
+        if (gameProgress.State == GameProgress.GameProgressState._Finished)
+            return;
+        SaveDataContainer.Instance.CurrentData.Result = GameProgress.GameProgressState.ResultSuccess;
         SaveDataContainer.Instance.CurrentData.day++;
         SaveDataContainer.Instance.SaveCurrentData();
         UILoading.Instance.Load(SceneNames.Settlement, null);
+        gameProgress.Done();
     }
 
     void OnGUI()

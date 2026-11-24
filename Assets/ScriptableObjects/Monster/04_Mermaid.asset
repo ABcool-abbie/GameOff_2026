@@ -17,13 +17,6 @@ MonoBehaviour:
   sprDetail: {fileID: 0}
   code: 
   description: 
-  events:
-  - type: 0
-    param0: 0
-  - type: 1
-    param0: 0
-  - type: 2
-    param0: 0
   behaviours:
   - behaviour: 50
     damage: 4
@@ -45,4 +38,4 @@ MonoBehaviour:
     - type: 3
       param0: 1
     - type: 0
-      param0: 4
+      param0: 2
