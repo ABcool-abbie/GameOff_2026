@@ -6,14 +6,19 @@ public class TankTempVisual : MonoBehaviour
 {
     #region SETTINGS
     [SerializeField] private TankState tank;
+
+
+    [SerializeField] private SpriteRenderer iceLayout;
     [SerializeField] private float coldAlpha = 0.5f;
     [SerializeField] private float veryColdAlpha = 1f;
     [SerializeField] private float coldTime = 1.5f;
 
+
+    [SerializeField] private GameObject hotLayout;
     #endregion
 
     #region STATS
-    private SpriteRenderer overlay;
+    //private SpriteRenderer overlay;
     private TemperatureLevel tempLevel;
     private Tween coldTween;
 
@@ -49,12 +54,12 @@ public class TankTempVisual : MonoBehaviour
     #region VISUALS
     private Tween PlayCold()
     {
-        return overlay.DOFade(0, coldAlpha, coldTime).SetLink(gameObject); ;
+        return overlay.DOFade(coldAlpha, coldTime).SetLink(gameObject); ;
     }
 
     private Tween PlayVeryCold()
     {
-        return overlay.DOFade(0, veryColdAlpha, coldTime).SetLink(gameObject); ;
+        return overlay.DOFade(veryColdAlpha, coldTime).SetLink(gameObject);
     }
     #endregion
 }
