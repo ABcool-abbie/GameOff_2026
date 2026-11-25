@@ -15,7 +15,7 @@ public class TankState : MonoBehaviour
     [SerializeField] private bool soundOn = false;
     #endregion
 
-    #region STATS
+    #region STATE
     public TemperatureLevel Temperature => temperature;
     public OxygenLevel Oxygen => oxygen;
     public bool LightOn => lightOn;
