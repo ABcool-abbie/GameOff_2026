@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum TemperatureLevel { VeryCold = -2, Cold = -1, Normal = 0, Warm = 1, Hot = 2 }
@@ -38,6 +39,8 @@ public class TankState : MonoBehaviour
     [SerializeField] Vector4 boundsMinMax;
     public Vector2 BoundsMin => transform.position + new Vector3(boundsMinMax.x, boundsMinMax.y);
     public Vector2 BoundsMax => transform.position + new Vector3(boundsMinMax.z, boundsMinMax.w);
+
+    [SerializeField] TankEventConfigs eventConfigs;
 
     private int _monsterCount = 0;
     public int MonsterCount { 
@@ -131,5 +134,37 @@ public class TankState : MonoBehaviour
         Gizmos.DrawLine(max, new Vector3(min.x, max.y));
         Gizmos.DrawLine(max, new Vector3(max.x, min.y));
         Gizmos.color = old;
+    }
+
+    Dictionary<(MonsterConfig, int), GameObject> _behaviourInstances = new();
+    internal void SetBehaviour(MonsterConfig monsterConfig, int idxBehaviour, bool isOn)
+    {
+        if (isOn)
+        {
+            foreach(var config in eventConfigs.Configs)
+            {
+                if (config.monsterConfig == monsterConfig && config.idxBehaviour == idxBehaviour)
+                {
+                    var instance = GameObject.Instantiate(config.behaviourPrefab, transform, false);
+                    _behaviourInstances.Add((monsterConfig, idxBehaviour), instance);
+                    break;
+                }
+            }
+        }
+        else
+        {
+            if (_behaviourInstances.TryGetValue((monsterConfig, idxBehaviour), out var insatnce))
+            {
+                if (insatnce.gameObject.GetComponent<ParticleSystem>() is ParticleSystem particleSystem)
+                {
+                    particleSystem.transform.SetParent(null, true);
+                    UnityHelper.CallbackOnParticleSystemStop(particleSystem, instance => GameObject.Destroy(instance.gameObject));
+                }
+                else
+                {
+                    GameObject.Destroy(insatnce.gameObject);
+                }
+            }
+        }
     }
 }

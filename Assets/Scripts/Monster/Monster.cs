@@ -19,6 +19,10 @@ public class Monster : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private TextMeshPro textName;
     [SerializeField] private TextMeshPro textBehaviour;
+    [SerializeField] private GameObject goBehaviour0;
+    [SerializeField] private GameObject goBehaviour1;
+    [SerializeField] private GameObject goBehaviour2;
+
     private bool _fed = false;
     private BehaviourConfig _behaviour;
     private GameProgress _game;
@@ -34,16 +38,18 @@ public class Monster : MonoBehaviour
     private bool _solved;
     private float _solvedTime = SOLVING_TIME;
     private static GameProgressConfig.RoomType _roomType;
+    private int _idxBehaviour;
+    private static MonsterConfig _config;
 
     public event Action OnHurt;
     public event Action OnDead;
-     
+
     internal static Monster Spawn(GameProgress gameProgress, MonsterConfig monster, int idxBehaviour = -1)
     {
         var instance = GameObject.Instantiate(monster.prefab.gameObject).GetComponent<Monster>();
 
-        int idx = idxBehaviour >= 0 ? idxBehaviour : UnityEngine.Random.Range(0, monster.behaviours.Length);
-        instance._behaviour = monster.behaviours[idx];
+        instance._idxBehaviour = idxBehaviour >= 0 ? idxBehaviour : UnityEngine.Random.Range(0, monster.behaviours.Length);
+        instance._behaviour = monster.behaviours[instance._idxBehaviour];
 
         instance._game = gameProgress;
 
@@ -74,14 +80,30 @@ public class Monster : MonoBehaviour
         tankInstance.MonsterCount += 1;
         gameProgress.FireMonsterCountChangeEvent(_roomType, tankInstance.MonsterCount);
 
+        _config = monster;
+        instance._tank.SetBehaviour(monster, instance._idxBehaviour, true);
+
+        instance.goBehaviour0.Unwrap()?.SetActive(instance._idxBehaviour == 0);
+        instance.goBehaviour1.Unwrap()?.SetActive(instance._idxBehaviour == 1);
+        instance.goBehaviour2.Unwrap()?.SetActive(instance._idxBehaviour == 2);
+
         return instance;
+    }
+
+    void OnDisable()
+    {
+        _tank.SetBehaviour(_config, _idxBehaviour, false);
     }
 
     void SetStateEscape()
     {
         State = MonsterState.Escape;
         _escapeVel = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
-        
+
+        goBehaviour0.Unwrap()?.GetComponent<ParticleSystem>().Stop();
+        goBehaviour1.Unwrap()?.GetComponent<ParticleSystem>().Stop();
+        goBehaviour2.Unwrap()?.GetComponent<ParticleSystem>().Stop();
+
         spriteRenderer.DOFade(0f, 1f).OnComplete(() =>
         {
             _tank.MonsterCount -= 1;
@@ -101,7 +123,7 @@ public class Monster : MonoBehaviour
     {
         if (!gameObject.activeInHierarchy || State == MonsterState.Escaped)
             return;
-        
+
         if (_solved && _solvedTime > 0f)
         {
             _solvedTime -= Time.deltaTime;

@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e9b070ad347c9478e1f068e2a5dc19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameProgress
-  dontDestroyOnLoad: 1
-  config: {fileID: 11400000, guid: a9cc5d4a130682d4795bcd648821ac47, type: 2}
-  TimePerDay: 60
+  dontDestroyOnLoad: 0
+  tanks: []
+  TimeOfDay: -1
   TotalSan: 6

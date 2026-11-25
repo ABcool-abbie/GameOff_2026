@@ -2,6 +2,7 @@ using System;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEditor.ShaderGraph;
 using UnityEngine;
+using Utility;
 
 public interface IGameProgressEventSource
 {
@@ -27,7 +28,7 @@ public class GameEventSource : IGameProgressEventSource
     }
 }
 
-public class GameProgress : MonoBehaviour
+public class GameProgress : SingletonBehaviour<GameProgress>
 {
     [Serializable]
     struct AbnormalConfig

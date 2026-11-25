@@ -18,7 +18,7 @@ public class TankTempVisual : MonoBehaviour
     #endregion
 
     #region STATS
-    //private SpriteRenderer overlay;
+    private SpriteRenderer overlay;
     private TemperatureLevel tempLevel;
     private Tween coldTween;
 
