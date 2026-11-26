@@ -1,5 +1,6 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class MonsterBookUI : MonoBehaviour
@@ -108,6 +109,21 @@ public class MonsterBookUI : MonoBehaviour
         if (key < 0) return 0;
 
         return MonsterBookSave.GetMask(SaveDataContainer.Instance.CurrentData, key);
+    }
+    #endregion
+
+    #region INPUT
+    private void Update()
+    {
+        if (!BookToggle.IsOpen) return;
+        if (currentPage != BookPage.Monsters) return;
+        if (Keyboard.current == null) return;
+
+        if (Keyboard.current.dKey.wasPressedThisFrame)
+            NextPage();
+
+        if (Keyboard.current.aKey.wasPressedThisFrame)
+            PrevPage();
     }
     #endregion
 
