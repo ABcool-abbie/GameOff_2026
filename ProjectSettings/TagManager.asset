@@ -50,5 +50,8 @@ TagManager:
   - name: Map
     uniqueID: 3077497007
     locked: 0
+  - name: VFX
+    uniqueID: 1799956931
+    locked: 0
   m_RenderingLayers:
   - Default
