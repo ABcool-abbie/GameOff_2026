@@ -6,6 +6,13 @@ public class UIMainMenu : MonoBehaviour
 {
     [SerializeField] Button btnStartGame;
     [SerializeField] Button btnContinue;
+    [SerializeField] Button btnExit; //BBR: add buttons
+
+    private void Awake()
+    {
+        if (btnExit != null) 
+            btnExit.onClick.AddListener(OnBtnExit);
+    }
 
     void Start()
     {
@@ -19,6 +26,7 @@ public class UIMainMenu : MonoBehaviour
     {
         btnStartGame.onClick.RemoveListener(OnBtnStart);
         btnContinue.onClick.RemoveListener(OnBtnContinue);
+        btnExit.onClick.RemoveListener(OnBtnExit);
     }
 
     private void OnBtnStart()
@@ -49,5 +57,15 @@ public class UIMainMenu : MonoBehaviour
     {
         SaveDataContainer.Instance.LoadOrNewCurrentData(0, false);
         UILoading.Instance.Load(SceneNames.Office, null);
+    }
+
+    //BBR: quit game
+    private void OnBtnExit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+    Application.Quit();
+#endif
     }
 }

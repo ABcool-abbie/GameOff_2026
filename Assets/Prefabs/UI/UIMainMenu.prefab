@@ -313,8 +313,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6a8049d4ea24d43b0bee7d6f3b3cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIMainMenu
-  btnStartGame: {fileID: 0}
-  btnContinue: {fileID: 0}
+  btnStartGame: {fileID: 6187369069580737115}
+  btnContinue: {fileID: 6796808848459811457}
+  btnExit: {fileID: 3816810346914753464}
 --- !u!1 &4510188557952657957
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,6 +781,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f95e6be5fbc0fe4585c097b16f5214c, type: 3}
+--- !u!114 &6187369069580737115 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6148829516759903755, guid: 0f95e6be5fbc0fe4585c097b16f5214c, type: 3}
+  m_PrefabInstance: {fileID: 38549688956253264}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!224 &8288644659951690185 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8327114873748821401, guid: 0f95e6be5fbc0fe4585c097b16f5214c, type: 3}
@@ -894,6 +906,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f95e6be5fbc0fe4585c097b16f5214c, type: 3}
+--- !u!114 &6796808848459811457 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6148829516759903755, guid: 0f95e6be5fbc0fe4585c097b16f5214c, type: 3}
+  m_PrefabInstance: {fileID: 794351507918349450}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!224 &8685685180757668115 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8327114873748821401, guid: 0f95e6be5fbc0fe4585c097b16f5214c, type: 3}
