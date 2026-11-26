@@ -9,12 +9,14 @@ public class BookToggle : MonoBehaviour
 
     #region STATE
     public static bool IsOpen { get; private set; }
+    private float previousTimeScale = 1f;
     #endregion
 
 
     private void Start()
     {
-        Close();
+        book.SetActive(false);
+        IsOpen = false;
     }
 
     private void Update()
@@ -24,6 +26,8 @@ public class BookToggle : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (IsOpen) Time.timeScale = previousTimeScale;
+
         IsOpen = false;
     }
 
@@ -37,12 +41,19 @@ public class BookToggle : MonoBehaviour
 
     public void Open()
     {
+        if (IsOpen) return;
+        previousTimeScale = Time.timeScale;
+        Time.timeScale = 0f;
+
         book.SetActive(true);
         IsOpen = true;
     }
 
     public void Close()
     {
+        if (!IsOpen) return;
+        Time.timeScale = previousTimeScale;
+
         book.SetActive(false);
         IsOpen = false;
     }
