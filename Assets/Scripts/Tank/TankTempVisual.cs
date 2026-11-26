@@ -12,7 +12,6 @@ public class TankTempVisual : MonoBehaviour
     [SerializeField] private SpriteRenderer ice;
     [SerializeField] private float coldAlpha = 0.5f;
     [SerializeField] private float veryColdAlpha = 1f;
-    [SerializeField] private float coldTime = 1.5f;
 
     [Header("Hot")]
     [SerializeField] private SpriteRenderer heat;
