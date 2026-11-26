@@ -16,18 +16,21 @@ MonoBehaviour:
   danger: 3
   background: I am shrimp
   events:
-  - icon: {fileID: 0}
-    appearance: 
+  - icon: {fileID: -2413888993020500870, guid: ebba21a314d66cc41a13ec35f57ef7aa, type: 3}
+    appearance: Newborns that gnaw on flesh.
     solutionLines:
     - 
     - 
-  - icon: {fileID: 0}
-    appearance: 
+    lockedLines: []
+  - icon: {fileID: 2715910607258767164, guid: 094d226f9acd74345b43ee8b43becd31, type: 3}
+    appearance: Fragile prey? Or hunter?
     solutionLines:
     - 
     - 
-  - icon: {fileID: 0}
-    appearance: 
+    lockedLines: []
+  - icon: {fileID: 8714406009178558981, guid: 3b44011b7ac466d4db16063871191cdb, type: 3}
+    appearance: Greetings from the swaying shadow.
     solutionLines:
     - 
     - 
+    lockedLines: []

@@ -16,12 +16,15 @@ MonoBehaviour:
   danger: 5
   background: I am octu[us
   events:
-  - icon: {fileID: 0}
-    appearance: 
+  - icon: {fileID: -1980826321857470595, guid: 736beeee805c32148b70ccc2e9c574bc, type: 3}
+    appearance: Suffocating black tide.
     solutionLines: []
-  - icon: {fileID: 0}
-    appearance: 
+    lockedLines: []
+  - icon: {fileID: -5080394982903768508, guid: 52452a487152ecc4181257df1aba4a00, type: 3}
+    appearance: The unbreakable crack.
     solutionLines: []
-  - icon: {fileID: 0}
-    appearance: 
+    lockedLines: []
+  - icon: {fileID: 8600822654857542847, guid: 2e7333eedd4b7ab4a84fb7d7e714f134, type: 3}
+    appearance: Oh! Into the darkness!
     solutionLines: []
+    lockedLines: []

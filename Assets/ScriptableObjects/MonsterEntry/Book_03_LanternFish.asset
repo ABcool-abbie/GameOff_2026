@@ -16,12 +16,15 @@ MonoBehaviour:
   danger: 4
   background: I am latternfish
   events:
-  - icon: {fileID: 0}
-    appearance: 
+  - icon: {fileID: -7308702120603872120, guid: 68bcd5cd17e232342b0969f88b82dd59, type: 3}
+    appearance: "Anomalous flashing\uFF0C prelude to attack."
     solutionLines: []
-  - icon: {fileID: 0}
-    appearance: 
+    lockedLines: []
+  - icon: {fileID: -942583154475109716, guid: 1aacbb580181b1f4fa6ab14a8fa36b4e, type: 3}
+    appearance: Non-human footsteps detected.
     solutionLines: []
-  - icon: {fileID: 0}
-    appearance: 
+    lockedLines: []
+  - icon: {fileID: 1698922366533600668, guid: 6cafa701c542e8f4e9cdc3b7e608cdd9, type: 3}
+    appearance: It weaves a trap for you.
     solutionLines: []
+    lockedLines: []

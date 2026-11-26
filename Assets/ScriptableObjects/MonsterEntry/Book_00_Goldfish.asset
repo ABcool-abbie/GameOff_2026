@@ -16,19 +16,19 @@ MonoBehaviour:
   danger: 2
   background: i am goldfish
   events:
-  - icon: {fileID: 0}
-    appearance: 
+  - icon: {fileID: 4896740338774906726, guid: bdeccfd7b34bea640902c191c309eff2, type: 3}
+    appearance: Thick foam carries danger.
     solutionLines:
     - i hate study
     - I wanna hv lunch
     lockedLines:
     - "\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0"
     - "\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0"
-  - icon: {fileID: 0}
-    appearance: 
+  - icon: {fileID: 5321763133101888337, guid: fb998da1f06bc624397e63745a859ea8, type: 3}
+    appearance: Do not look into the tumor's eyes!
     solutionLines: []
     lockedLines: []
-  - icon: {fileID: 0}
-    appearance: 
+  - icon: {fileID: 84177659419191306, guid: d548c99bc6ebbf747b8643279e0dde7d, type: 3}
+    appearance: Restless pink agitation.
     solutionLines: []
     lockedLines: []

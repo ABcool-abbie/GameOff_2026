@@ -16,12 +16,15 @@ MonoBehaviour:
   danger: 4
   background: i am garden slow
   events:
-  - icon: {fileID: 0}
-    appearance: 
+  - icon: {fileID: -332543644476275048, guid: 58f8e13c2d7d6994ba71e579a333b14d, type: 3}
+    appearance: When order collapses.
     solutionLines: []
-  - icon: {fileID: 0}
-    appearance: 
+    lockedLines: []
+  - icon: {fileID: 8526194235634495433, guid: 835396d8021bf744c9ac60b725d2c243, type: 3}
+    appearance: Unnamable grotesque artwork.
     solutionLines: []
-  - icon: {fileID: 0}
-    appearance: 
+    lockedLines: []
+  - icon: {fileID: -2401169965858233650, guid: c895adf0b24bf1f48bc57f3d0c3d4523, type: 3}
+    appearance: Colorful venom.
     solutionLines: []
+    lockedLines: []

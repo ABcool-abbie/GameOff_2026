@@ -16,12 +16,15 @@ MonoBehaviour:
   danger: 5
   background: i am mermaid
   events:
-  - icon: {fileID: 0}
-    appearance: 
+  - icon: {fileID: 6894014207181810948, guid: 3f92768a77903584fae219d6a9f4f40d, type: 3}
+    appearance: Requiem.
     solutionLines: []
-  - icon: {fileID: 0}
-    appearance: 
+    lockedLines: []
+  - icon: {fileID: 3098531401196498419, guid: 31adaac9391849141819323923e7037e, type: 3}
+    appearance: Whispers of a death countdown.
     solutionLines: []
-  - icon: {fileID: 0}
-    appearance: 
+    lockedLines: []
+  - icon: {fileID: -206789518789209668, guid: a1fab04cc11ee0d4690964ae1fafab64, type: 3}
+    appearance: Midnight snack served.
     solutionLines: []
+    lockedLines: []
