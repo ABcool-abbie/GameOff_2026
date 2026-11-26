@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.VisualScripting;
 using UnityEditor.ShaderGraph;
 using UnityEngine;
 using Utility;
@@ -67,6 +68,7 @@ public class GameProgress : SingletonBehaviour<GameProgress>
 
     public int TotalDay => GameConfigContainer.Instance.Config?.dayConfigs?.Length ?? 0;
     public int DayLeft { get; private set; }
+    public int Day => (TotalDay - DayLeft);
 
     public float TimeOfDay = -1f;
     public float TimeLeft { get; private set; }
@@ -138,6 +140,12 @@ public class GameProgress : SingletonBehaviour<GameProgress>
 
     public void StartGame(SaveData data)
     {
+        while (SaveDataContainer.Instance.CurrentData.records.Count <= data.day)
+        {
+            SaveDataContainer.Instance.CurrentData.records.Add(SaveData.DayRecord.Create());
+        }
+        SaveDataContainer.Instance.CurrentData.records[data.day].Clear();
+
         CurrentSan = data.san;
         Debug.Assert(TotalDay >= data.day);
         DayLeft = TotalDay - data.day;
@@ -270,5 +278,11 @@ public class GameProgress : SingletonBehaviour<GameProgress>
     {
         if (State >= GameProgressState._Result && State < GameProgressState._Finished)
             State = GameProgressState._Finished;
+    }
+
+    internal void OnSolveEvent(MonsterConfig config, int idxBehaviour)
+    {
+        SaveDataContainer.Instance.CurrentData.records[Day].monsiterTypes.Add(config.code);
+        SaveDataContainer.Instance.CurrentData.records[Day].monisterIdxBehaviourSolveds.Add(idxBehaviour);
     }
 }

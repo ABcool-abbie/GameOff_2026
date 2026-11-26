@@ -46,3 +46,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameConfigContainer
   dontDestroyOnLoad: 1
   config: {fileID: 11400000, guid: a9cc5d4a130682d4795bcd648821ac47, type: 2}
+  monsterConfigs:
+  - {fileID: 11400000, guid: 10b9f83c8872bc0448761357ea995a41, type: 2}
+  - {fileID: 11400000, guid: 3ccce1bb861409a4c9747aa21c2de14e, type: 2}
+  - {fileID: 11400000, guid: 69dea81c810050f40bd352f990990a90, type: 2}
+  - {fileID: 11400000, guid: 6924da322d4476340b2c5cf3c2f2d545, type: 2}
+  - {fileID: 11400000, guid: 409a415b98543bb44b72796d1b98d5ef, type: 2}
+  - {fileID: 11400000, guid: aaa54cd99a48cb54ebc7877de9918141, type: 2}
+  - {fileID: 11400000, guid: b50c582cf3168c8489a5085c02512d4f, type: 2}

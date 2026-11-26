@@ -1,6 +1,7 @@
 using System;
 using System.Data;
 using System.Linq;
+using UnityEditor;
 using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using Utility;
@@ -62,4 +63,16 @@ public class SaveDataContainer : Singleton<SaveDataContainer>
             return false;
         }
     }
+
+#if UNITY_EDITOR
+    [MenuItem("Tools/ClearAllSaveDatas")]
+    public static void ClearAllSaveDatas()
+    {
+        SaveDataContainer.Instance.Datas = new SaveData[3];
+        SaveDataContainer.Instance._slotIdx = -1;
+        PlayerPrefs.DeleteKey(SaveDataContainer.Instance.GetKey(0));
+        PlayerPrefs.DeleteKey(SaveDataContainer.Instance.GetKey(1));
+        PlayerPrefs.DeleteKey(SaveDataContainer.Instance.GetKey(2));
+    }
+#endif
 }

@@ -79,7 +79,7 @@ public class UIGameProgress : MonoBehaviour
             return;
         }
 
-        txtDay.text = (gameProgress.TotalDay - gameProgress.DayLeft + 1).ToString();
+        txtDay.text = (gameProgress.Day + 1).ToString();
         txtTime.text = Mathf.CeilToInt(gameProgress.TimeLeft).ToString();
         txtSan.text = gameProgress.CurrentSan.ToString();
         txtState.text = gameProgress.State.ToString();
@@ -90,6 +90,7 @@ public class UIGameProgress : MonoBehaviour
         if (gameProgress.State == GameProgress.GameProgressState._Finished)
             return;
         SaveDataContainer.Instance.CurrentData.Result = GameProgress.GameProgressState.ResultSuccess;
+        SaveDataContainer.Instance.CurrentData.san = gameProgress.CurrentSan;
         SaveDataContainer.Instance.CurrentData.day++;
         SaveDataContainer.Instance.SaveCurrentData();
         UILoading.Instance.Load(SceneNames.Settlement, null);

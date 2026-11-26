@@ -146,6 +146,7 @@ public class Monster : MonoBehaviour
             if (_solvedTime <= 0f)
             {
                 _solvedTime = 0f;
+                _game.OnSolveEvent(_config, _idxBehaviour);
                 SetStateEscape();
             }
         }

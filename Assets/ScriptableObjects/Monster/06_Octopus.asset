@@ -15,7 +15,7 @@ MonoBehaviour:
   prefab: {fileID: 6266192952524813924, guid: 24b8b0adf53063e499d837e464859e57, type: 3}
   sprThumbnail: {fileID: 0}
   sprDetail: {fileID: 3624760954419306035, guid: 24c3447eb598e534ba4925751a77582d, type: 3}
-  code: 
+  code: 7
   description: 
   behaviours:
   - behaviour: 70
@@ -39,3 +39,4 @@ MonoBehaviour:
       param0: 1
     - type: 4
       param0: 0
+  bookEntry: {fileID: 11400000, guid: 61b4fbccd2f840f4982722d090d104ec, type: 2}

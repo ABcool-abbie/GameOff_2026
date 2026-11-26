@@ -62,4 +62,5 @@ public class MonsterConfig : ScriptableObject
     public string description;
     // public EventConfig[] events;
     public BehaviourConfig[] behaviours;
+    public MonsterBookEntry bookEntry;
 }

@@ -39,22 +39,25 @@ public class UISettlement : MonoBehaviour
         };
         txtStatusSub.text = "";
 
-        imgStatus.sprite = sprites[SaveDataContainer.Instance.CurrentData.san];
+        int idxStatus = Mathf.Clamp(SaveDataContainer.Instance.CurrentData.san, 0, sprites.Length - 1);
+        imgStatus.sprite = sprites[idxStatus];
 
         btnContinue.gameObject.SetActive(SaveDataContainer.Instance.CurrentData.Result == GameProgress.GameProgressState.ResultSuccess);
         btnRetry.gameObject.SetActive(SaveDataContainer.Instance.CurrentData.Result != GameProgress.GameProgressState.ResultSuccess);
 
         itemEventPrefab.gameObject.SetActive(false);
         var day = SaveDataContainer.Instance.CurrentData.day;
+        // day is incremented due to day finished in GameProgress.cs
+        // therefore it is decrement for fetching the data
         if (SaveDataContainer.Instance.CurrentData.Result == GameProgress.GameProgressState.ResultSuccess)
             day--;
         var record = SaveDataContainer.Instance.CurrentData.records[day];
-        // for (int i=0; i< record.monsiterTypes.Count; ++i)
-        // {
-        //     var instance = GameObject.Instantiate(itemEventPrefab, itemEventPrefab.transform.parent);
-        //     instance.Refresh(SaveDataContainer.Instance.CurrentData.records[i]);
-        //     instance.gameObject.SetActive(true);
-        // }
+        for (int i=0; i< record.monsiterTypes.Count; ++i)
+        {
+            var instance = GameObject.Instantiate(itemEventPrefab, itemEventPrefab.transform.parent);
+            instance.Refresh(record.monsiterTypes[i], record.monisterIdxBehaviourSolveds[i]);
+            instance.gameObject.SetActive(true);
+        }
 
         RefreshUI();
     }
