@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Utility;
 
-public class BookToggle : MonoBehaviour
+public class BookToggle : SingletonBehaviour<BookToggle>
 {
     #region SETTINGS
     [SerializeField] private GameObject book;
@@ -12,10 +13,8 @@ public class BookToggle : MonoBehaviour
 
     #region STATE
     public static bool IsOpen { get; private set; }
-    private float previousTimeScale = 1f;
     #endregion
-
-    private void Awake()
+    protected override void Init()
     {
         if (openButton != null) openButton.onClick.AddListener(Open);
         if (closeButton != null) closeButton.onClick.AddListener(Close);
@@ -34,8 +33,7 @@ public class BookToggle : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (IsOpen) Time.timeScale = previousTimeScale;
-
+        if (IsOpen) PauseHelper.Resume(this);
         IsOpen = false;
     }
 
@@ -50,8 +48,7 @@ public class BookToggle : MonoBehaviour
     public void Open()
     {
         if (IsOpen) return;
-        previousTimeScale = Time.timeScale;
-        Time.timeScale = 0f;
+        PauseHelper.Pause(this);
 
         book.SetActive(true);
         IsOpen = true;
@@ -60,7 +57,7 @@ public class BookToggle : MonoBehaviour
     public void Close()
     {
         if (!IsOpen) return;
-        Time.timeScale = previousTimeScale;
+        PauseHelper.Resume(this);
 
         book.SetActive(false);
         IsOpen = false;
