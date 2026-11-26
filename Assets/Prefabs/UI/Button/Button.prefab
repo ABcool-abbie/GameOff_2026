@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8327114873748821401}
   - component: {fileID: 4425144296955190332}
   - component: {fileID: 6148829516759903755}
-  - component: {fileID: 6809484734033597922}
   - component: {fileID: 6723670815905667988}
+  - component: {fileID: 7037804270265611496}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -106,23 +106,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6809484734033597922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 43764916155396304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f4dab72963b3f747b03ae46f1809e08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BookTab
-  highlight: {fileID: 2596118364613607609}
-  arrow: {fileID: 8580983780839194377}
-  label: {fileID: 3927592817257214626}
-  selectedTextColor: {r: 0, g: 0, b: 0, a: 1}
-  normalTextColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &6723670815905667988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +136,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7037804270265611496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43764916155396304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420bb696ad8208841bc74fecb864c570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuButton
+  highlight: {fileID: 2596118364613607609}
+  arrow: {fileID: 8580983780839194377}
+  label: {fileID: 3927592817257214626}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 1}
+  normalTextColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2596118364613607609
 GameObject:
   m_ObjectHideFlags: 0
