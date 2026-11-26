@@ -2259,6 +2259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 682801990862680985}
   - component: {fileID: 4441930766989986433}
+  - component: {fileID: 295540023097724601}
   m_Layer: 5
   m_Name: ScreenRow
   m_TagString: Untagged
@@ -2313,6 +2314,23 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &295540023097724601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568909697767495292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4bddfefcb93a8347a266c474a8d4c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FullscreenOption
+  prevBtn: {fileID: 409782402300316709}
+  nextBtn: {fileID: 3848021754073170383}
+  valueText: {fileID: 5207918379888106297}
+  onText: ON
+  offText: OFF
 --- !u!1 &8103951978900917637
 GameObject:
   m_ObjectHideFlags: 0
