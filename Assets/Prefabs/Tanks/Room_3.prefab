@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 3271995283647488800}
   - component: {fileID: 1295017058197687222}
   - component: {fileID: 4169156262433711150}
+  - component: {fileID: 3179406277246818838}
   m_Layer: 0
   m_Name: Room_3
   m_TagString: Untagged
@@ -363,6 +364,27 @@ MonoBehaviour:
   oxygenDamage: 1
   soundOnDamage: 1
   hp: 0
+--- !u!114 &3179406277246818838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5017237667562345707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b40385a4a95f084ca94c8059a8146be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TankTempVisual
+  tank: {fileID: 0}
+  ice: {fileID: 8684229286701927912}
+  coldAlpha: 0.5
+  veryColdAlpha: 1
+  coldTime: 1.5
+  heat: {fileID: 0}
+  warmAlpha: 0.5
+  hotAlpha: 1
+  fadeTime: 1.5
 --- !u!1 &7307258563529014327
 GameObject:
   m_ObjectHideFlags: 0

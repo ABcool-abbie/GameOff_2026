@@ -2869,6 +2869,10 @@ PrefabInstance:
       value: '[ID] 1679'
       objectReference: {fileID: 0}
     - target: {fileID: 3434594642364950568, guid: 0324e30bc01330e40a8a592764d29ef7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3434594642364950568, guid: 0324e30bc01330e40a8a592764d29ef7, type: 3}
       propertyPath: entries.Array.size
       value: 7
       objectReference: {fileID: 0}
