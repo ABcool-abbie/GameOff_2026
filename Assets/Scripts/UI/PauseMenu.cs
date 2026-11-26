@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -11,6 +12,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject panel;
     [SerializeField] private Button closeBtn;
     [SerializeField] private Button resumeBtn;
+    [SerializeField] private Button restartBtn;
+    [SerializeField] private Button menuBtn;
 
     [Header("Mode")]
     [SerializeField] private Mode mode = Mode.InGame;
@@ -26,6 +29,7 @@ public class PauseMenu : MonoBehaviour
 
     #region STATE
     public static bool IsOpen { get; private set; }
+    private bool leaving;
     #endregion
 
     private void Awake()
@@ -38,6 +42,12 @@ public class PauseMenu : MonoBehaviour
 
         if (openButton != null)
             openButton.onClick.AddListener(Open);
+
+        if (restartBtn != null) 
+            restartBtn.onClick.AddListener(Restart);
+
+        if (menuBtn != null) 
+            menuBtn.onClick.AddListener(BackToMenu);
 
         ApplyMode();
     }
@@ -80,7 +90,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Open()
     {
-        if (IsOpen) return;
+        if (IsOpen || leaving) return;
 
         panel.SetActive(true);
         IsOpen = true;
@@ -109,6 +119,21 @@ public class PauseMenu : MonoBehaviour
 
         if (inGameButtons != null)
             inGameButtons.SetActive(inGame);
+    }
+    #endregion
+
+    #region SCENE
+    public void Restart() => LeaveTo(SceneNames.Aquarium);
+
+    public void BackToMenu() => LeaveTo(SceneNames.Menu);
+
+    private void LeaveTo(string scene)
+    {
+        if (leaving) return;
+        leaving = true;
+
+        Close();
+        UILoading.Instance.Load(scene, null);
     }
     #endregion
 }
