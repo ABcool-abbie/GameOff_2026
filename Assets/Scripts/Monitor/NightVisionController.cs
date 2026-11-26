@@ -40,7 +40,7 @@ public class NightVisionController : MonoBehaviour
 
     private void Update()
     {
-        if (BookToggle.IsOpen) return;
+        if (PauseHelper.IsPaused) return;
         if (monitorManager.IsOverview) return;
 
         var keyboard = Keyboard.current;

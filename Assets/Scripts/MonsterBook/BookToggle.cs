@@ -47,7 +47,7 @@ public class BookToggle : SingletonBehaviour<BookToggle>
 
     public void Open()
     {
-        if (IsOpen) return;
+        if (IsOpen || PauseMenu.IsOpen) return;
         PauseHelper.Pause(this);
 
         book.SetActive(true);
