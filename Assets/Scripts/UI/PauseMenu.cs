@@ -1,13 +1,27 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
+    public enum Mode { InGame, MainMenu }
+
     #region SETTINGS
     [SerializeField] private GameObject panel;
     [SerializeField] private Button closeBtn;
     [SerializeField] private Button resumeBtn;
+
+    [Header("Mode")]
+    [SerializeField] private Mode mode = Mode.InGame;
+
+    [SerializeField] private TMP_Text titleText;
+    [SerializeField] private string inGameTitle = "PAUSED";
+    [SerializeField] private string mainMenuTitle = "OPTIONS";
+
+    [SerializeField] private GameObject inGameButtons;
+    [SerializeField] private Button openButton;
+
     #endregion
 
     #region STATE
@@ -21,6 +35,11 @@ public class PauseMenu : MonoBehaviour
 
         if (resumeBtn != null)
             resumeBtn.onClick.AddListener(Close);
+
+        if (openButton != null)
+            openButton.onClick.AddListener(Open);
+
+        ApplyMode();
     }
 
     private void Start()
@@ -28,6 +47,7 @@ public class PauseMenu : MonoBehaviour
         panel.SetActive(false);
         IsOpen = false;
     }
+
     private void Update()
     {
         if (Keyboard.current == null) return;
@@ -39,6 +59,7 @@ public class PauseMenu : MonoBehaviour
             return;
         }
 
+        if (mode == Mode.MainMenu && !IsOpen) return;
         Toggle();
     }
 
@@ -50,7 +71,7 @@ public class PauseMenu : MonoBehaviour
         IsOpen = false;
     }
 
-    #region OPEN / CLOSE
+    #region Options
     public void Toggle()
     {
         if (IsOpen) Close();
@@ -64,7 +85,8 @@ public class PauseMenu : MonoBehaviour
         panel.SetActive(true);
         IsOpen = true;
 
-        PauseHelper.Pause(this);
+        if (mode == Mode.InGame)
+            PauseHelper.Pause(this);
     }
 
     public void Close()
@@ -74,7 +96,19 @@ public class PauseMenu : MonoBehaviour
         panel.SetActive(false);
         IsOpen = false;
 
-        PauseHelper.Resume(this);
+        if (mode == Mode.InGame)
+            PauseHelper.Resume(this);
+    }
+
+    private void ApplyMode()
+    {
+        bool inGame = mode == Mode.InGame;
+
+        if (titleText != null)
+            titleText.text = inGame ? inGameTitle : mainMenuTitle;
+
+        if (inGameButtons != null)
+            inGameButtons.SetActive(inGame);
     }
     #endregion
 }

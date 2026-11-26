@@ -1735,6 +1735,12 @@ MonoBehaviour:
   panel: {fileID: 4369066566297760543}
   closeBtn: {fileID: 1409469781886796547}
   resumeBtn: {fileID: 7754127993022440798}
+  mode: 0
+  titleText: {fileID: 1187112426947780616}
+  inGameTitle: PAUSED
+  mainMenuTitle: OPTIONS
+  inGameButtons: {fileID: 5023113750160822774}
+  openButton: {fileID: 0}
 --- !u!1 &5515098322202342087
 GameObject:
   m_ObjectHideFlags: 0
