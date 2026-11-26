@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 37649372282357818}
   - component: {fileID: 6331310010623728431}
   - component: {fileID: 4787237148456778509}
+  - component: {fileID: 831747826184894877}
   m_Layer: 0
   m_Name: Room_1
   m_TagString: Untagged
@@ -132,6 +133,20 @@ MonoBehaviour:
   warmAlpha: 0.5
   hotAlpha: 1
   fadeTime: 1.5
+--- !u!114 &831747826184894877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669511592689912281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d35148aacac83aa4a805c321d492c59c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TankFeedVisual
+  tank: {fileID: 0}
+  feedfood: {fileID: 5372710037373187166}
 --- !u!1 &898220301207725219
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +174,7 @@ Transform:
   m_GameObject: {fileID: 898220301207725219}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.01, y: 5.34, z: -0}
+  m_LocalPosition: {x: -0.01, y: 6.55, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5134,7 +5149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &422074004758047523
 Transform:
   m_ObjectHideFlags: 0
@@ -5331,7 +5346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6614052665731146860
 Transform:
   m_ObjectHideFlags: 0
@@ -5422,7 +5437,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8886022467505864350
 Transform:
   m_ObjectHideFlags: 0
