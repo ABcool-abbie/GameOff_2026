@@ -31,6 +31,14 @@ public class Monster : MonoBehaviour
     public MonsterState State { get; private set; }
     public TankState Tank => _tank;
     public float TimeLeftRatio { get; private set; } = 1f;
+
+
+    // BBR: for the monster book
+    public Behaviour BehaviourType => _behaviour.behaviour;
+    public static event Action<Monster> Encountered;
+    private bool _encounterReported;
+    // BBR: for the monster book
+
     public const float SOLVING_TIME = 3f;
 
     private Vector2 _escapeVel;
@@ -97,6 +105,14 @@ public class Monster : MonoBehaviour
 
     void SetStateEscape()
     {
+        // BBR: tell the monster book once
+        if (!_encounterReported)
+        {
+            _encounterReported = true;
+            Encountered?.Invoke(this);
+        }
+        // BBR: that player been via the event! 
+
         State = MonsterState.Escape;
         _escapeVel = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
 
@@ -230,10 +246,14 @@ public class Monster : MonoBehaviour
                     break;
             }
         }
-        if (solveCount == totalSolveCount)
-        {
-            _solved = true;
-        }
+
+        //BBR: old one only set to true/wont back to false if change setting within 3s
+        //if (solveCount == totalSolveCount)
+        //{
+        //    _solved = true;
+        //}
+        _solved = solveCount == totalSolveCount;
+        //BBR: keep it in sync both way
     }
 
     private void OnFeed(TankState state)
