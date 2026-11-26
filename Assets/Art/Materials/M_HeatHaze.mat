@@ -34,6 +34,6 @@ Material:
     - _TintAmount: 0.2
     - _WaveScale: 8
     m_Colors:
-    - _Tint: {r: 1, g: 0.6550122, b: 0.5801887, a: 1}
+    - _Tint: {r: 1, g: 0.71159047, b: 0.4575472, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
