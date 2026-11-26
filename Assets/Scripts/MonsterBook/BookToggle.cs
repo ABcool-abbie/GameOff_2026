@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class BookToggle : MonoBehaviour
 {
     #region SETTINGS
     [SerializeField] private GameObject book;
+    [SerializeField] private Button openButton; 
+    [SerializeField] private Button closeButton;
     #endregion
 
     #region STATE
@@ -12,6 +15,11 @@ public class BookToggle : MonoBehaviour
     private float previousTimeScale = 1f;
     #endregion
 
+    private void Awake()
+    {
+        if (openButton != null) openButton.onClick.AddListener(Open);
+        if (closeButton != null) closeButton.onClick.AddListener(Close);
+    }
 
     private void Start()
     {
