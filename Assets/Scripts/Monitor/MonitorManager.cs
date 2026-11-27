@@ -30,7 +30,7 @@ public class MonitorManager : MonoBehaviour
 
     private void Update()
     {
-        if (BookToggle.IsOpen) return;
+        if (PauseHelper.IsPaused) return;
 
         var keyboard = Keyboard.current;
         if (keyboard == null) return;
