@@ -96,7 +96,7 @@ public class MonsterBookUI : MonoBehaviour
 
     int GetBehaviourKey(MonsterBookEntry entry, int eventIndex)
     {
-        if (entry == null || entry.monster) return -1;
+        if (entry == null || entry.monster == null) return -1;
         MonsterConfig monster = entry.monster;
         if (monster.behaviours == null) return -1;
 
@@ -108,7 +108,11 @@ public class MonsterBookUI : MonoBehaviour
         int key = GetBehaviourKey(entry, eventIndex);
         if (key < 0) return 0;
 
-        return MonsterBookSave.GetMask(SaveDataContainer.Instance.CurrentData, key);
+        if (SaveDataContainer.Instance == null) return 0;
+        SaveData data = SaveDataContainer.Instance.CurrentData;
+        if (data == null) return 0; 
+
+        return MonsterBookSave.GetMask(data, key);
     }
     #endregion
 

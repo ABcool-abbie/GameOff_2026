@@ -1201,6 +1201,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OptionsMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 5200032948773024437, guid: df31480d2786ae64abee5d2a165281d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5296902308970048532, guid: df31480d2786ae64abee5d2a165281d9, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -1535,6 +1539,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UILoading
       objectReference: {fileID: 0}
+    - target: {fileID: 4227852684975169828, guid: 5a0cbe93100d4e34c9560078db49c04b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6321624312891204729, guid: 5a0cbe93100d4e34c9560078db49c04b, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1769,6 +1777,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2396874399476651745, guid: a94adb15b9e0d3a4abc1002a4848ed9b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3081349187267972499, guid: 76b15df25b3c694459acfb3ed293d3dd, type: 3}
     - target: {fileID: 3359899867022045621, guid: a94adb15b9e0d3a4abc1002a4848ed9b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 6

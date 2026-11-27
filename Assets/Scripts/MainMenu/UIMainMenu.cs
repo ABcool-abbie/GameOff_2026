@@ -23,6 +23,12 @@ public class UIMainMenu : MonoBehaviour
 
     void Start()
     {
+        if (SaveDataContainer.Instance != null && SaveDataContainer.Instance.HasSaveData(0))
+        {
+            SaveDataContainer.Instance.LoadOrNewCurrentData(0, false);
+        }
+
+
         btnContinue.gameObject.SetActive(SaveDataContainer.Instance.HasSaveData(0));
 
         btnStartGame.onClick.AddListener(OnBtnStart);
