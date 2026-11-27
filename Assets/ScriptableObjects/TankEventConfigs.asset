@@ -31,3 +31,6 @@ MonoBehaviour:
   - monsterConfig: {fileID: 11400000, guid: b50c582cf3168c8489a5085c02512d4f, type: 2}
     idxBehaviour: 2
     behaviourPrefab: {fileID: 6888091560420053964, guid: bcdb086e663de2541a3cb718b93924cb, type: 3}
+  - monsterConfig: {fileID: 11400000, guid: aaa54cd99a48cb54ebc7877de9918141, type: 2}
+    idxBehaviour: 0
+    behaviourPrefab: {fileID: 8534091058343019289, guid: 178119633cc3c1f4bb71363ac9e51540, type: 3}

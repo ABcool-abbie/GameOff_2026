@@ -128,7 +128,6 @@ MonoBehaviour:
   ice: {fileID: 1091904774651200961}
   coldAlpha: 0.5
   veryColdAlpha: 1
-  coldTime: 1.5
   heat: {fileID: 7206355517897974174}
   warmAlpha: 0.5
   hotAlpha: 1
