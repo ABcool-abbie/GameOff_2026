@@ -16,3 +16,18 @@ MonoBehaviour:
   - monsterConfig: {fileID: 11400000, guid: 10b9f83c8872bc0448761357ea995a41, type: 2}
     idxBehaviour: 0
     behaviourPrefab: {fileID: 6888091560420053964, guid: 0c6d5348b2573654dbb62ad567a22f92, type: 3}
+  - monsterConfig: {fileID: 11400000, guid: 69dea81c810050f40bd352f990990a90, type: 2}
+    idxBehaviour: 1
+    behaviourPrefab: {fileID: 6888091560420053964, guid: d69d844b668dc6443b12955a15e1a277, type: 3}
+  - monsterConfig: {fileID: 11400000, guid: 6924da322d4476340b2c5cf3c2f2d545, type: 2}
+    idxBehaviour: 0
+    behaviourPrefab: {fileID: 6888091560420053964, guid: 88546843a5fa73042938efbba0f21e92, type: 3}
+  - monsterConfig: {fileID: 11400000, guid: aaa54cd99a48cb54ebc7877de9918141, type: 2}
+    idxBehaviour: 1
+    behaviourPrefab: {fileID: 4130635139326167319, guid: 0cbc603949acc8046aa40b8a8d14a69f, type: 3}
+  - monsterConfig: {fileID: 11400000, guid: b50c582cf3168c8489a5085c02512d4f, type: 2}
+    idxBehaviour: 1
+    behaviourPrefab: {fileID: 6888091560420053964, guid: 08cce580aa825904aa348a1430bde70f, type: 3}
+  - monsterConfig: {fileID: 11400000, guid: b50c582cf3168c8489a5085c02512d4f, type: 2}
+    idxBehaviour: 2
+    behaviourPrefab: {fileID: 6888091560420053964, guid: bcdb086e663de2541a3cb718b93924cb, type: 3}

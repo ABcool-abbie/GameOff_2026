@@ -521,7 +521,7 @@ GameObject:
   - component: {fileID: 1714324418949127722}
   - component: {fileID: 3040512287714803598}
   - component: {fileID: 5729899585498263681}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Behaviour02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
