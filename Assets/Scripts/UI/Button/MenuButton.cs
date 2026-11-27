@@ -8,7 +8,6 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 {
     #region SETTINGS
     [SerializeField] private GameObject highlight;
-    [SerializeField] private GameObject arrow;
     [SerializeField] private TMP_Text label;
     [SerializeField] private Color hoverTextColor = Color.black;
     [SerializeField] private Color normalTextColor = Color.white;
@@ -49,7 +48,6 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void SetHover(bool on)
     {
         if (highlight != null) highlight.SetActive(on);
-        if (arrow != null) arrow.SetActive(on);
         if (label != null) label.color = on ? hoverTextColor : normalTextColor;
     }
 }
