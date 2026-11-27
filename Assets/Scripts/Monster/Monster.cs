@@ -37,7 +37,10 @@ public class Monster : MonoBehaviour
     public Behaviour BehaviourType => _behaviour.behaviour;
     public static event Action<Monster> Encountered;
     private bool _encounterReported;
-    // BBR: for the monster book
+
+    // BBR: for the monster lamp
+    public bool IsSolving => _solved && State == MonsterState.Wondering && _solvedTime > 0f;
+    public float SolveProgress => 1f - _solvedTime / SOLVING_TIME;
 
     public const float SOLVING_TIME = 3f;
 

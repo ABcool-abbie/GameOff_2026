@@ -20,6 +20,7 @@ public class TankStatusLamps : MonoBehaviour
     [SerializeField] private Color monsterColor = Color.red;
     [SerializeField] private float monsterBlinkSlowest = 0.5f;
     [SerializeField] private float monsterBlinkFastest = 0.06f;
+    [SerializeField] float solvingBlink = 0.2f;
 
     #endregion
     private TankState[] tankStates;
@@ -67,21 +68,30 @@ public class TankStatusLamps : MonoBehaviour
     private void UpdateMonsterLamp(TankState tank)
     {
         if (monsterLamp == null) return;
-        Monster monster = FindUrgentMonster(tank);
-        if (monster == null)
+
+        Monster urgent = FindUrgentMonster(tank, out bool anySolving);
+
+        if (urgent != null)
         {
-            monsterLamp.SetSteady(clearColor);
+            float interval = Mathf.Lerp(monsterBlinkFastest, monsterBlinkSlowest, urgent.TimeLeftRatio);
+            monsterLamp.SetBlink(monsterColor, interval);
             return;
         }
 
-        float interval = Mathf.Lerp(monsterBlinkFastest, monsterBlinkSlowest, monster.TimeLeftRatio);
-        monsterLamp.SetBlink(monsterColor, interval);
+        if (anySolving)
+        {
+            monsterLamp.SetBlink(clearColor, solvingBlink);
+            return;
+        }
 
+        monsterLamp.SetSteady(clearColor);
     }
 
-    private Monster FindUrgentMonster(TankState tank)
+    private Monster FindUrgentMonster(TankState tank, out bool anySolving)
     {
+        anySolving = false;
         if (tank == null) return null;
+        if (tank.MonsterCount == 0) return null;
 
         Monster urgent = null;
         Monster[] monsters = FindObjectsByType<Monster>(FindObjectsSortMode.None);
@@ -90,6 +100,12 @@ public class TankStatusLamps : MonoBehaviour
         {
             if (m.Tank != tank) continue;
             if (m.State != MonsterState.Wondering) continue;
+
+            if (m.IsSolving)
+            {
+                anySolving = true;
+                continue;
+            }
 
             if (urgent == null || m.TimeLeftRatio < urgent.TimeLeftRatio)
                 urgent = m;
