@@ -55,8 +55,8 @@ public class UIMainMenu : MonoBehaviour
         {
             UIConfirmDialog.Instance.Show(new UIConfirmDialog.Config
             {
-                title = "New Game",
-                message = "Are you sure you want to start a new game?",
+                title = "New Shift",
+                message = "Clock in as a new hire? \nYour current progress will be erased.",
                 onConfirm = NewGame,
                 onCancel = null,
             });
