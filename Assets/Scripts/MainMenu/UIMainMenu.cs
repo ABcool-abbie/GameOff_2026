@@ -7,11 +7,18 @@ public class UIMainMenu : MonoBehaviour
     [SerializeField] Button btnStartGame;
     [SerializeField] Button btnContinue;
     [SerializeField] Button btnExit; //BBR: add buttons
+    [SerializeField] Button btnBook;
+    [SerializeField] GameObject bookPanel;
 
     private void Awake()
     {
         if (btnExit != null) 
             btnExit.onClick.AddListener(OnBtnExit);
+
+        if (btnBook != null)
+            btnBook.onClick.AddListener(OnBtnBook);
+
+        bookPanel.SetActive(false);
     }
 
     void Start()
@@ -27,6 +34,7 @@ public class UIMainMenu : MonoBehaviour
         btnStartGame.onClick.RemoveListener(OnBtnStart);
         btnContinue.onClick.RemoveListener(OnBtnContinue);
         btnExit.onClick.RemoveListener(OnBtnExit);
+        btnBook.onClick.RemoveListener(OnBtnBook);
     }
 
     private void OnBtnStart()
@@ -67,5 +75,10 @@ public class UIMainMenu : MonoBehaviour
 #else
     Application.Quit();
 #endif
+    }
+
+    private void OnBtnBook()
+    {
+        bookPanel.SetActive(true);
     }
 }
