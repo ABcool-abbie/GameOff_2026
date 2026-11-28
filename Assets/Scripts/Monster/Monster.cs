@@ -50,7 +50,7 @@ public class Monster : MonoBehaviour
     private float _startTime = -1f;
     private bool _solved;
     private float _solvedTime = SOLVING_TIME;
-    private static GameProgressConfig.RoomType _roomType;
+    private GameProgressConfig.RoomType _roomType;
     private int _idxBehaviour;
     private MonsterConfig _config;
 
@@ -75,7 +75,7 @@ public class Monster : MonoBehaviour
         var targetRoom = list[targetIdx];
         ListPool<GameProgressConfig.RoomConfig>.Release(list);
 
-        _roomType = targetRoom.roomType;
+        instance._roomType = targetRoom.roomType;
         var tankInstance = gameProgress.GetTank(targetRoom.roomType);
         Vector2 pos = default;
         pos.x = UnityEngine.Random.Range(tankInstance.BoundsMin.x, tankInstance.BoundsMax.x);
@@ -90,7 +90,7 @@ public class Monster : MonoBehaviour
         instance.textBehaviour.text = instance._behaviour.behaviour.ToString();
 
         tankInstance.MonsterCount += 1;
-        gameProgress.FireMonsterCountChangeEvent(_roomType, tankInstance.MonsterCount);
+        gameProgress.FireMonsterCountChangeEvent(instance._roomType, tankInstance.MonsterCount);
 
         instance._config = monster;
         instance._tank.SetBehaviour(monster, instance._idxBehaviour, true);
