@@ -20,6 +20,15 @@ public class ControlPanelUI : MonoBehaviour
     [SerializeField] private Image lightImage;
     [SerializeField] private Sprite lightOnSprite;
     [SerializeField] private Sprite lightOffSprite;
+
+    [Header("SFX")]
+    [SerializeField] private AudioClip coolClip;
+    [SerializeField] private AudioClip heatClip;
+    [SerializeField] private AudioClip lightClip;
+    [SerializeField] private AudioClip feedClip;
+    [SerializeField] private AudioClip oxygenClip;
+
+
     #endregion
 
     private TankState current;
@@ -51,18 +60,25 @@ public class ControlPanelUI : MonoBehaviour
     private void OnTemperatureChanged(float value)
     {
         if (current == null) return;
-        current.SetTemperature((TemperatureLevel)(int)value);
+        TemperatureLevel next = (TemperatureLevel)(int)value;
+        TemperatureLevel prev = current.Temperature;
+
+        if (next > prev && next > TemperatureLevel.Normal) PlaySFX(heatClip);
+        else if (next < prev && next < TemperatureLevel.Normal) PlaySFX(coolClip);
+        current.SetTemperature(next);
     }
 
     private void OnOxygenChanged(float value)
     {
         if (current == null) return;
+        PlaySFX(oxygenClip);
         current.SetOxygen((OxygenLevel)(int)value);
     }
 
     private void OnFeedClicked()
     {
         if (current == null) return;
+        PlaySFX(feedClip);
         current.Feed();
     }
 
@@ -75,6 +91,7 @@ public class ControlPanelUI : MonoBehaviour
     private void OnLightClicked()
     {
         if (current == null) return;
+        PlaySFX(lightClip);
         current.SetLight(!current.LightOn);
     }
     #endregion
@@ -100,6 +117,12 @@ public class ControlPanelUI : MonoBehaviour
     }
 
     private void OnTankChanged(TankState tank) => RefreshUI();
+
+    private void PlaySFX(AudioClip clip)
+    {
+        if (AudioManager.HasInstance) AudioManager.Instance.PlaySFX(clip);
+    }
+
     #endregion
 
     #region UI
