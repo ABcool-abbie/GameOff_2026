@@ -49,7 +49,8 @@ public class TankState : MonoBehaviour
         {
             if (_monsterCount == value)
                 return;
-            var old = value;
+
+            var old = _monsterCount;
             _monsterCount = value;
             OnMonsterCountChanged?.Invoke(old, value);
         } 
