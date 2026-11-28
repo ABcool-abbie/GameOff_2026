@@ -3417,6 +3417,22 @@ PrefabInstance:
       value: MonitorManager
       objectReference: {fileID: 0}
     - target: {fileID: 4120277013092203346, guid: 7bae266c17f0d49459ac8bab2e35cfe5, type: 3}
+      propertyPath: coolClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4ba874599ff941246b27aa80898ef389, type: 3}
+    - target: {fileID: 4120277013092203346, guid: 7bae266c17f0d49459ac8bab2e35cfe5, type: 3}
+      propertyPath: feedClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 08522d13fae25fb4184f374fe06ea8f5, type: 3}
+    - target: {fileID: 4120277013092203346, guid: 7bae266c17f0d49459ac8bab2e35cfe5, type: 3}
+      propertyPath: heatClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ff631871996af54c8d78bfeebfea0d6, type: 3}
+    - target: {fileID: 4120277013092203346, guid: 7bae266c17f0d49459ac8bab2e35cfe5, type: 3}
+      propertyPath: lightClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 97b0c977edf9aa64e953b82d5f4922f1, type: 3}
+    - target: {fileID: 4120277013092203346, guid: 7bae266c17f0d49459ac8bab2e35cfe5, type: 3}
       propertyPath: feedButton
       value: 
       objectReference: {fileID: 1917272529}
