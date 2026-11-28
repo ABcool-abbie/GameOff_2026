@@ -771,7 +771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6028845967682477388, guid: df31480d2786ae64abee5d2a165281d9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25.059753
+      value: -25.059814
       objectReference: {fileID: 0}
     - target: {fileID: 6028845967682477388, guid: df31480d2786ae64abee5d2a165281d9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1008,6 +1008,24 @@ MonoBehaviour:
   - {fileID: 1384818914}
   - {fileID: 2038910871}
   - {fileID: 1826457745}
+--- !u!114 &640684819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640684813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b7b8a39652fc39428960a2c02b66c76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TankStartRamdom
+  tanks:
+  - {fileID: 1295180094}
+  - {fileID: 1384818914}
+  - {fileID: 2038910871}
+  - {fileID: 1826457745}
+  firstRandomDay: 1
 --- !u!1 &661608273 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4756592214580188099, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
@@ -3416,6 +3434,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4120022849924606127, guid: 7bae266c17f0d49459ac8bab2e35cfe5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 640684818}
+    - targetCorrespondingSourceObject: {fileID: 4120022849924606127, guid: 7bae266c17f0d49459ac8bab2e35cfe5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 640684819}
   m_SourcePrefab: {fileID: 100100000, guid: 7bae266c17f0d49459ac8bab2e35cfe5, type: 3}
 --- !u!1001 &8077814135362592539
 PrefabInstance:
@@ -3453,21 +3474,9 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1298548717689798014, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 109.70001
-      objectReference: {fileID: 0}
-    - target: {fileID: 1298548717689798014, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -69.20001
-      objectReference: {fileID: 0}
     - target: {fileID: 2025858613310960905, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
       propertyPath: m_Name
       value: MonitorUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 2025858613310960905, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2757502209771741084, guid: 395a32063b26f044c9d9ebc8912c97fb, type: 3}
       propertyPath: m_AnchorMax.y
