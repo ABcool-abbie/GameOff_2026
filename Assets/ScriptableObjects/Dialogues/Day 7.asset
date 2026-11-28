@@ -12,3 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94fa9cdfd2258c74ba0cc4dbd7941700, type: 3}
   m_Name: Day 7
   m_EditorClassIdentifier: Assembly-CSharp::DialogConfig
+  dialogs:
+  - Speaker: Me
+    Speaches:
+    - "It\u2019s the last day! Finally!!!"
+    SpriteIdxes: 
+  - Speaker: 
+    Speaches:
+    - "Yes, you\u2019ve done very well."
+    SpriteIdxes: 00000000
+  - Speaker: Me
+    Speaches:
+    - "Life has always been so good to me! And so have you! You\u2019re such a nice
+      person! Once I become a full-time employee, I\u2019ll buy you a coffee!"
+    SpriteIdxes: 
+  - Speaker: 
+    Speaches:
+    - "\u2026"
+    - "I\u2019d like that. Looking forward to tomorrow morning\u2019s coffee!"
+    SpriteIdxes: 00000000

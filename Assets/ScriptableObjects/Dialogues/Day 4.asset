@@ -12,3 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94fa9cdfd2258c74ba0cc4dbd7941700, type: 3}
   m_Name: Day 4
   m_EditorClassIdentifier: Assembly-CSharp::DialogConfig
+  dialogs:
+  - Speaker: Me
+    Speaches:
+    - "I\u2019ve been wondering\u2026 What are your working hours?"
+    SpriteIdxes: 
+  - Speaker: 
+    Speaches:
+    - After your night shift ends. We work in rotating shifts.
+    SpriteIdxes: 00000000
+  - Speaker: Me
+    Speaches:
+    - Is the day shift easier?
+    SpriteIdxes: 
+  - Speaker: 
+    Speaches:
+    - "It\u2019s cheaper."
+    SpriteIdxes: 00000000
+  - Speaker: Me
+    Speaches:
+    - Oh. I see.
+    SpriteIdxes: 

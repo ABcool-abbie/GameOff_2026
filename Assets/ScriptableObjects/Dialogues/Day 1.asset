@@ -13,10 +13,40 @@ MonoBehaviour:
   m_Name: Day 1
   m_EditorClassIdentifier: Assembly-CSharp::DialogConfig
   dialogs:
-  - Speaker: Boss
+  - Speaker: Me
     Speaches:
-    - It is your first day internship.
-    - Take good care of those fish.
+    - "Hi, is anyone here? I\u2019m here for the job interview."
+    SpriteIdxes: 
   - Speaker: 
     Speaches:
-    - Yes boss.
+    - "Welcome, welcome! I\u2019ll be your receptionist today. You can call me \u25A0\u25A0."
+    - "Have a seat. Here\u2019s your contract."
+    - "You\u2019re applying for the night shift, correct?"
+    SpriteIdxes: 000000000000000000000000
+  - Speaker: Me
+    Speaches:
+    - "That\u2019s right. Although, I couldn\u2019t find this aquarium on the map\u2026
+      Do people actually come here?"
+    SpriteIdxes: 
+  - Speaker: 
+    Speaches:
+    - "Of course! But we\u2019re only open during the day, so you won\u2019t see
+      any visitors."
+    - "Don\u2019t worry. It\u2019s very quiet here. All you have to do is watch the
+      security cameras, feed the fish on schedule, and adjust the temperature and
+      lighting."
+    SpriteIdxes: 0000000000000000
+  - Speaker: Me
+    Speaches:
+    - "So, just to make sure\u2026 The probation period is seven days, and the salary
+      is \u25A1\u25A1? Is the pay really that good?"
+    SpriteIdxes: 
+  - Speaker: 
+    Speaches:
+    - "Of course. After all, it\u2019s practically nothing compared to the cost of
+      food supplies."
+    SpriteIdxes: 00000000
+  - Speaker: Me
+    Speaches:
+    - "Hahahaha! You\u2019re quite funny."
+    SpriteIdxes: 
