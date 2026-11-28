@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6781839573430756375}
   - component: {fileID: 8835981485173776443}
+  - component: {fileID: 8118451279751573610}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -51,3 +52,19 @@ MonoBehaviour:
   sceneMusic:
   - {fileID: 0}
   sceneMusicVolume: 1
+--- !u!114 &8118451279751573610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187844973392401275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f23e2ae618e9b4fbc28eb4e707b556, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ClickSound
+  clip: {fileID: 8300000, guid: 73cfce874ad06e648a5055360e4c7955, type: 3}
+  sfxGroup: {fileID: 2499408563303458254, guid: 6ba286de53a17434cb3eb4ec8b372e63, type: 2}
+  volume: 1
+  pitchRange: 0.05
