@@ -1124,6 +1124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5870577580038046692}
   - component: {fileID: 3768112891050141682}
+  - component: {fileID: 2094590090860258136}
   m_Layer: 5
   m_Name: VolumeRow
   m_TagString: Untagged
@@ -1178,6 +1179,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &2094590090860258136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3517881364894451027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b3ff78e1cf9bc488a4341f5088e872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VolumeOption
+  slider: {fileID: 4854511231817917779}
+  channel: 0
 --- !u!1 &3543215757851668546
 GameObject:
   m_ObjectHideFlags: 0
@@ -1735,6 +1750,8 @@ MonoBehaviour:
   panel: {fileID: 4369066566297760543}
   closeBtn: {fileID: 1409469781886796547}
   resumeBtn: {fileID: 7754127993022440798}
+  restartBtn: {fileID: 0}
+  menuBtn: {fileID: 0}
   mode: 0
   titleText: {fileID: 1187112426947780616}
   inGameTitle: PAUSED
