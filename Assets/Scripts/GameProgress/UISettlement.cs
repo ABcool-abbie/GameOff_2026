@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -41,6 +42,8 @@ public class UISettlement : MonoBehaviour
         if (data == null)
         {
             data = SaveDataContainer.Instance.LoadOrNewCurrentData(0, true);
+            data.Result = GameProgress.GameProgressState.ResultSuccess;
+            data.day = 7;
         }
 
         txtDay.text = $"day{SaveDataContainer.Instance.CurrentData.day}";
@@ -120,7 +123,14 @@ public class UISettlement : MonoBehaviour
 
     private void OnContinue()
     {
-        UILoading.Instance.Load(SceneNames.Office, null);
+        if (SaveDataContainer.Instance.CurrentData.day < GameConfigContainer.Instance.Config.dayConfigs.Count())
+        {
+            UILoading.Instance.Load(SceneNames.Office, null);
+        }
+        else
+        {
+            UILoading.Instance.Load(SceneNames.GameFinished, null);
+        }
     }
 
     private void RefreshUI()

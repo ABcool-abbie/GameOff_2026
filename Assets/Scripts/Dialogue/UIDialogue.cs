@@ -52,7 +52,7 @@ public class UIDialogue : MonoBehaviour, IPointerClickHandler
 
     void RefreshImageCharacter(Image image, int iMessage, DialogConfig.Dialog dialog)
     {
-        int spriteIdx = iMessage >=0 && iMessage < dialog.SpriteIdxes.Length ? iMessage : -1;
+        int spriteIdx = iMessage >=0 && iMessage < dialog.SpriteIdxes.Length ? dialog.SpriteIdxes[iMessage] : -1;
         image.sprite = characterImages.ElementAtOrDefault(spriteIdx);
         image.enabled = image.sprite != null;
     }

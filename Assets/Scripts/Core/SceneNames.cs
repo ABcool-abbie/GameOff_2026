@@ -5,4 +5,5 @@ public static class SceneNames
     public static string Office = "02_Office";
     public static string Aquarium = "03_Aquarium";
     public static string Settlement = "04_Settlement";
+    public static string GameFinished = "05_GameFinished";
 }
