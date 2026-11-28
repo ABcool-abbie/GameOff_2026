@@ -23,6 +23,8 @@ public class Monster : MonoBehaviour
     [SerializeField] private GameObject goBehaviour1;
     [SerializeField] private GameObject goBehaviour2;
 
+    public SpriteRenderer SpriteRenderer => spriteRenderer;
+
     private bool _fed = false;
     private BehaviourConfig _behaviour;
     private GameProgress _game;
@@ -50,7 +52,7 @@ public class Monster : MonoBehaviour
     private float _solvedTime = SOLVING_TIME;
     private static GameProgressConfig.RoomType _roomType;
     private int _idxBehaviour;
-    private static MonsterConfig _config;
+    private MonsterConfig _config;
 
     public event Action OnHurt;
     public event Action OnDead;
@@ -91,7 +93,7 @@ public class Monster : MonoBehaviour
         tankInstance.MonsterCount += 1;
         gameProgress.FireMonsterCountChangeEvent(_roomType, tankInstance.MonsterCount);
 
-        _config = monster;
+        instance._config = monster;
         instance._tank.SetBehaviour(monster, instance._idxBehaviour, true);
 
         instance.goBehaviour0.Unwrap()?.SetActive(instance._idxBehaviour == 0);

@@ -10251,6 +10251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5353111496230006117}
   - component: {fileID: 5916501531578798815}
+  - component: {fileID: 5429504328893225022}
   m_Layer: 0
   m_Name: Behaviour01
   m_TagString: Untagged
@@ -10332,3 +10333,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &5429504328893225022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8399836434350047805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd467387c0f87848bdbd8fe612896d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShrimShellBehaviour
+  ownerNewSprite: {fileID: 21300000, guid: 81ecf1b69c951cc458733abdd0a7078b, type: 3}
+  fallOffTime: 3
+  fallOffSpeed: 0.2
+  fallOffOscillateSpeed: 0.8
