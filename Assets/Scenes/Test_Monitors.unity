@@ -443,9 +443,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b6ac063ea2c2841a071a79382110af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DebugMonster
-  game: {fileID: 0}
-  monster: {fileID: 0}
-  behaviour: 0
+  game: {fileID: 295813890}
+  monsters:
+  - {fileID: 11400000, guid: 10b9f83c8872bc0448761357ea995a41, type: 2}
+  - {fileID: 11400000, guid: 3ccce1bb861409a4c9747aa21c2de14e, type: 2}
+  - {fileID: 11400000, guid: 69dea81c810050f40bd352f990990a90, type: 2}
+  - {fileID: 11400000, guid: 6924da322d4476340b2c5cf3c2f2d545, type: 2}
+  - {fileID: 11400000, guid: 409a415b98543bb44b72796d1b98d5ef, type: 2}
+  - {fileID: 11400000, guid: aaa54cd99a48cb54ebc7877de9918141, type: 2}
+  - {fileID: 11400000, guid: b50c582cf3168c8489a5085c02512d4f, type: 2}
+  area:
+    serializedVersion: 2
+    x: 160
+    y: 10
+    width: 240
+    height: 100
 --- !u!1 &504165235
 GameObject:
   m_ObjectHideFlags: 0
@@ -3304,19 +3316,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1021442454719623781, guid: 8d48cf1185671da47be67de3daec4720, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1021442454719623781, guid: 8d48cf1185671da47be67de3daec4720, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1021442454719623781, guid: 8d48cf1185671da47be67de3daec4720, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1021442454719623781, guid: 8d48cf1185671da47be67de3daec4720, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 1591333330432097518, guid: 8d48cf1185671da47be67de3daec4720, type: 3}
       propertyPath: m_IsActive
@@ -3432,7 +3444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4907578995457427054, guid: 8d48cf1185671da47be67de3daec4720, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4925596359550125158, guid: 8d48cf1185671da47be67de3daec4720, type: 3}
       propertyPath: m_AnchorMax.y
