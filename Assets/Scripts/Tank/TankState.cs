@@ -161,6 +161,8 @@ public class TankState : MonoBehaviour
         {
             if (_behaviourInstances.TryGetValue((monsterConfig, idxBehaviour), out var insatnce))
             {
+                _behaviourInstances.Remove((monsterConfig, idxBehaviour));
+
                 if (insatnce.gameObject.GetComponent<ParticleSystem>() is ParticleSystem particleSystem)
                 {
                     particleSystem.transform.SetParent(null, true);

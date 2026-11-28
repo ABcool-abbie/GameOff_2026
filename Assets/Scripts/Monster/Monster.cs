@@ -69,8 +69,7 @@ public class Monster : MonoBehaviour
         var list = ListPool<GameProgressConfig.RoomConfig>.Get();
         foreach (GameProgressConfig.RoomConfig room in GameConfigContainer.Instance.Config.roomConfigs)
         {
-            room.monsterConfigs.Contains(monster);
-            list.Add(room);
+            if (room.monsterConfigs.Contains(monster)) list.Add(room); //BBR
         }
         var targetIdx = UnityEngine.Random.Range(0, list.Count);
         var targetRoom = list[targetIdx];
@@ -145,20 +144,23 @@ public class Monster : MonoBehaviour
         if (!gameObject.activeInHierarchy || State == MonsterState.Escaped)
             return;
 
-        if (_solved && _solvedTime > 0f)
+        if (State == MonsterState.Wondering) // BBR: solve timer only while wondering
         {
-            _solvedTime -= Time.deltaTime;
-            if (_solvedTime <= 0f)
+            if (_solved && _solvedTime > 0f)
             {
-                _solvedTime = 0f;
-                _game.OnSolveEvent(_config, _idxBehaviour);
-                SetStateEscape();
+                _solvedTime -= Time.deltaTime;
+                if (_solvedTime <= 0f)
+                {
+                    _solvedTime = 0f;
+                    _game.OnSolveEvent(_config, _idxBehaviour);
+                    SetStateEscape();
+                }
             }
-        }
-        else if (!_solved)
-        {
-            _solvedTime += Time.deltaTime;
-            _solvedTime = Mathf.Min(_solvedTime, SOLVING_TIME);
+            else if (!_solved)
+            {
+                _solvedTime += Time.deltaTime;
+                _solvedTime = Mathf.Min(_solvedTime, SOLVING_TIME);
+            }
         }
 
         if (State == MonsterState.Wondering)
@@ -169,10 +171,19 @@ public class Monster : MonoBehaviour
             TimeLeftRatio = duration > 0f ? Mathf.Clamp01((eventTime - time) / duration) : 0f;
 
             if (time > eventTime)
-                AttackEvent();
+            {
+                // BBR
+                if (_solved)
+                    TickWondering(); 
+                else
+                    AttackEvent();
+            }
             else
+            {
                 TickWondering();
+            }
         }
+
         else if (State == MonsterState.Escape)
         {
             TickEscape();
@@ -214,6 +225,8 @@ public class Monster : MonoBehaviour
     {
         if (!gameObject.activeInHierarchy)
             return;
+        if (State != MonsterState.Wondering) return;
+
         int solveCount = 0;
         int totalSolveCount = 0;
         foreach (var solve in _behaviour.solveMethod)
