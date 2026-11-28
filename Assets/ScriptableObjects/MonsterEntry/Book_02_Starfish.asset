@@ -14,17 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MonsterBookEntry
   monster: {fileID: 11400000, guid: 69dea81c810050f40bd352f990990a90, type: 2}
   danger: 3
-  background: I am starfish
+  background: A variant of an ancient creature with many eyes. Do not make eye contact,
+    or you will fall into a nightmare.
   events:
   - icon: {fileID: -1955155378064326011, guid: 0e18d3b06c66d674086dafc863678841, type: 3}
-    appearance: The ever-present gaze.
-    solutionLines: []
-    lockedLines: []
+    appearance: '[The ever-present gaze.]'
+    solutionLines:
+    - It hates being watched. Don't stay on one screen.
+    - A, D, A, D... don't let your fingers rest.
+    lockedLines:
+    - "It hates \u25A0\u25A0\u25A0\u25A0\u25A0\u25A0. Don't \u25A0\u25A0\u25A0 one
+      \u25A0\u25A0\u25A0."
+    - "\u25A0\u25A0\u25A0\u25A0... don't let your \u25A0\u25A0 rest."
   - icon: {fileID: 8609290392234125792, guid: 8ab2e0d82c4f0064387b1bf989d3c08f, type: 3}
-    appearance: Look at me, human!
-    solutionLines: []
-    lockedLines: []
+    appearance: '[Look at me, human!]'
+    solutionLines:
+    - In the Very Cold, its grip on the glass begins to slip.
+    - Normal Oxygen burns it. Let it burn.
+    lockedLines:
+    - "In the \u25A0\u25A0\u25A0\u25A0, its \u25A0\u25A0\u25A0\u25A0 begins to slip."
+    - "\u25A0\u25A0\u25A0 burns it. \u25A0\u25A0\u25A0\u25A0."
   - icon: {fileID: -4846979748559533239, guid: 81d290f8e47c3e047bcdac6b11b5acf9, type: 3}
-    appearance: Pulsing severed limbs.
-    solutionLines: []
-    lockedLines: []
+    appearance: '[Pulsing severed limbs.]'
+    solutionLines:
+    - Turn up the Heat. Melt the foam before it seals you in.
+    - 'Raise the Oxygen.Just let it decay. '
+    lockedLines:
+    - "Turn \u25A0\u25A0\u25A0\u25A0. \u25A0\u25A0 the foam before \u25A0\u25A0\u25A0\u25A0."
+    - "\u25A0\u25A0\u25A0\u25A0. Just let it \u25A0\u25A0."

@@ -14,17 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MonsterBookEntry
   monster: {fileID: 11400000, guid: aaa54cd99a48cb54ebc7877de9918141, type: 2}
   danger: 4
-  background: i am garden slow
+  background: An experimental breeding product. Travels in packs of five. Has only
+    one eye and carries neurotoxins.
   events:
   - icon: {fileID: -332543644476275048, guid: 58f8e13c2d7d6994ba71e579a333b14d, type: 3}
-    appearance: When order collapses.
-    solutionLines: []
-    lockedLines: []
+    appearance: '[When order collapses.]'
+    solutionLines:
+    - Feed them. Their whispers are leaking into the signal.
+    - Play a Sound. Drown out the voices in the static.
+    lockedLines:
+    - "\u25A0\u25A0\u25A0\u25A0. Their \u25A0\u25A0\u25A0\u25A0 into the signal."
+    - "\u25A0\u25A0\u25A0\u25A0. Drown out the \u25A0\u25A0\u25A0\u25A0\u25A0\u25A0."
   - icon: {fileID: 8526194235634495433, guid: 835396d8021bf744c9ac60b725d2c243, type: 3}
-    appearance: Unnamable grotesque artwork.
-    solutionLines: []
-    lockedLines: []
+    appearance: '[Unnamable grotesque artwork.]'
+    solutionLines:
+    - Lower the Oxygen. Its brush slows... and stops.
+    - Feed it, before it finishes painting your face.
+    lockedLines:
+    - "\u25A0\u25A0\u25A0\u25A0. Its brush \u25A0\u25A0\u25A0\u25A0\u25A0\u25A0."
+    - "\u25A0\u25A0\u25A0, before it finishes \u25A0\u25A0\u25A0\u25A0."
   - icon: {fileID: -2401169965858233650, guid: c895adf0b24bf1f48bc57f3d0c3d4523, type: 3}
-    appearance: Colorful venom.
-    solutionLines: []
-    lockedLines: []
+    appearance: '[Colorful venom.]'
+    solutionLines:
+    - Make a Sound. Watch them flinch.
+    - Lower the Oxygen. The poison spreads slower... for now.
+    lockedLines:
+    - "\u25A0\u25A0\u25A0. Watch them flinch."
+    - "\u25A0\u25A0\u25A0\u25A0. The poison \u25A0\u25A0\u25A0\u25A0 for now."

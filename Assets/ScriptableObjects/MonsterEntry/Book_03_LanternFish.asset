@@ -14,17 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MonsterBookEntry
   monster: {fileID: 11400000, guid: 6924da322d4476340b2c5cf3c2f2d545, type: 2}
   danger: 4
-  background: I am latternfish
+  background: Has a mysterious glowing organ and many spines. It has evolved limbs
+    and crafts tools to hunt.
   events:
   - icon: {fileID: -7308702120603872120, guid: 68bcd5cd17e232342b0969f88b82dd59, type: 3}
-    appearance: "Anomalous flashing\uFF0C prelude to attack."
-    solutionLines: []
-    lockedLines: []
+    appearance: '[Anomalous flashing, prelude to attack.]'
+    solutionLines:
+    - Turn on the Light before it finishes charging.
+    - Make a Sound. It's been staring at the glass too long.
+    lockedLines:
+    - "Turn \u25A0\u25A0 the \u25A0\u25A0\u25A0\u25A0 it finishes \u25A0\u25A0\u25A0."
+    - "\u25A0\u25A0\u25A0\u25A0. It's been \u25A0\u25A0\u25A0\u25A0 too long."
   - icon: {fileID: -942583154475109716, guid: 1aacbb580181b1f4fa6ab14a8fa36b4e, type: 3}
-    appearance: Non-human footsteps detected.
-    solutionLines: []
-    lockedLines: []
+    appearance: '[Non-human footsteps detected.]'
+    solutionLines:
+    - 'Raise the Oxygen. Two last breaths. '
+    - Turn on the Light. Look at it. Don't look away.
+    lockedLines:
+    - "\u25A0\u25A0\u25A0\u25A0. Two last \u25A0\u25A0\u25A0."
+    - "Turn \u25A0\u25A0\u25A0\u25A0. \u25A0\u25A0 at it. \u25A0\u25A0\u25A0\u25A0\u25A0
+      away. "
   - icon: {fileID: 1698922366533600668, guid: 6cafa701c542e8f4e9cdc3b7e608cdd9, type: 3}
-    appearance: It weaves a trap for you.
-    solutionLines: []
-    lockedLines: []
+    appearance: '[It weaves a trap for you.]'
+    solutionLines:
+    - Feed it before the web reaches the camera.
+    - In the Very Cold, nothing moves. Not even it.
+    lockedLines:
+    - "\u25A0\u25A0\u25A0 before \u25A0\u25A0\u25A0\u25A0\u25A0\u25A0."
+    - "In the \u25A0\u25A0\u25A0\u25A0, nothing \u25A0\u25A0. Not even it."

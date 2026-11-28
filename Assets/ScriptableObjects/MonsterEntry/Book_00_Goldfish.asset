@@ -14,21 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MonsterBookEntry
   monster: {fileID: 11400000, guid: 10b9f83c8872bc0448761357ea995a41, type: 2}
   danger: 2
-  background: i am goldfish
+  background: A radiation mutant covered in tumors. Touching it causes instant pustules.
   events:
   - icon: {fileID: 4896740338774906726, guid: bdeccfd7b34bea640902c191c309eff2, type: 3}
     appearance: '[Thick foam carries danger.]'
     solutionLines:
     - Let it go Cold. The bubbles will burst before they reach you.
-    - I wanna hv lunch
+    - Not a single Sound. You don't want to see what's inside when it pops.
     lockedLines:
     - "Let it \u25A0\u25A0\u25A0. The bubbles \u25A0\u25A0\u25A0\u25A0 before \u25A0\u25A0\u25A0\u25A0."
-    - "\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0"
+    - "Not a \u25A0\u25A0\u25A0\u25A0. You \u25A0\u25A0\u25A0\u25A0\u25A0\u25A0 when
+      it pops."
   - icon: {fileID: 5321763133101888337, guid: fb998da1f06bc624397e63745a859ea8, type: 3}
-    appearance: Do not look into the tumor's eyes!
-    solutionLines: []
-    lockedLines: []
+    appearance: '[Do not look into the tumor''s eyes!]'
+    solutionLines:
+    - Switch screens. Now. It knows you're watching.
+    - Lower the Oxygen. Let its eyes finally close.
+    lockedLines:
+    - "\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0. It knows \u25A0\u25A0\u25A0\u25A0."
+    - "\u25A0\u25A0\u25A0. Let \u25A0\u25A0\u25A0\u25A0 finally \u25A0\u25A0\u25A0."
   - icon: {fileID: 84177659419191306, guid: d548c99bc6ebbf747b8643279e0dde7d, type: 3}
-    appearance: Restless pink agitation.
-    solutionLines: []
-    lockedLines: []
+    appearance: '[Restless pink agitation.]'
+    solutionLines:
+    - Feed it. A hungry thing never sleeps.
+    - In the Cold, its slime thickens... slows... stops.
+    lockedLines:
+    - "\u25A0\u25A0\u25A0\u25A0. A \u25A0\u25A0 thing never sleeps."
+    - "\u25A0\u25A0\u25A0, its \u25A0\u25A0\u25A0\u25A0... \u25A0\u25A0... stops."

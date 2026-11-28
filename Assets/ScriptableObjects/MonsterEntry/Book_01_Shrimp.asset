@@ -14,23 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MonsterBookEntry
   monster: {fileID: 11400000, guid: 3ccce1bb861409a4c9747aa21c2de14e, type: 2}
   danger: 3
-  background: I am shrimp
+  background: '[PROFILE] A shrimp in its breeding phase, covered in eggs. Once attached,
+    the eggs hatch inside the host.'
   events:
   - icon: {fileID: -2413888993020500870, guid: ebba21a314d66cc41a13ec35f57ef7aa, type: 3}
-    appearance: Newborns that gnaw on flesh.
+    appearance: '[Newborns that gnaw on flesh.]'
     solutionLines:
-    - 
-    - 
-    lockedLines: []
+    - Lower the Oxygen. No air, no monster.
+    - Hot water fills its senses with something more delicious than you.
+    lockedLines:
+    - "\u25A0\u25A0\u25A0. No \u25A0\u25A0, no \u25A0\u25A0."
+    - "\u25A0\u25A0\u25A0\u25A0 fills its senses \u25A0\u25A0\u25A0\u25A0 than you."
   - icon: {fileID: 2715910607258767164, guid: 094d226f9acd74345b43ee8b43becd31, type: 3}
-    appearance: Fragile prey? Or hunter?
+    appearance: '[Fragile prey? Or hunter?]'
     solutionLines:
-    - 
-    - 
-    lockedLines: []
+    - Make it Hot. It fears the heat more than you fear it.
+    - Raise the Oxygen. Whatever it is, it's suffocating.
+    lockedLines:
+    - "\u25A0\u25A0\u25A0. It fears \u25A0\u25A0 more than you fear it."
+    - "\u25A0\u25A0\u25A0\u25A0. Whatever it is, it's \u25A0\u25A0\u25A0."
   - icon: {fileID: 8714406009178558981, guid: 3b44011b7ac466d4db16063871191cdb, type: 3}
-    appearance: Greetings from the swaying shadow.
+    appearance: '[Greetings from the swaying shadow.]'
     solutionLines:
-    - 
-    - 
-    lockedLines: []
+    - Turn on the Light. Whatever hides there hates to be seen.
+    - Cut the Oxygen. Let it choke.
+    lockedLines:
+    - "\u25A0\u25A0\u25A0. Whatever hides there \u25A0\u25A0\u25A0\u25A0."
+    - "\u25A0\u25A0\u25A0. Let it \u25A0\u25A0."

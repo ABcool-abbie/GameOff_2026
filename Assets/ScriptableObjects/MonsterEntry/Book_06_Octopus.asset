@@ -14,17 +14,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MonsterBookEntry
   monster: {fileID: 11400000, guid: b50c582cf3168c8489a5085c02512d4f, type: 2}
   danger: 5
-  background: I am octu[us
+  background: A giant white deep-sea entity. Unrecorded in human history for a long
+    time, its age is unknown. It enjoys striking glass and the shock of electricity.
   events:
   - icon: {fileID: -1980826321857470595, guid: 736beeee805c32148b70ccc2e9c574bc, type: 3}
-    appearance: Suffocating black tide.
-    solutionLines: []
-    lockedLines: []
+    appearance: '[Suffocating black tide.]'
+    solutionLines:
+    - Turn on the Light. See what's hiding in the ink.
+    - ' Lower the Oxygen. Let it feel what fear is.'
+    lockedLines:
+    - "\u25A0\u25A0\u25A0\u25A0. See what's \u25A0\u25A0 in the \u25A0\u25A0\u25A0."
+    - "\u25A0\u25A0\u25A0\u25A0. Let it feel what \u25A0\u25A0\u25A0\u25A0."
   - icon: {fileID: -5080394982903768508, guid: 52452a487152ecc4181257df1aba4a00, type: 3}
-    appearance: The unbreakable crack.
-    solutionLines: []
-    lockedLines: []
+    appearance: '[The unbreakable crack.]'
+    solutionLines:
+    - Raise the Oxygen. Tear off its suckers.
+    - Make it Cold. The glass holds a little longer. Pray it's long enough.
+    lockedLines:
+    - "\u25A0\u25A0\u25A0\u25A0. Tear off its suckers."
+    - "\u25A0\u25A0\u25A0\u25A0. The glass \u25A0\u25A0\u25A0\u25A0. Pray it's long
+      enough."
   - icon: {fileID: 8600822654857542847, guid: 2e7333eedd4b7ab4a84fb7d7e714f134, type: 3}
-    appearance: Oh! Into the darkness!
-    solutionLines: []
-    lockedLines: []
+    appearance: '[Oh! Into the darkness!]'
+    solutionLines:
+    - It's feeling for you in the dark. Make a Sound and lead it astray.
+    - 'Lower the Oxygen. It won''t come any closer. Probably. '
+    lockedLines:
+    - "It's feeling for \u25A0\u25A0\u25A0\u25A0.\u25A0\u25A0\u25A0\u25A0 and lead
+      it astray."
+    - "\u25A0\u25A0\u25A0. It won't come any closer. \u25A0\u25A0\u25A0\u25A0. "

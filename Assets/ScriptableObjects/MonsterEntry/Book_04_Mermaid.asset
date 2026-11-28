@@ -14,17 +14,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MonsterBookEntry
   monster: {fileID: 11400000, guid: 409a415b98543bb44b72796d1b98d5ef, type: 2}
   danger: 5
-  background: i am mermaid
+  background: 'The hollow shell of a mermaid. Residual thoughts drive her to keep
+    singing to hunt.
+
+    
+
+'
   events:
   - icon: {fileID: 6894014207181810948, guid: 3f92768a77903584fae219d6a9f4f40d, type: 3}
-    appearance: Requiem.
-    solutionLines: []
-    lockedLines: []
+    appearance: '[Requiem.]'
+    solutionLines:
+    - Make a Sound. Unless you want to die quietly.
+    - Feed her. Anything to make her stop singing.
+    lockedLines:
+    - "\u25A0\u25A0\u25A0\u25A0. Unless you want to die \u25A0\u25A0\u25A0."
+    - "\u25A0\u25A0\u25A0\u25A0. Anything to make \u25A0\u25A0\u25A0\u25A0."
   - icon: {fileID: 3098531401196498419, guid: 31adaac9391849141819323923e7037e, type: 3}
-    appearance: Whispers of a death countdown.
-    solutionLines: []
-    lockedLines: []
+    appearance: '[Whispers of a death countdown.]'
+    solutionLines:
+    - Feed her before she reaches one.
+    - Cut the Oxygen. No breath, no counting.
+    lockedLines:
+    - "\u25A0\u25A0 her before she \u25A0\u25A0\u25A0\u25A0."
+    - "\u25A0\u25A0\u25A0. No \u25A0\u25A0, no counting."
   - icon: {fileID: -206789518789209668, guid: a1fab04cc11ee0d4690964ae1fafab64, type: 3}
-    appearance: Midnight snack served.
-    solutionLines: []
-    lockedLines: []
+    appearance: '[Midnight snack served.]'
+    solutionLines:
+    - Make a Sound. Don't let the scraping be the last thing you hear.
+    - Warm water lulls it like a cradle. Let it put the knives down.
+    lockedLines:
+    - "\u25A0\u25A0\u25A0\u25A0. Don't let the scraping be \u25A0\u25A0\u25A0\u25A0\u25A0."
+    - "\u25A0\u25A0\u25A0\u25A0 it like a cradle. Let it \u25A0\u25A0\u25A0\u25A0."

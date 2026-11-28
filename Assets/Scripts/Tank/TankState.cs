@@ -120,6 +120,13 @@ public class TankState : MonoBehaviour
         Changed?.Invoke(this);
     }
 
+    public void RandomStart()
+    {
+        temperature = (TemperatureLevel)UnityEngine.Random.Range(-2, 3);
+        oxygen = (OxygenLevel)UnityEngine.Random.Range(-1, 2);
+        Changed?.Invoke(this);
+    }
+
     #endregion
 
     void OnDrawGizmos()
