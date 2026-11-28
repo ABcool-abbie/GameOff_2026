@@ -19,6 +19,9 @@ public class UISettlement : MonoBehaviour
     [SerializeField] private string strSuccess;
     [SerializeField] private string strRanOutOfSan;
     [SerializeField] private string strDeadOfFish;
+    [SerializeField] private string strSubSuccess;
+    [SerializeField] private string strSubRanOutOfSan;
+    [SerializeField] private string strSubDeadOfFish;
     [SerializeField] private Sprite[] sprites;
 
     void Start()
@@ -37,7 +40,13 @@ public class UISettlement : MonoBehaviour
             GameProgress.GameProgressState.ResultDeadOfFish => strDeadOfFish,
             _ => "Undefined",
         };
-        txtStatusSub.text = "";
+        txtStatusSub.text = SaveDataContainer.Instance.CurrentData.Result switch
+        {
+            GameProgress.GameProgressState.ResultSuccess => strSubSuccess,
+            GameProgress.GameProgressState.ResultRanOutOfSan => strSubRanOutOfSan,
+            GameProgress.GameProgressState.ResultDeadOfFish => strSubDeadOfFish,
+            _ => "Undefined",
+        };
 
         int idxStatus = Mathf.Clamp(SaveDataContainer.Instance.CurrentData.san, 0, sprites.Length - 1);
         imgStatus.sprite = sprites[idxStatus];

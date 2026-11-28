@@ -233,9 +233,19 @@ MonoBehaviour:
   txtStatusSub: {fileID: 1342724405585067870}
   imgStatus: {fileID: 7166563699387120848}
   itemEventPrefab: {fileID: 8065238825772938624}
-  strSuccess: finished today job
-  strRanOutOfSan: i bet i see sth
-  strDeadOfFish: ops
+  strSuccess: Successful Completion
+  strRanOutOfSan: Employee Death
+  strDeadOfFish: Fish Death
+  strSubSuccess: "Over the course of your seven-day probation, you\u2019ve handled
+    X anomalies. You\u2019re officially a qualified aquarium caretaker now. It seems
+    they\u2019ve grown quite fond of you. Here\u2019s to many more days together!"
+  strSubRanOutOfSan: "What a shame. It seems they weren\u2019t particularly fond
+    of you. Still, becoming a source of nutrients for them is just another wonderful
+    part of life\u2019s great cycle\u2026"
+  strSubDeadOfFish: "All fish must die someday, but not during your probation period.
+    How unfortunate. Your employment evaluation will be laid to rest alongside the
+    fish\u2019s remains, sinking into the depths of the ocean to become nutrients
+    for the seabed."
   sprites:
   - {fileID: -1499900109277536864, guid: 1f0691645496fe74f8a428b82676c293, type: 3}
   - {fileID: -8966297235279745274, guid: bea0c7bdad4a63740a39b50981a3f6be, type: 3}
@@ -483,8 +493,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -455.9, y: 329.73853}
-  m_SizeDelta: {x: 336.2582, y: 38.7128}
+  m_AnchoredPosition: {x: -545.82983, y: 293.79}
+  m_SizeDelta: {x: 605.2226, y: 110.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7160800551902808709
 CanvasRenderer:
@@ -548,7 +558,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1353,8 +1363,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -474.8709, y: 397}
-  m_SizeDelta: {x: 336.2582, y: 114.5899}
+  m_AnchoredPosition: {x: -626.42053, y: 397}
+  m_SizeDelta: {x: 444.04, y: 114.5899}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2598367604059270944
 CanvasRenderer:
@@ -1384,7 +1394,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: nisile
+  m_text: Successful Completion
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1411,15 +1421,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 90
+  m_fontSize: 38.8
   m_fontSizeBase: 90.8
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 6
   m_fontSizeMax: 90
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 6.11
   m_characterHorizontalScale: 1
@@ -1428,7 +1438,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
