@@ -15,7 +15,7 @@ MonoBehaviour:
   prefab: {fileID: 6266192952524813924, guid: 24b8b0adf53063e499d837e464859e57, type: 3}
   sprThumbnail: {fileID: 0}
   sprDetail: {fileID: -2444992153013299323, guid: 1ecc506e37b2f0c45978e9b2a707eca0, type: 3}
-  code: 5
+  code: GF-2026
   description: 
   behaviours:
   - behaviour: 50

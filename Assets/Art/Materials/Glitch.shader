@@ -34,7 +34,6 @@ Shader "Custom/Glitch"
             SAMPLER(sampler_CameraSortingLayerTexture);
 
             CBUFFER_START(UnityPerMaterial)
-                float4 _MainTex_ST;
                 float _Strength;
                 float _SplitAmount;
                 float _NoiseAmount;
@@ -84,7 +83,7 @@ Shader "Custom/Glitch"
                 Varyings o;
                 o.positionCS = TransformObjectToHClip(v.positionOS.xyz);
                 o.screenPos = ComputeScreenPos(o.positionCS);
-                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                o.uv = v.uv;
                 o.color = v.color;
                 return o;
             }

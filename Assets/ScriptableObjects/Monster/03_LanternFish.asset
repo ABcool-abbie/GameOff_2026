@@ -15,7 +15,7 @@ MonoBehaviour:
   prefab: {fileID: 6266192952524813924, guid: 24b8b0adf53063e499d837e464859e57, type: 3}
   sprThumbnail: {fileID: 0}
   sprDetail: {fileID: -7193939230663982779, guid: b06c76483a32e2e479b054650bf66da1, type: 3}
-  code: 4
+  code: CO-526
   description: 
   behaviours:
   - behaviour: 40
