@@ -5560,7 +5560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21658c0de56ded94ab3fcf6a63460d00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TankHealth
-  maxHp: 25
+  maxHp: 50
   tickInterval: 1
   perfectHeal: 1
   mildTempDamage: 1
