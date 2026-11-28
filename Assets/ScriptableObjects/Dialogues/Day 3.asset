@@ -12,3 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94fa9cdfd2258c74ba0cc4dbd7941700, type: 3}
   m_Name: Day 3
   m_EditorClassIdentifier: Assembly-CSharp::DialogConfig
+  dialogs:
+  - Speaker: 
+    Speaches:
+    - How are you feeling today?
+    SpriteIdxes: 00000000
+  - Speaker: Me
+    Speaches:
+    - "I\u2019m starting to find this job interesting."
+    SpriteIdxes: 
+  - Speaker: 
+    Speaches:
+    - Oh? Then things are about to get even more interesting. I look forward to seeing
+      how you do.
+    SpriteIdxes: 00000000

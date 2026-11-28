@@ -18,6 +18,9 @@ public class UIDialogue : MonoBehaviour, IPointerClickHandler
     [SerializeField] Image imageCharacter;
     [SerializeField] Sprite[] characterImages;
 
+    [SerializeField] bool isDebugDay;
+    [SerializeField] int debugDay;
+
     DialogConfig _config;
     private TweenerCore<string, string, StringOptions> _curTween;
     private bool _isContinue;
@@ -28,6 +31,11 @@ public class UIDialogue : MonoBehaviour, IPointerClickHandler
         container.gameObject.SetActive(false);
 
         int day = SaveDataContainer.Instance.CurrentData?.day ?? 0;
+
+        if (isDebugDay)
+            day = debugDay;
+        day = Mathf.Clamp(day, 0, GameConfigContainer.Instance.Config.dayConfigs.Length - 1);
+
         StartDialogue(GameConfigContainer.Instance.Config.dayConfigs[day].DialogConfig);
     }
 
@@ -44,8 +52,8 @@ public class UIDialogue : MonoBehaviour, IPointerClickHandler
 
     void RefreshImageCharacter(Image image, int iMessage, DialogConfig.Dialog dialog)
     {
-        int spriteIdx = iMessage >=0 || iMessage < dialog.SpriteIdxes.Length ? iMessage : -1;
-        image.sprite = !string.IsNullOrEmpty(dialog.Speaker) ? characterImages.ElementAtOrDefault(spriteIdx) : null;
+        int spriteIdx = iMessage >=0 && iMessage < dialog.SpriteIdxes.Length ? iMessage : -1;
+        image.sprite = characterImages.ElementAtOrDefault(spriteIdx);
         image.enabled = image.sprite != null;
     }
 

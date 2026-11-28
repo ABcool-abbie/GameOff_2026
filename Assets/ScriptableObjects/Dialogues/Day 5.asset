@@ -12,3 +12,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94fa9cdfd2258c74ba0cc4dbd7941700, type: 3}
   m_Name: Day 5
   m_EditorClassIdentifier: Assembly-CSharp::DialogConfig
+  dialogs:
+  - Speaker: Me
+    Speaches:
+    - "I think I\u2019ve encountered just about every possible creature anomaly by
+      now, haven\u2019t I?"
+    SpriteIdxes: 
+  - Speaker: 
+    Speaches:
+    - "Who knows? But it seems they\u2019ve taken quite a liking to you."
+    SpriteIdxes: 00000000
+  - Speaker: Me
+    Speaches:
+    - "Really? Aside from feeling a little exhausted from working night shifts, I
+      think I\u2019m doing pretty well! Just two more days until I\u2019m officially
+      hired. I\u2019m kind of excited!"
+    SpriteIdxes: 
+  - Speaker: 
+    Speaches:
+    - "I\u2019m excited for you, too! You\u2019re one of the most promising applicants
+      I\u2019ve ever met. You have to pass, alright? Otherwise\u2026 I might find
+      myself missing you from time to time."
+    SpriteIdxes: 00000000
+  - Speaker: Me
+    Speaches:
+    - "Aww! You\u2019re so nice!"
+    SpriteIdxes: 
+  - Speaker: 
+    Speaches:
+    - "(The receptionist\u2019s smile slowly fades.) "
+    - "\u2026"
+    - "Thank you. You\u2019re quite nice yourself."
+    SpriteIdxes: 000000000000000000000000

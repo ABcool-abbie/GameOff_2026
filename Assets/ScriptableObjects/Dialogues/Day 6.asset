@@ -12,3 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94fa9cdfd2258c74ba0cc4dbd7941700, type: 3}
   m_Name: Day 6
   m_EditorClassIdentifier: Assembly-CSharp::DialogConfig
+  dialogs:
+  - Speaker: Me
+    Speaches:
+    - "I\u2019ve been having some back and leg pain lately."
+    SpriteIdxes: 
+  - Speaker: 
+    Speaches:
+    - "Maybe you\u2019ve been a little too tense lately. All that work must be catching
+      up with you. Once you\u2019re officially hired, you can take two days off before
+      your next shift!"
+    SpriteIdxes: 00000000
+  - Speaker: Me
+    Speaches:
+    - "Now that\u2019s something to look forward to!"
+    SpriteIdxes: 

@@ -13,10 +13,31 @@ MonoBehaviour:
   m_Name: Day 2
   m_EditorClassIdentifier: Assembly-CSharp::DialogConfig
   dialogs:
-  - Speaker: Boss
-    Speaches:
-    - It is your second day internship.
-    - Take good care of those fish.
   - Speaker: 
     Speaches:
-    - Yes boss.
+    - Since the equipment has been running for many years, some of it might be a
+      little outdated. The temperature may fluctuate occasionally, so just set it
+      back to Normal.
+    SpriteIdxes: 00000000
+  - Speaker: Me
+    Speaches:
+    - No problem! Just doing my job!
+    SpriteIdxes: 
+  - Speaker: 
+    Speaches:
+    - How was your first day? Think you can handle it?
+    SpriteIdxes: 00000000
+  - Speaker: Me
+    Speaches:
+    - "It\u2019s been alright! Gotta make a living, right? What\u2019s a little hard
+      work?"
+    SpriteIdxes: 
+  - Speaker: 
+    Speaches:
+    - "That\u2019s good to hear. You\u2019re an interesting coworker. I\u2019d be
+      sad if you didn\u2019t make it past probation."
+    SpriteIdxes: 00000000
+  - Speaker: Me
+    Speaches:
+    - "Hahaha! I\u2019ll do my best!"
+    SpriteIdxes: 
