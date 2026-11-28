@@ -3441,6 +3441,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1496785928}
     - target: {fileID: 4120277013092203346, guid: 7bae266c17f0d49459ac8bab2e35cfe5, type: 3}
+      propertyPath: oxygenClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 93bdfeb7d0fd7d54db3ea6de4b06e988, type: 3}
+    - target: {fileID: 4120277013092203346, guid: 7bae266c17f0d49459ac8bab2e35cfe5, type: 3}
       propertyPath: tempSlider
       value: 
       objectReference: {fileID: 509404564}
