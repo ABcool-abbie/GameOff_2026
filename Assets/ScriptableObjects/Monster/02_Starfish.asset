@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e072f1fc0b38cd94ca43d2a080174262, type: 3}
   m_Name: 02_Starfish
   m_EditorClassIdentifier: Assembly-CSharp::MonsterConfig
-  prefab: {fileID: 6266192952524813924, guid: 24b8b0adf53063e499d837e464859e57, type: 3}
+  prefab: {fileID: 6266192952524813924, guid: 3d26b6367cda4bf4892550c7b1ef1833, type: 3}
   sprThumbnail: {fileID: 0}
   sprDetail: {fileID: -5368828804154172848, guid: c76f04713f738d64b8c15924f0c38182, type: 3}
   code: CL-48

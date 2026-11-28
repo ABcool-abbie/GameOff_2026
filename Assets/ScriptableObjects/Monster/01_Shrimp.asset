@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e072f1fc0b38cd94ca43d2a080174262, type: 3}
   m_Name: 01_Shrimp
   m_EditorClassIdentifier: Assembly-CSharp::MonsterConfig
-  prefab: {fileID: 6266192952524813924, guid: 24b8b0adf53063e499d837e464859e57, type: 3}
+  prefab: {fileID: 6266192952524813924, guid: 98b17a74a257b3944900b763ed785790, type: 3}
   sprThumbnail: {fileID: 0}
   sprDetail: {fileID: -5601127968611703255, guid: feff60b1e71c006459a21e13ccaf5754, type: 3}
-  code: GA-
+  code: NV-1118
   description: 
   behaviours:
   - behaviour: 20

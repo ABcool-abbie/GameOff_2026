@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e072f1fc0b38cd94ca43d2a080174262, type: 3}
   m_Name: 04_Mermaid
   m_EditorClassIdentifier: Assembly-CSharp::MonsterConfig
-  prefab: {fileID: 6266192952524813924, guid: 24b8b0adf53063e499d837e464859e57, type: 3}
+  prefab: {fileID: 6266192952524813924, guid: 253c1fe144e2b3249a26c22dca45cffa, type: 3}
   sprThumbnail: {fileID: 0}
   sprDetail: {fileID: -2444992153013299323, guid: 1ecc506e37b2f0c45978e9b2a707eca0, type: 3}
   code: GF-2026

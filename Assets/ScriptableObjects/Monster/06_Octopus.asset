@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e072f1fc0b38cd94ca43d2a080174262, type: 3}
   m_Name: 06_Octopus
   m_EditorClassIdentifier: Assembly-CSharp::MonsterConfig
-  prefab: {fileID: 6266192952524813924, guid: 24b8b0adf53063e499d837e464859e57, type: 3}
+  prefab: {fileID: 6266192952524813924, guid: 568aa1945759fd84fb965eea97edcce5, type: 3}
   sprThumbnail: {fileID: 0}
   sprDetail: {fileID: 3624760954419306035, guid: 24c3447eb598e534ba4925751a77582d, type: 3}
   code: WI-1112

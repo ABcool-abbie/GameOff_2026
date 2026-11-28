@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e072f1fc0b38cd94ca43d2a080174262, type: 3}
   m_Name: 03_LanternFish
   m_EditorClassIdentifier: Assembly-CSharp::MonsterConfig
-  prefab: {fileID: 6266192952524813924, guid: 24b8b0adf53063e499d837e464859e57, type: 3}
+  prefab: {fileID: 6266192952524813924, guid: d2cc1b636a4d70a4a97d23a570113adc, type: 3}
   sprThumbnail: {fileID: 0}
   sprDetail: {fileID: -7193939230663982779, guid: b06c76483a32e2e479b054650bf66da1, type: 3}
   code: CO-526
