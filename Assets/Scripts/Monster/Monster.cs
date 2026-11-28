@@ -61,6 +61,11 @@ public class Monster : MonoBehaviour
     {
         var instance = GameObject.Instantiate(monster.prefab.gameObject).GetComponent<Monster>();
 
+#if !DEBUG
+        instance.textName.gameObject.SetActive(false);
+        instance.textBehaviour.gameObject.SetActive(false);
+#endif
+
         instance._idxBehaviour = idxBehaviour >= 0 ? idxBehaviour : UnityEngine.Random.Range(0, monster.behaviours.Length);
         instance._behaviour = monster.behaviours[instance._idxBehaviour];
 

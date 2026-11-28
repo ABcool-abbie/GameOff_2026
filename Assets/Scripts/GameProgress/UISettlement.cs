@@ -16,6 +16,11 @@ public class UISettlement : MonoBehaviour
     [SerializeField] Image imgStatus;
     [SerializeField] UIItemEvent itemEventPrefab;
 
+    [SerializeField] SpriteRenderer spriteRendererBG;
+    [SerializeField] SpriteRenderer spriteRendererResultBG;
+    [SerializeField] Sprite spriteDeadOfFish;
+    [SerializeField] Sprite spriteRanOutOfSan;
+
     [SerializeField] private string strSuccess;
     [SerializeField] private string strRanOutOfSan;
     [SerializeField] private string strDeadOfFish;
@@ -31,6 +36,12 @@ public class UISettlement : MonoBehaviour
         btnContinue.onClick.AddListener(OnContinue);
         btnRetry.onClick.AddListener(OnContinue);
         btnMenu.onClick.AddListener(OnMenu);
+
+        var data = SaveDataContainer.Instance.CurrentData;
+        if (data == null)
+        {
+            data = SaveDataContainer.Instance.LoadOrNewCurrentData(0, true);
+        }
 
         txtDay.text = $"day{SaveDataContainer.Instance.CurrentData.day}";
         txtStatus.text = SaveDataContainer.Instance.CurrentData.Result switch
@@ -54,18 +65,40 @@ public class UISettlement : MonoBehaviour
         btnContinue.gameObject.SetActive(SaveDataContainer.Instance.CurrentData.Result == GameProgress.GameProgressState.ResultSuccess);
         btnRetry.gameObject.SetActive(SaveDataContainer.Instance.CurrentData.Result != GameProgress.GameProgressState.ResultSuccess);
 
+        if (SaveDataContainer.Instance.CurrentData.Result == GameProgress.GameProgressState.ResultDeadOfFish)
+        {
+            spriteRendererBG.gameObject.SetActive(false);
+            spriteRendererResultBG.gameObject.SetActive(true);
+            spriteRendererResultBG.sprite = spriteDeadOfFish;
+        }
+        else if (SaveDataContainer.Instance.CurrentData.Result == GameProgress.GameProgressState.ResultRanOutOfSan)
+        {
+            spriteRendererBG.gameObject.SetActive(false);
+            spriteRendererResultBG.gameObject.SetActive(true);
+            spriteRendererResultBG.sprite = spriteRanOutOfSan;
+        }
+        else
+        {
+            spriteRendererBG.gameObject.SetActive(true);
+            spriteRendererResultBG.gameObject.SetActive(false);
+        }
+
         itemEventPrefab.gameObject.SetActive(false);
         var day = SaveDataContainer.Instance.CurrentData.day;
         // day is incremented due to day finished in GameProgress.cs
         // therefore it is decrement for fetching the data
         if (SaveDataContainer.Instance.CurrentData.Result == GameProgress.GameProgressState.ResultSuccess)
             day--;
-        var record = SaveDataContainer.Instance.CurrentData.records[day];
-        for (int i=0; i< record.monsiterTypes.Count; ++i)
+
+        if (day >= 0 && day < SaveDataContainer.Instance.CurrentData.records.Count)
         {
-            var instance = GameObject.Instantiate(itemEventPrefab, itemEventPrefab.transform.parent);
-            instance.Refresh(record.monsiterTypes[i], record.monisterIdxBehaviourSolveds[i]);
-            instance.gameObject.SetActive(true);
+            var record = SaveDataContainer.Instance.CurrentData.records[day];
+            for (int i=0; i< record.monsiterTypes.Count; ++i)
+            {
+                var instance = GameObject.Instantiate(itemEventPrefab, itemEventPrefab.transform.parent);
+                instance.Refresh(record.monsiterTypes[i], record.monisterIdxBehaviourSolveds[i]);
+                instance.gameObject.SetActive(true);
+            }
         }
 
         RefreshUI();
