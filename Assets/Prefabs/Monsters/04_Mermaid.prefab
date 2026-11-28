@@ -4859,8 +4859,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1799956931
-  m_SortingLayer: 4
+  m_SortingLayerID: -374996489
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_RenderMode: 0
@@ -4976,7 +4976,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5165055952827083001, guid: 899ca5b0f26f2114fbcc92aa5418d193, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5177,7 +5177,7 @@ GameObject:
   - component: {fileID: 1253679904205300846}
   - component: {fileID: 5921911797183137483}
   - component: {fileID: 6388700316529768185}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Behaviour02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10025,8 +10025,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1799956931
-  m_SortingLayer: 4
+  m_SortingLayerID: -374996489
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_RenderMode: 0
@@ -15102,8 +15102,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1799956931
-  m_SortingLayer: 4
+  m_SortingLayerID: -374996489
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_RenderMode: 0
