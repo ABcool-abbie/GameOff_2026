@@ -99,6 +99,7 @@ public class UIGameProgress : MonoBehaviour
 
     void OnGUI()
     {
+        #if DEBUG
         if (GUILayout.Button("Drop San"))
         {
             src?.DropSan(1);
@@ -111,5 +112,6 @@ public class UIGameProgress : MonoBehaviour
         {
             gameProgress._debugTimeMinus(10f);
         }
+        #endif
     }
 }

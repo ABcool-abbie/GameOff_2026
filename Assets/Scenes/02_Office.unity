@@ -510,8 +510,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1283267637670500411, guid: b178162e455a3c74caffc9b017bd2a84, type: 3}
+      propertyPath: debugDay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1283267637670500411, guid: b178162e455a3c74caffc9b017bd2a84, type: 3}
       propertyPath: isDebugDay
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1854465814804608044, guid: b178162e455a3c74caffc9b017bd2a84, type: 3}
       propertyPath: m_Pivot.x

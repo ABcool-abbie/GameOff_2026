@@ -21,6 +21,8 @@ public class UIDialogue : MonoBehaviour, IPointerClickHandler
     [SerializeField] bool isDebugDay;
     [SerializeField] int debugDay;
 
+    [SerializeField] DialogConfig dialogCoffee;
+
     DialogConfig _config;
     private TweenerCore<string, string, StringOptions> _curTween;
     private bool _isContinue;
@@ -32,8 +34,10 @@ public class UIDialogue : MonoBehaviour, IPointerClickHandler
 
         int day = SaveDataContainer.Instance.CurrentData?.day ?? 0;
 
+#if DEBUG
         if (isDebugDay)
             day = debugDay;
+#endif
         day = Mathf.Clamp(day, 0, GameConfigContainer.Instance.Config.dayConfigs.Length - 1);
 
         StartDialogue(GameConfigContainer.Instance.Config.dayConfigs[day].DialogConfig);
@@ -59,18 +63,35 @@ public class UIDialogue : MonoBehaviour, IPointerClickHandler
 
     IEnumerator StartDialogueCoroutine()
     {
-        const float FADE_DURATION = 0.2f;
-        const float PER_TEXT_DURATION = 0.2f;
-
         _hasDialogue = true;
 
         canvasGroup.alpha = 0f;
         container.gameObject.SetActive(true);
 
+        yield return StartOneDialog(_config);
+
+        yield return new WaitForSeconds(1f);
+
+        yield return StartOneDialog(dialogCoffee);
+
+        _hasDialogue = false;
+        container.gameObject.SetActive(false);
+
+        // Ensure not to load scene on the same frame when scene loaded
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+        UILoading.Instance.Load(SceneNames.Aquarium, null);
+    }
+
+    IEnumerator StartOneDialog(DialogConfig dialogConfig)
+    {
+        const float FADE_DURATION = 0.2f;
+        const float PER_TEXT_DURATION = 0.2f;
+
         int iSpeaker = 0;
-        while (iSpeaker < _config.dialogs.Length)
+        while (iSpeaker < dialogConfig.dialogs.Length)
         {
-            var dialog = _config.dialogs[iSpeaker];
+            var dialog = dialogConfig.dialogs[iSpeaker];
 
             int iMessage = 0;
             txtSpeaker.text = dialog.Speaker;
@@ -100,14 +121,6 @@ public class UIDialogue : MonoBehaviour, IPointerClickHandler
 
             iSpeaker++;
         }
-
-        _hasDialogue = false;
-        container.gameObject.SetActive(false);
-
-        // Ensure not to load scene on the same frame when scene loaded
-        yield return new WaitForEndOfFrame();
-        yield return new WaitForEndOfFrame();
-        UILoading.Instance.Load(SceneNames.Aquarium, null);
     }
 
     void ContinueDialogue()
