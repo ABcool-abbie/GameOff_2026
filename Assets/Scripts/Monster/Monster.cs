@@ -99,6 +99,8 @@ public class Monster : MonoBehaviour
         instance.goBehaviour1.Unwrap()?.SetActive(instance._idxBehaviour == 1);
         instance.goBehaviour2.Unwrap()?.SetActive(instance._idxBehaviour == 2);
 
+        instance.OnTankStateChanged(instance._tank);
+
         return instance;
     }
 
