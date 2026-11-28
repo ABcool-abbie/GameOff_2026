@@ -272,7 +272,7 @@ MonoBehaviour:
   oxygen: 0
   lightOn: 0
   soundOn: 0
-  boundsMinMax: {x: -8, y: -5, z: 7, w: 4}
+  boundsMinMax: {x: -8, y: -1.13, z: 3.73, w: 4}
   eventConfigs: {fileID: 11400000, guid: 0daf7a6fffb9bb2478c6d9a16502434f, type: 2}
 --- !u!114 &4135051399384029699
 MonoBehaviour:
@@ -310,7 +310,6 @@ MonoBehaviour:
   ice: {fileID: 4841177711424958216}
   coldAlpha: 0.5
   veryColdAlpha: 1
-  coldTime: 1.5
   heat: {fileID: 6893166548823788189}
   warmAlpha: 0.5
   hotAlpha: 1

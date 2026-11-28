@@ -90,7 +90,7 @@ MonoBehaviour:
   oxygen: 0
   lightOn: 0
   soundOn: 0
-  boundsMinMax: {x: -8, y: -5, z: 7, w: 4}
+  boundsMinMax: {x: -8, y: -2.88, z: 7, w: 4}
   eventConfigs: {fileID: 11400000, guid: 0daf7a6fffb9bb2478c6d9a16502434f, type: 2}
 --- !u!114 &6331310010623728431
 MonoBehaviour:

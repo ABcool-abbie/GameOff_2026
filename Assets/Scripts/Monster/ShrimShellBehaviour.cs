@@ -19,7 +19,7 @@ public class ShrimpShellBehaviour : MonoBehaviour
         _animatedTime = 0f;
 
         transform.DOShakePosition(fallOffTime, strength: 0.1f, vibrato: 100);
-        transform.DOShakeRotation(fallOffTime, randomness: 5f);
+        transform.DOShakeRotation(fallOffTime, strength: new Vector3(0f, 0f, 1f), vibrato:50);
     }
 
     public void Update()
@@ -30,14 +30,15 @@ public class ShrimpShellBehaviour : MonoBehaviour
         {
             _lastWorldPos = transform.position;
             transform.DOKill();
-            transform.DORotate(new Vector3(0f, 0f, 360f), 5f).SetLoops(0);
+            transform.DORotate(new Vector3(0f, 0f, -70f), 5f);
         }
 
         if (_animatedTime >= fallOffTime)
         {
+            float fallTime = _animatedTime - fallOffTime;
             transform.position = _lastWorldPos 
-                + Vector3.down * _animatedTime * fallOffSpeed 
-                + Vector3.right * Mathf.Sin(_animatedTime * fallOffOscillateSpeed) * fallOffSpeed;
+                + Vector3.down * fallTime * fallOffSpeed 
+                + Vector3.right * Mathf.Sin(fallTime * fallOffOscillateSpeed) * fallOffSpeed;
         }
     }
 }

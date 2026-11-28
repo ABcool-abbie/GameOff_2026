@@ -2643,29 +2643,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2041145424378486508, guid: fd702ccae6ae9264cb1b67736f4233b5, type: 3}
-      propertyPath: boundsMinMax.y
-      value: -1.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 2041145424378486508, guid: fd702ccae6ae9264cb1b67736f4233b5, type: 3}
-      propertyPath: boundsMinMax.z
-      value: 3.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 3836242616115775312, guid: fd702ccae6ae9264cb1b67736f4233b5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4530565209046035314, guid: fd702ccae6ae9264cb1b67736f4233b5, type: 3}
       propertyPath: m_Name
       value: Room_4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8341903279327652486, guid: fd702ccae6ae9264cb1b67736f4233b5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8855005191455500395, guid: fd702ccae6ae9264cb1b67736f4233b5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3274,22 +3254,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 579055444}
     m_Modifications:
-    - target: {fileID: 1295017058197687222, guid: b6d0840bc633ed444810ff89ed7ee983, type: 3}
-      propertyPath: boundsMinMax.w
-      value: 3.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1295017058197687222, guid: b6d0840bc633ed444810ff89ed7ee983, type: 3}
-      propertyPath: boundsMinMax.y
-      value: -2.72
-      objectReference: {fileID: 0}
-    - target: {fileID: 2143456850624128664, guid: b6d0840bc633ed444810ff89ed7ee983, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3268905531508934201, guid: b6d0840bc633ed444810ff89ed7ee983, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3271995283647488800, guid: b6d0840bc633ed444810ff89ed7ee983, type: 3}
       propertyPath: m_LocalPosition.x
       value: 200
@@ -3333,10 +3297,6 @@ PrefabInstance:
     - target: {fileID: 5017237667562345707, guid: b6d0840bc633ed444810ff89ed7ee983, type: 3}
       propertyPath: m_Name
       value: Room_3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7434598438771106237, guid: b6d0840bc633ed444810ff89ed7ee983, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
