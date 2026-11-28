@@ -26,7 +26,7 @@ public class ControlPanelUI : MonoBehaviour
     [SerializeField] private AudioClip heatClip;
     [SerializeField] private AudioClip lightClip;
     [SerializeField] private AudioClip feedClip;
-    [SerializeField] private AudioClip oxygenClip;
+    [SerializeField] private AudioSource noiseSource;
 
 
     #endregion
@@ -53,8 +53,19 @@ public class ControlPanelUI : MonoBehaviour
         lightButton.navigation = none;
     }
 
-    private void OnEnable() => monitorManager.ViewChanged += OnViewChanged;
-    private void OnDisable() => monitorManager.ViewChanged -= OnViewChanged;
+    private void OnEnable()
+    {
+        monitorManager.ViewChanged += OnViewChanged;
+        foreach (TankState t in tanks)
+            if (t != null) t.Changed += OnAnyTankChanged;
+    }
+
+    private void OnDisable()
+    {
+        monitorManager.ViewChanged -= OnViewChanged;
+        foreach (TankState t in tanks)
+            if (t != null) t.Changed -= OnAnyTankChanged;
+    }
 
     #region INPUTS
     private void OnTemperatureChanged(float value)
@@ -71,7 +82,6 @@ public class ControlPanelUI : MonoBehaviour
     private void OnOxygenChanged(float value)
     {
         if (current == null) return;
-        PlaySFX(oxygenClip);
         current.SetOxygen((OxygenLevel)(int)value);
     }
 
@@ -121,6 +131,18 @@ public class ControlPanelUI : MonoBehaviour
     private void PlaySFX(AudioClip clip)
     {
         if (AudioManager.HasInstance) AudioManager.Instance.PlaySFX(clip);
+    }
+
+    private void OnAnyTankChanged(TankState tank)
+    {
+        if (noiseSource == null) return;
+
+        bool anyOn = false;
+        foreach (TankState t in tanks)
+            if (t != null && t.SoundOn) anyOn = true;
+
+        if (anyOn && !noiseSource.isPlaying) noiseSource.Play();
+        else if (!anyOn && noiseSource.isPlaying) noiseSource.Stop();
     }
 
     #endregion

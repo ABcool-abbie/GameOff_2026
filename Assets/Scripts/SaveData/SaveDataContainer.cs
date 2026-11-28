@@ -2,7 +2,6 @@ using System;
 using System.Data;
 using System.Linq;
 using UnityEditor;
-using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using Utility;
 
