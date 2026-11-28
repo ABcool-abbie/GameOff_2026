@@ -277,8 +277,9 @@ MonoBehaviour:
   - {fileID: -855298285791758126, guid: ccbb4a915608aa2478a3825c3dc826e5, type: 3}
   - {fileID: 6937817954938267909, guid: 3a9684de522fa504d86704385ec65b3f, type: 3}
   - {fileID: -6470460504253458178, guid: 1ae2f40743683634490488ac65c554ed, type: 3}
-  isDebugDay: 0
-  debugDay: 6
+  - {fileID: 4687309882487268517, guid: de54bb84ef14d2e41a66986ce953cdf7, type: 3}
+  isDebugDay: 1
+  debugDay: 1
   dialogCoffee: {fileID: 11400000, guid: 1b39182f9252e8c41969597d512ed945, type: 2}
 --- !u!225 &8888815412674479058
 CanvasGroup:

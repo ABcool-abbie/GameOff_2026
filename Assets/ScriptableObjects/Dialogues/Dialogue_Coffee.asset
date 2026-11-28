@@ -16,7 +16,7 @@ MonoBehaviour:
   - Speaker: 
     Speaches:
     - You look a little worn out. How about a cup of coffee?
-    SpriteIdxes: 00000000
+    SpriteIdxes: 03000000
   - Speaker: Me
     Speaches:
     - '[Narration] You drink the coffee. Your nerves finally begin to relax.'
